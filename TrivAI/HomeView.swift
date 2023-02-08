@@ -23,7 +23,7 @@ struct HomeView: View {
             Text("trivAI")
                 .font(.system(size: 52))
                 .fontWeight(.heavy)
-                .foregroundColor(.purple)
+                .foregroundColor(.blue)
                 .padding(.top)
             
             Text("Select a quiz to play")
@@ -44,7 +44,7 @@ struct HomeView: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .font(.system(size: 14, weight: .thin))
-                            .frame(height: 150)
+                            .frame(height: 80)
                             .padding()
                             .foregroundColor(.white)
                         
@@ -58,7 +58,7 @@ struct HomeView: View {
                     }
                     .padding()
                     .frame(maxWidth: .infinity)
-                    .background(Color.purple)
+                    .background(Color.blue)
                     .cornerRadius(15)
                     // opening QA view as sheet
                     .onTapGesture {
