@@ -11,6 +11,7 @@
 		F13A477C29916232003124B8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13A477B29916232003124B8 /* ContentView.swift */; };
 		F13A477E29916234003124B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F13A477D29916234003124B8 /* Assets.xcassets */; };
 		F13A478129916234003124B8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F13A478029916234003124B8 /* Preview Assets.xcassets */; };
+		F17BC8CF29917BDB0073A7F1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17BC8CE29917BDB0073A7F1 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		F13A477B29916232003124B8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F13A477D29916234003124B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F13A478029916234003124B8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F17BC8CE29917BDB0073A7F1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				F13A477929916232003124B8 /* TrivAIApp.swift */,
 				F13A477B29916232003124B8 /* ContentView.swift */,
+				F17BC8CE29917BDB0073A7F1 /* HomeView.swift */,
 				F13A477D29916234003124B8 /* Assets.xcassets */,
 				F13A477F29916234003124B8 /* Preview Content */,
 			);
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F17BC8CF29917BDB0073A7F1 /* HomeView.swift in Sources */,
 				F13A477C29916232003124B8 /* ContentView.swift in Sources */,
 				F13A477A29916232003124B8 /* TrivAIApp.swift in Sources */,
 			);
