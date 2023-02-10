@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C46FED8CE43FE82C503A5F5 /* Pods_TrivAI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77E82347BA76820B8AA3604E /* Pods_TrivAI.framework */; };
+		F122B2032996A8C5009150FE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F122B2022996A8C5009150FE /* Constants.swift */; };
+		F122B2062996B1D9009150FE /* AsyncHTTPClient in Frameworks */ = {isa = PBXBuildFile; productRef = F122B2052996B1D9009150FE /* AsyncHTTPClient */; };
 		F13A477A29916232003124B8 /* TrivAIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13A477929916232003124B8 /* TrivAIApp.swift */; };
 		F13A477C29916232003124B8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13A477B29916232003124B8 /* ContentView.swift */; };
 		F13A477E29916234003124B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F13A477D29916234003124B8 /* Assets.xcassets */; };
@@ -15,6 +18,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		77E82347BA76820B8AA3604E /* Pods_TrivAI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrivAI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBAA8466AC3C7D41B4B2D3C2 /* Pods-TrivAI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrivAI.debug.xcconfig"; path = "Target Support Files/Pods-TrivAI/Pods-TrivAI.debug.xcconfig"; sourceTree = "<group>"; };
+		E7974BFF41CB0577ACAF0C87 /* Pods-TrivAI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrivAI.release.xcconfig"; path = "Target Support Files/Pods-TrivAI/Pods-TrivAI.release.xcconfig"; sourceTree = "<group>"; };
+		F122B2022996A8C5009150FE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F13A477629916232003124B8 /* TrivAI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrivAI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F13A477929916232003124B8 /* TrivAIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrivAIApp.swift; sourceTree = "<group>"; };
 		F13A477B29916232003124B8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -28,17 +35,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F122B2062996B1D9009150FE /* AsyncHTTPClient in Frameworks */,
+				0C46FED8CE43FE82C503A5F5 /* Pods_TrivAI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6637E8BA14B13FA37900EC26 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CBAA8466AC3C7D41B4B2D3C2 /* Pods-TrivAI.debug.xcconfig */,
+				E7974BFF41CB0577ACAF0C87 /* Pods-TrivAI.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E4C587A7DC81EE06D536CF0F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				77E82347BA76820B8AA3604E /* Pods_TrivAI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F13A476D29916232003124B8 = {
 			isa = PBXGroup;
 			children = (
 				F13A477829916232003124B8 /* TrivAI */,
 				F13A477729916232003124B8 /* Products */,
+				6637E8BA14B13FA37900EC26 /* Pods */,
+				E4C587A7DC81EE06D536CF0F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				F13A477929916232003124B8 /* TrivAIApp.swift */,
+				F122B2022996A8C5009150FE /* Constants.swift */,
 				F13A477B29916232003124B8 /* ContentView.swift */,
 				F17BC8CE29917BDB0073A7F1 /* HomeView.swift */,
 				F13A477D29916234003124B8 /* Assets.xcassets */,
@@ -77,15 +106,20 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F13A478429916234003124B8 /* Build configuration list for PBXNativeTarget "TrivAI" */;
 			buildPhases = (
+				8E1EF43ED1B1E2FCF01F45DC /* [CP] Check Pods Manifest.lock */,
 				F13A477229916232003124B8 /* Sources */,
 				F13A477329916232003124B8 /* Frameworks */,
 				F13A477429916232003124B8 /* Resources */,
+				DC8DFFFE2FB7D1D7002C39FE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = TrivAI;
+			packageProductDependencies = (
+				F122B2052996B1D9009150FE /* AsyncHTTPClient */,
+			);
 			productName = TrivAI;
 			productReference = F13A477629916232003124B8 /* TrivAI.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +148,9 @@
 				Base,
 			);
 			mainGroup = F13A476D29916232003124B8;
+			packageReferences = (
+				F122B2042996B1D9009150FE /* XCRemoteSwiftPackageReference "async-http-client" */,
+			);
 			productRefGroup = F13A477729916232003124B8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -135,6 +172,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		8E1EF43ED1B1E2FCF01F45DC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TrivAI-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DC8DFFFE2FB7D1D7002C39FE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TrivAI/Pods-TrivAI-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TrivAI/Pods-TrivAI-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TrivAI/Pods-TrivAI-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F13A477229916232003124B8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -143,6 +222,7 @@
 				F17BC8CF29917BDB0073A7F1 /* HomeView.swift in Sources */,
 				F13A477C29916232003124B8 /* ContentView.swift in Sources */,
 				F13A477A29916232003124B8 /* TrivAIApp.swift in Sources */,
+				F122B2032996A8C5009150FE /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +345,7 @@
 		};
 		F13A478529916234003124B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CBAA8466AC3C7D41B4B2D3C2 /* Pods-TrivAI.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -294,6 +375,7 @@
 		};
 		F13A478629916234003124B8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E7974BFF41CB0577ACAF0C87 /* Pods-TrivAI.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -343,6 +425,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F122B2042996B1D9009150FE /* XCRemoteSwiftPackageReference "async-http-client" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/swift-server/async-http-client.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F122B2052996B1D9009150FE /* AsyncHTTPClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F122B2042996B1D9009150FE /* XCRemoteSwiftPackageReference "async-http-client" */;
+			productName = AsyncHTTPClient;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F13A476E29916232003124B8 /* Project object */;
 }

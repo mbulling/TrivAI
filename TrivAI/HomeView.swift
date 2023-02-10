@@ -7,6 +7,10 @@
 
 import Foundation
 import SwiftUI
+import AsyncHTTPClient
+
+let httpClient = HTTPClient(eventLoopGroupProvider: .createNew)
+let jsonDecoder = JSONDecoder()
 
 struct HomeView: View {
     @State var show = false
@@ -25,6 +29,10 @@ struct HomeView: View {
                 .fontWeight(.heavy)
                 .foregroundColor(.blue)
                 .padding(.top)
+            
+            Button (action: {callLambda()}) {
+                Text("Click here to test AWS")
+            }
             
             Text("Select a quiz to play")
                 .font(.title2)
@@ -75,5 +83,22 @@ struct HomeView: View {
 //        .sheet(isPresented: $show) {
 //            QA(correct: $correct, wrong: $wrong, answered: $answerd, set: set)
 //        }
+    }
+    
+    func callLambda() {
+        httpClient.get(url: Constants.AWS_API_ROUTE).whenComplete {
+          result in
+            switch result {
+            case .failure(_):
+                print("FAILURE")
+            case .success(let response):
+                if let data = response.body, response.status == .ok {
+                    let data = try? jsonDecoder.decode(String.self, from: data)
+                    if let data = data {
+                        print(data)
+                    }
+                }
+            }
+        }
     }
 }
