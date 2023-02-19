@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Multiple Choice Example</title>
+  </head>
+  <body>
+    <h1>Multiple Choice Example</h1>
+    <p>Enter a string:</p>
+    <form action="/" method="post">
+      <input type="text" name="user_input"><br><br>
+      <button type="submit">Submit</button>
+    </form>
+    {% if question %}
+      <p>{{ question }}</p>
+      {% for choice in choices %}
+        <label>
+          <input type="radio" name="answer" value="{{ choice }}" required>
+          {{ choice }}
+        </label><br>
+      {% endfor %}
+      <p>Your input: {{ user_input }}</p>
+    {% endif %}
+  </body>
+</html>
