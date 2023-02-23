@@ -1,8 +1,8 @@
-# import nltk
-# nltk.download('stopwords')
+import nltk
+nltk.download('stopwords')
 from pprint import pprint
 from Questgen import main
-# qe= main.BoolQGen()
+qe= main.BoolQGen()
 payload = {
             "input_text": "Questgen AI is an opensource NLP library focused on developing easy to use Question generation algorithms. It is on a quest build the world's most advanced question generation AI leveraging on state-of-the-art transformer models like T5, BERT and OpenAI GPT-2 etc."
         }
