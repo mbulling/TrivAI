@@ -1,2 +1,7 @@
 TrivAI/Constants.swift
 venv/
+**/.DS_Store
+**/__pycache__
+**/*.tar.gz
+**/._s2v_old
+**/s2v_old/
