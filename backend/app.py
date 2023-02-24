@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 import random
-# import nltk
-# nltk.download('stopwords') # ???
+import nltk
+nltk.download('stopwords') # ???
 from pprint import pprint
 from Questgen import main
 
