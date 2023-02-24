@@ -2,14 +2,15 @@
 //  ContentView.swift
 //  TrivAI
 //
-//  Created by Mason Bulling on 2/6/23.
+//  Created by Ryan Ho on 02/24/2023.
 //
 
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        HomeView()
+        Home()
+            .preferredColorScheme(.light)
     }
 }
 

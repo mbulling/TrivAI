@@ -7,105 +7,150 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F13A477A29916232003124B8 /* TrivAIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13A477929916232003124B8 /* TrivAIApp.swift */; };
-		F13A477C29916232003124B8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13A477B29916232003124B8 /* ContentView.swift */; };
-		F13A477E29916234003124B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F13A477D29916234003124B8 /* Assets.xcassets */; };
-		F13A478129916234003124B8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F13A478029916234003124B8 /* Preview Assets.xcassets */; };
-		F17BC8CF29917BDB0073A7F1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17BC8CE29917BDB0073A7F1 /* HomeView.swift */; };
+		AD9830102974380E007F5518 /* trivai.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD98300F2974380E007F5518 /* trivai.swift */; };
+		AD9830122974380E007F5518 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9830112974380E007F5518 /* ContentView.swift */; };
+		AD9830142974380F007F5518 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD9830132974380F007F5518 /* Assets.xcassets */; };
+		AD9830182974380F007F5518 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD9830172974380F007F5518 /* Preview Assets.xcassets */; };
+		AD983033297494A1007F5518 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD983032297494A1007F5518 /* Home.swift */; };
+		AD983035297494A7007F5518 /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD983034297494A7007F5518 /* Info.swift */; };
+		AD983037297494C4007F5518 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD983036297494C4007F5518 /* Question.swift */; };
+		AD98303929749A0F007F5518 /* QuestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD98303829749A0F007F5518 /* QuestionsView.swift */; };
+		AD98303B2974A470007F5518 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD98303A2974A470007F5518 /* CustomButton.swift */; };
+		AD98303D2974A490007F5518 /* ScoreCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD98303C2974A490007F5518 /* ScoreCardView.swift */; };
+		F809D6CA29A95996008746D2 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F809D6C929A95996008746D2 /* FirebaseAuth */; };
+		F809D6CC29A95996008746D2 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F809D6CB29A95996008746D2 /* FirebaseFirestore */; };
+		F809D6CE29A95996008746D2 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F809D6CD29A95996008746D2 /* FirebaseFirestoreSwift */; };
+		F89D5FEA29A954C9009CD581 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F89D5FE929A954C9009CD581 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F13A477629916232003124B8 /* TrivAI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrivAI.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F13A477929916232003124B8 /* TrivAIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrivAIApp.swift; sourceTree = "<group>"; };
-		F13A477B29916232003124B8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		F13A477D29916234003124B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F13A478029916234003124B8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		F17BC8CE29917BDB0073A7F1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		AD98300C2974380E007F5518 /* trivai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = trivai.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD98300F2974380E007F5518 /* trivai.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trivai.swift; sourceTree = "<group>"; };
+		AD9830112974380E007F5518 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AD9830132974380F007F5518 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AD9830172974380F007F5518 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AD983032297494A1007F5518 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		AD983034297494A7007F5518 /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
+		AD983036297494C4007F5518 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		AD98303829749A0F007F5518 /* QuestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsView.swift; sourceTree = "<group>"; };
+		AD98303A2974A470007F5518 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		AD98303C2974A490007F5518 /* ScoreCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCardView.swift; sourceTree = "<group>"; };
+		F89D5FE929A954C9009CD581 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		F13A477329916232003124B8 /* Frameworks */ = {
+		AD9830092974380E007F5518 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F809D6CA29A95996008746D2 /* FirebaseAuth in Frameworks */,
+				F809D6CC29A95996008746D2 /* FirebaseFirestore in Frameworks */,
+				F809D6CE29A95996008746D2 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F13A476D29916232003124B8 = {
+		AD9830032974380E007F5518 = {
 			isa = PBXGroup;
 			children = (
-				F13A477829916232003124B8 /* TrivAI */,
-				F13A477729916232003124B8 /* Products */,
+				F89D5FE929A954C9009CD581 /* GoogleService-Info.plist */,
+				AD98300E2974380E007F5518 /* trivai */,
+				AD98300D2974380E007F5518 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		F13A477729916232003124B8 /* Products */ = {
+		AD98300D2974380E007F5518 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F13A477629916232003124B8 /* TrivAI.app */,
+				AD98300C2974380E007F5518 /* trivai.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F13A477829916232003124B8 /* TrivAI */ = {
+		AD98300E2974380E007F5518 /* trivai */ = {
 			isa = PBXGroup;
 			children = (
-				F13A477929916232003124B8 /* TrivAIApp.swift */,
-				F13A477B29916232003124B8 /* ContentView.swift */,
-				F17BC8CE29917BDB0073A7F1 /* HomeView.swift */,
-				F13A477D29916234003124B8 /* Assets.xcassets */,
-				F13A477F29916234003124B8 /* Preview Content */,
+				AD98303129749499007F5518 /* Model */,
+				AD98303029749495007F5518 /* View */,
+				AD98300F2974380E007F5518 /* trivai.swift */,
+				AD9830112974380E007F5518 /* ContentView.swift */,
+				AD9830132974380F007F5518 /* Assets.xcassets */,
+				AD9830162974380F007F5518 /* Preview Content */,
 			);
-			path = TrivAI;
+			path = trivai;
 			sourceTree = "<group>";
 		};
-		F13A477F29916234003124B8 /* Preview Content */ = {
+		AD9830162974380F007F5518 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				F13A478029916234003124B8 /* Preview Assets.xcassets */,
+				AD9830172974380F007F5518 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		AD98303029749495007F5518 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AD983032297494A1007F5518 /* Home.swift */,
+				AD98303829749A0F007F5518 /* QuestionsView.swift */,
+				AD98303A2974A470007F5518 /* CustomButton.swift */,
+				AD98303C2974A490007F5518 /* ScoreCardView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AD98303129749499007F5518 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AD983034297494A7007F5518 /* Info.swift */,
+				AD983036297494C4007F5518 /* Question.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F13A477529916232003124B8 /* TrivAI */ = {
+		AD98300B2974380E007F5518 /* trivai */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F13A478429916234003124B8 /* Build configuration list for PBXNativeTarget "TrivAI" */;
+			buildConfigurationList = AD98301B2974380F007F5518 /* Build configuration list for PBXNativeTarget "trivai" */;
 			buildPhases = (
-				F13A477229916232003124B8 /* Sources */,
-				F13A477329916232003124B8 /* Frameworks */,
-				F13A477429916232003124B8 /* Resources */,
+				AD9830082974380E007F5518 /* Sources */,
+				AD9830092974380E007F5518 /* Frameworks */,
+				AD98300A2974380E007F5518 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = TrivAI;
-			productName = TrivAI;
-			productReference = F13A477629916232003124B8 /* TrivAI.app */;
+			name = trivai;
+			packageProductDependencies = (
+				F809D6C929A95996008746D2 /* FirebaseAuth */,
+				F809D6CB29A95996008746D2 /* FirebaseFirestore */,
+				F809D6CD29A95996008746D2 /* FirebaseFirestoreSwift */,
+			);
+			productName = QuizApp;
+			productReference = AD98300C2974380E007F5518 /* trivai.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		F13A476E29916232003124B8 /* Project object */ = {
+		AD9830042974380E007F5518 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1400;
-				LastUpgradeCheck = 1400;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
 				TargetAttributes = {
-					F13A477529916232003124B8 = {
-						CreatedOnToolsVersion = 14.0.1;
+					AD98300B2974380E007F5518 = {
+						CreatedOnToolsVersion = 14.2;
 					};
 				};
 			};
-			buildConfigurationList = F13A477129916232003124B8 /* Build configuration list for PBXProject "TrivAI" */;
+			buildConfigurationList = AD9830072974380E007F5518 /* Build configuration list for PBXProject "trivai" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -113,43 +158,52 @@
 				en,
 				Base,
 			);
-			mainGroup = F13A476D29916232003124B8;
-			productRefGroup = F13A477729916232003124B8 /* Products */;
+			mainGroup = AD9830032974380E007F5518;
+			packageReferences = (
+				F809D6C829A95996008746D2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
+			productRefGroup = AD98300D2974380E007F5518 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F13A477529916232003124B8 /* TrivAI */,
+				AD98300B2974380E007F5518 /* trivai */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		F13A477429916232003124B8 /* Resources */ = {
+		AD98300A2974380E007F5518 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F13A478129916234003124B8 /* Preview Assets.xcassets in Resources */,
-				F13A477E29916234003124B8 /* Assets.xcassets in Resources */,
+				AD9830182974380F007F5518 /* Preview Assets.xcassets in Resources */,
+				AD9830142974380F007F5518 /* Assets.xcassets in Resources */,
+				F89D5FEA29A954C9009CD581 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		F13A477229916232003124B8 /* Sources */ = {
+		AD9830082974380E007F5518 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F17BC8CF29917BDB0073A7F1 /* HomeView.swift in Sources */,
-				F13A477C29916232003124B8 /* ContentView.swift in Sources */,
-				F13A477A29916232003124B8 /* TrivAIApp.swift in Sources */,
+				AD983037297494C4007F5518 /* Question.swift in Sources */,
+				AD9830122974380E007F5518 /* ContentView.swift in Sources */,
+				AD98303929749A0F007F5518 /* QuestionsView.swift in Sources */,
+				AD983035297494A7007F5518 /* Info.swift in Sources */,
+				AD98303B2974A470007F5518 /* CustomButton.swift in Sources */,
+				AD983033297494A1007F5518 /* Home.swift in Sources */,
+				AD9830102974380E007F5518 /* trivai.swift in Sources */,
+				AD98303D2974A490007F5518 /* ScoreCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		F13A478229916234003124B8 /* Debug */ = {
+		AD9830192974380F007F5518 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -199,17 +253,15 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		F13A478329916234003124B8 /* Release */ = {
+		AD98301A2974380F007F5518 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -253,96 +305,140 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		F13A478529916234003124B8 /* Debug */ = {
+		AD98301C2974380F007F5518 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = trivai/trivai.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"TrivAI/Preview Content\"";
-				DEVELOPMENT_TEAM = 938P9VEDRD;
+				DEVELOPMENT_ASSET_PATHS = "\"trivai/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.masonbulling.TrivAI;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ryanho.TrivAI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
-		F13A478629916234003124B8 /* Release */ = {
+		AD98301D2974380F007F5518 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = trivai/trivai.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"TrivAI/Preview Content\"";
-				DEVELOPMENT_TEAM = 938P9VEDRD;
+				DEVELOPMENT_ASSET_PATHS = "\"trivai/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.masonbulling.TrivAI;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ryanho.TrivAI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F13A477129916232003124B8 /* Build configuration list for PBXProject "TrivAI" */ = {
+		AD9830072974380E007F5518 /* Build configuration list for PBXProject "trivai" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F13A478229916234003124B8 /* Debug */,
-				F13A478329916234003124B8 /* Release */,
+				AD9830192974380F007F5518 /* Debug */,
+				AD98301A2974380F007F5518 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F13A478429916234003124B8 /* Build configuration list for PBXNativeTarget "TrivAI" */ = {
+		AD98301B2974380F007F5518 /* Build configuration list for PBXNativeTarget "trivai" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F13A478529916234003124B8 /* Debug */,
-				F13A478629916234003124B8 /* Release */,
+				AD98301C2974380F007F5518 /* Debug */,
+				AD98301D2974380F007F5518 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F809D6C829A95996008746D2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F809D6C929A95996008746D2 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F809D6C829A95996008746D2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		F809D6CB29A95996008746D2 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F809D6C829A95996008746D2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		F809D6CD29A95996008746D2 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F809D6C829A95996008746D2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = F13A476E29916232003124B8 /* Project object */;
+	rootObject = AD9830042974380E007F5518 /* Project object */;
 }
