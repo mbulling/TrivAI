@@ -35,12 +35,15 @@ def generate_questions(user_input):
     output = qg.predict_mcq(payload)
     for q in output["questions"]:
         answer = q["answer"]  # string
-        options = q["options"]  # string
-        question_statement = q["question_statement"]  # list of strings
-        options.append(answer)
-        answers = options
-        random.shuffle(answers)
-        question = {'text': question_statement, 'answers': answers}
+        options = q["options"]  # list of strings
+        question_statement = q["question_statement"]  # string
+
+        # list of (string, boolean) pairs
+        options_sol = [(option, False) for option in options]
+        options_sol.append((answer, True))
+        random.shuffle(options_sol)
+        question = {'text': question_statement,
+                    'options_sol': options_sol, 'answer': answer}
         question_list.append(question)
     # for i in range(3):
     #     # Dummy example: generate random answers based on user input

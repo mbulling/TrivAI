@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Multiple Choice Questions</title>
 </head>
+
 <body>
 	<h1>Multiple Choice Questions for "{{ user_input }}"</h1>
 	{% for question in questions %}
-		<p>{{ question.text }}</p>
-		<ul>
-			{% for answer in question.answers %}
-				<li>{{ answer }}</li>
-			{% endfor %}
-		</ul>
+	<p>{{ question.text }}</p>
+	<ul>
+		{% for (option, sol) in question.options_sol %}
+		<li><button>{{ option }}</button>{{ sol }}</li>
+		{% endfor %}
+	</ul>
 	{% endfor %}
 </body>
-</html>
 
+</html>
