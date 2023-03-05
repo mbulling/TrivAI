@@ -44,14 +44,14 @@ Any advise for common problems or issues.
 
 Contributors names and contact info
 
-Mason Bulling
-Lisa Li
-James Zhang
-Vivian Chen
-Abby Kim
-Iram Liu
-Eric Zhang
-Kenneth Chiem
+- Mason Bulling
+- Lisa Li
+- James Zhang
+- Vivian Chen
+- Abby Kim
+- Iram Liu
+- Eric Zhang
+- Kenneth Chiem
 
 ## Version History
 
