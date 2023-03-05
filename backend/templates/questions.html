@@ -8,10 +8,10 @@
 <body>
 	<h1>Multiple Choice Questions for "{{ user_input }}"</h1>
 	{% for question in questions %}
-	<p>{{ question.text }}</p>
+	<p>{{ question.statement }}</p>
 	<ul>
-		{% for (option, sol) in question.options_sol %}
-		<li><button>{{ option }}</button>{{ sol }}</li>
+		{% for option in question.options %}
+		<li><button>{{ option }}</button></li>
 		{% endfor %}
 	</ul>
 	{% endfor %}

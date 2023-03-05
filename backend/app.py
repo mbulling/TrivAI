@@ -4,7 +4,8 @@ from flask import Flask, render_template, request
 import random
 import nltk
 import json
-nltk.download('stopwords')  # ???
+from question import MCQ
+# nltk.download('stopwords')  # ???
 
 app = Flask(__name__)
 
@@ -18,9 +19,12 @@ def index():
         # Generate four multiple choice questions
         questions = generate_mcqs(user_input)
 
+        questions_dict = [question.to_dict() for question in questions]
+
         # Render the questions template with the questions and user input
         return render_template('questions.html',
-                               questions=questions, user_input=user_input)
+                               questions=questions_dict,
+                               user_input=user_input)
     else:
         # Render the index template with a form for user input
         return render_template('index.html')
@@ -32,7 +36,7 @@ def get_mcq():
     body = json.loads(request.data)
     user_input = body["user_input"]
     questions = generate_mcqs(user_input)
-    return json.dumps(questions)
+    return json.dumps([question.to_dict() for question in questions])
 
 
 @app.route('/tf/', methods=['POST'])
@@ -56,15 +60,12 @@ def generate_mcqs(user_input):
         answer = q["answer"]  # string
         options = q["options"]  # list of strings
         question_statement = q["question_statement"]  # string
+        options.append(answer)
+        random.shuffle(options)
+        answer_idx = options.index(answer)
 
-        # list of (string, boolean) pairs
-        options_sol = [(option, False) for option in options]
-        options_sol.append((answer, True))
-        random.shuffle(options_sol)
-        question = {'text': question_statement,
-                    'options_sol': options_sol, 'answer': answer}
+        question = MCQ(question_statement, options, answer_idx)
         question_list.append(question)
-    print(question_list)
     return question_list
 
 
