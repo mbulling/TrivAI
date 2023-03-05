@@ -92,27 +92,20 @@ struct CertificateView: View {
 
    var body: some View {
       return VStack {
-         HStack {
-            VStack(alignment: .leading) {
-               Text(item.title)
-                  .font(.headline)
-                  .fontWeight(.bold)
-                  .foregroundColor(Color("accent"))
-                  .padding(.top)
-
-            }
-            Spacer()
-
-         }
-         .padding(.horizontal)
-         Spacer()
-
          Image(item.image)
-            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-            .offset(y: 50)
+              .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(minWidth: 0, maxWidth: 280, minHeight: 0, maxHeight: 180)
+            .offset(y: 10)
+            .overlay(Text(item.title)
+                .font(.headline)
+                .fontWeight(.bold)
+                .foregroundColor(Color.black)
+                .padding()
+                .offset(y: -5), alignment: .topLeading)
       }
       .frame(width: CGFloat(item.width), height: CGFloat(item.height))
-      .background(Color.black)
+      .background(Color.white)
       .cornerRadius(10)
       .shadow(radius: 10)
    }

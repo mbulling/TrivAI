@@ -48,8 +48,8 @@ struct Certificate: Identifiable {
 }
 
 let certificateData = [
-   Certificate(title: "Math", image: "", width: 230, height: 150),
-   Certificate(title: "Science", image: "", width: 230, height: 150),
-   Certificate(title: "History", image: "", width: 230, height: 150),
+   Certificate(title: "Math", image: "10799", width: 230, height: 150),
+   Certificate(title: "History", image: "history", width: 230, height: 150),
+   Certificate(title: "Science", image: "science", width: 230, height: 150),
    Certificate(title: "English", image: "", width: 230, height: 150)
 ]
