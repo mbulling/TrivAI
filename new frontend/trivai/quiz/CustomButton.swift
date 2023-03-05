@@ -28,6 +28,7 @@ struct CustomButton: View{
                         .fill(Color("Pink"))
                         .ignoresSafeArea()
                 }
+                .cornerRadius(10.0)
         }
         /// - Removing Padding
         //.padding([.bottom,.horizontal],-15)

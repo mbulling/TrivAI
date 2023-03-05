@@ -33,10 +33,10 @@ struct ScoreCardView: View{
                         .font(.title.bold())
                         .padding(.bottom,10)
                     
-                    Image("Medal")
+                    Image("Illustration5")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(height: 220)
+                        .frame(height: 175)
                 }
                 .foregroundColor(.black)
                 .padding(.horizontal,15)

@@ -34,6 +34,7 @@ struct QuestionsView: View {
                 .font(.title)
                 .fontWeight(.semibold)
                 .hAlign(.leading)
+                .foregroundColor(Color.white)
             
             GeometryReader{
                 let size = $0.size
@@ -106,11 +107,14 @@ struct QuestionsView: View {
                 .font(.callout)
                 .foregroundColor(.gray)
                 .hAlign(.leading)
-            
-            Text(question.question)
-                .font(.title3)
-                .fontWeight(.semibold)
-                .foregroundColor(.black)
+            HStack {
+                Text(question.question)
+                    .font(.title3)
+                    .fontWeight(.semibold)
+                    .foregroundColor(.black)
+                    .hAlign(.leading)
+                    .multilineTextAlignment(.leading)
+            }.hAlign(.leading)
             
             VStack(spacing: 12){
                 ForEach(question.options,id: \.self){option in
@@ -138,9 +142,10 @@ struct QuestionsView: View {
                 }
             }
             .padding(.vertical,10)
+            //.hAlign(.center)
         }
+        .hAlign(.leading)
         .padding(15)
-        .hAlign(.center)
         .background {
             RoundedRectangle(cornerRadius: 20, style: .continuous)
                 .fill(.white)

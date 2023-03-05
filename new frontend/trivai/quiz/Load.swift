@@ -12,7 +12,10 @@ import SwiftUI
 struct Load: View {
     /// - View Properties
     @State private var quizInfo: Info? = Info(title: "Derivatives", peopleAttended: 2, rules: ["Answer the questions carefully"])
-    @State private var questions: [Question] = [Question(question: "What is 1 + 1?", options: ["2", "3", "4", "5"], answer: "2")]
+    @State private var questions: [Question] = [
+        Question(question: "What notation describes a derivative?", options: ["d/dx", "dd", "dxd", "xdx"], answer: "d/dx"),
+        Question(question: "What is the derivative of 2x?", options: ["0", "1", "x", "2"], answer: "2"),
+        ]
     @State private var startQuiz: Bool = false
     var body: some View {
         if let info = quizInfo{
@@ -53,17 +56,6 @@ struct Load: View {
                     }
                     .shadow(color: Color("backgroundShadow4"), radius: 10.0)
                     .cornerRadius(30.0)
-                
-                /// - Custom Label
-                
-                
-//                CustomLabel("person", "\(info.peopleAttended) People", "Attempted the question")
-//                    .padding(.top,5)
-                
-//                Divider()
-//                    .padding(.horizontal,-15)
-                    //.padding(.top,15)
-                
 //                if !info.rules.isEmpty{
 //                    RulesView(info.rules)
 //                }
@@ -72,9 +64,7 @@ struct Load: View {
                 CustomButton(title: "Begin", onClick: {
                     startQuiz.toggle()
                 })
-                //.vAlign(.bottom)
-                .cornerRadius(10.0)
-                .frame(height:40)
+               
             }
             .padding(15)
             .vAlign(.top)
