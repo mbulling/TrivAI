@@ -29,19 +29,6 @@ struct Home: View {
             .shadow(radius: 20)
             .animation(.spring())
             .offset(y: showProfile ? statusBarHeight + 40 : UIScreen.main.bounds.height)
-
-         HStack {
-             MenuButton(show: $show)
-                .offset(x: -40)
-                 Spacer()
-
-             MenuRight(show: $showProfile)
-                .offset(x: -16)
-         }
-         .offset(y: showProfile ? statusBarHeight : 80)
-         .animation(.spring())
-
-         MenuView(show: $show)
       }
       .background(Color("background"))
       .edgesIgnoringSafeArea(.all)
@@ -87,9 +74,6 @@ struct Menu: Identifiable {
 let menuData = [
    Menu(title: "My Account", icon: "person.crop.circle"),
    Menu(title: "Settings", icon: "gear"),
-   Menu(title: "Billing", icon: "creditcard"),
-   Menu(title: "Team", icon: "person.2"),
-   Menu(title: "Sign out", icon: "arrow.uturn.down")
 ]
 
 struct MenuView: View {

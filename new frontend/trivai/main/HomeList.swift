@@ -20,9 +20,8 @@ struct HomeList: View {
                   Text("TrivAI")
                      .font(.largeTitle)
                      .fontWeight(.heavy)
-
-                  Text("by Cornell Data Science")
-                     .foregroundColor(.gray)
+//                  Text("by Cornell Data Science")
+//                     .foregroundColor(.gray)
                }
                Spacer()
             }
@@ -110,20 +109,12 @@ let coursesData = [
           image: "Illustration1",
           color: Color("background3"),
           shadowColor: Color("backgroundShadow3")),
-   Course(title: "Create a Quiz",
-          image: "Illustration2",
-          color: Color("background4"),
-          shadowColor: Color("backgroundShadow4")),
+//   Course(title: "Create a Quiz",
+//          image: "Illustration2",
+//          color: Color("background4"),
+//          shadowColor: Color("backgroundShadow4")),
    Course(title: "Scan page",
           image: "Illustration3",
           color: Color("background7"),
           shadowColor: Color(hue: 0.677, saturation: 0.701, brightness: 0.788, opacity: 0.5)),
-//   Course(title: "Framer Playground",
-//          image: "Illustration4",
-//          color: Color("background8"),
-//          shadowColor: Color(hue: 0.677, saturation: 0.701, brightness: 0.788, opacity: 0.5)),
-//   Course(title: "Flutter for Designers",
-//          image: "Illustration5",
-//          color: Color("background9"),
-//          shadowColor: Color(hue: 0.677, saturation: 0.701, brightness: 0.788, opacity: 0.5)),
 ]

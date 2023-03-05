@@ -122,9 +122,6 @@ struct TitleView: View {
    var body: some View {
       return VStack {
          HStack {
-            Text("Certificates")
-               .font(.largeTitle)
-               .fontWeight(.heavy)
 
             Spacer()
          }
@@ -143,8 +140,6 @@ struct CardBottomView: View {
             .cornerRadius(3.0)
             .opacity(0.1)
 
-         Text("This certificate is proof that Mithun has achieved UI Design course with approval from a Design+Code instructor.")
-            .lineLimit(nil)
 
          Spacer()
       }
