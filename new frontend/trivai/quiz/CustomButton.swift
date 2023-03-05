@@ -21,7 +21,7 @@ struct CustomButton: View{
                 .fontWeight(.semibold)
                 .hAlign(.center)
                 .padding(.top,15)
-                .padding(.bottom,10)
+                .padding(.bottom,15)
                 .foregroundColor(.white)
                 .background {
                     Rectangle()
@@ -30,6 +30,6 @@ struct CustomButton: View{
                 }
         }
         /// - Removing Padding
-        .padding([.bottom,.horizontal],-15)
+        //.padding([.bottom,.horizontal],-15)
     }
 }

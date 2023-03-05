@@ -11,37 +11,70 @@ import SwiftUI
 
 struct Load: View {
     /// - View Properties
-    @State private var quizInfo: Info? = Info(title: "Test", peopleAttended: 2, rules: ["Answer the questions carefully"])
+    @State private var quizInfo: Info? = Info(title: "Derivatives", peopleAttended: 2, rules: ["Answer the questions carefully"])
     @State private var questions: [Question] = [Question(question: "What is 1 + 1?", options: ["2", "3", "4", "5"], answer: "2")]
     @State private var startQuiz: Bool = false
     var body: some View {
         if let info = quizInfo{
             VStack(spacing: 10){
-                Text(info.title)
-                    .font(.title)
-                    .fontWeight(.semibold)
-                    .hAlign(.leading)
+                VStack {
+                    Text(info.title)
+                        //.font(.title)
+                        .fontWeight(.semibold)
+                        .scaledToFill()
+                        .font(.system(size: 42))
+                        .hAlign(.leading)
+                        .padding()
+                    
+                    Divider()
+                        .padding(.horizontal,-15)
+                    
+                    HStack{
+                        VStack {
+                            CustomLabel("list.bullet.rectangle.portrait", "\(questions.count) Multiple", "Choice Questions")
+                                .padding(.top,10)
+                            
+                            CustomLabel("book", "Medium", "Difficulty")
+                                .padding(.top,10)
+                            
+                            CustomLabel("calendar", "3/5/2023", "Creation Date")
+                                .padding(.top,10)
+                            
+                        }
+                        //Spacer()
+                    }.padding()
+                    Spacer()
+                }.padding()
+                    .foregroundColor(.white)
+                    .background {
+                        Rectangle()
+                            .fill(Color("background3"))
+                            .ignoresSafeArea()
+                    }
+                    .shadow(color: Color("backgroundShadow4"), radius: 10.0)
+                    .cornerRadius(30.0)
                 
                 /// - Custom Label
-                CustomLabel("list.bullet.rectangle.portrait", "\(questions.count) Multiple", "Choice Questions")
-                    .padding(.top,20)
-        
                 
-                CustomLabel("person", "\(info.peopleAttended) People", "Attempted the question")
-                    .padding(.top,5)
                 
-                Divider()
-                    .padding(.horizontal,-15)
-                    .padding(.top,15)
+//                CustomLabel("person", "\(info.peopleAttended) People", "Attempted the question")
+//                    .padding(.top,5)
                 
-                if !info.rules.isEmpty{
-                    RulesView(info.rules)
-                }
+//                Divider()
+//                    .padding(.horizontal,-15)
+                    //.padding(.top,15)
                 
-                CustomButton(title: "Start Test", onClick: {
+//                if !info.rules.isEmpty{
+//                    RulesView(info.rules)
+//                }
+                Spacer()
+                
+                CustomButton(title: "Begin", onClick: {
                     startQuiz.toggle()
                 })
-                .vAlign(.bottom)
+                //.vAlign(.bottom)
+                .cornerRadius(10.0)
+                .frame(height:40)
             }
             .padding(15)
             .vAlign(.top)
@@ -113,7 +146,7 @@ struct Load: View {
             VStack(alignment: .leading, spacing: 4){
                 Text(title)
                     .fontWeight(.bold)
-                    .foregroundColor(Color("BG"))
+                    .foregroundColor(Color.white)
                 Text(subTitle)
                     .font(.caption)
                     .fontWeight(.medium)

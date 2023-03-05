@@ -66,7 +66,7 @@ struct HomeList_Previews: PreviewProvider {
 
 struct CourseView: View {
 
-   var title = "Build an app with SwiftUI"
+   var title = "Explore Quizzes"
    var image = "Illustration1"
    var color = Color("background3")
    var shadowColor = Color("backgroundShadow3")
