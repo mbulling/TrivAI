@@ -14,9 +14,10 @@ struct CertificateRow: View {
    var body: some View {
       VStack(alignment: .leading) {
          Text("Subjects")
-            .font(.system(size: 20))
+            .font(.system(size: 30))
             .fontWeight(.heavy)
             .padding(.leading, 30)
+            .offset(y: 20)
 
          ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 20) {

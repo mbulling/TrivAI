@@ -15,43 +15,43 @@ struct HomeList: View {
    var body: some View {
       ScrollView {
          VStack {
-            HStack {
-               VStack(alignment: .leading) {
-                  Text("TrivAI")
-                     .font(.largeTitle)
-                     .fontWeight(.heavy)
-//                  Text("by Cornell Data Science")
-//                     .foregroundColor(.gray)
-               }
-               Spacer()
-            }
-            .padding(.leading, 60.0)
-
-            ScrollView(.horizontal, showsIndicators: false) {
-               HStack(spacing: 30.0) {
-                  ForEach(courses) { item in
-                     Button(action: { self.showContent.toggle() }) {
-                        GeometryReader { geometry in
-                           CourseView(title: item.title,
-                                      image: item.image,
-                                      color: item.color,
-                                      shadowColor: item.shadowColor)
-                              .rotation3DEffect(Angle(degrees:
-                                 Double(geometry.frame(in: .global).minX - 30) / -40), axis: (x: 0, y: 10.0, z: 0))
-                              .sheet(isPresented: self.$showContent) { Load() }
-                        }
-                        .frame(width: 246, height: 360)
-                     }
-                  }
-               }
-               .padding(.leading, 30)
-               .padding(.top, 30)
-               .padding(.bottom, 70)
-               Spacer()
-            }
+             Text("TrivAI")
+                .fontWeight(.heavy)
+                .font(.system(size: 55))
+                .hAlign(.leading)
+                .padding(.leading, 30)
+             VStack {
+                 ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 30.0) {
+                       ForEach(courses) { item in
+                          Button(action: { self.showContent.toggle() }) {
+                             GeometryReader { geometry in
+                                CourseView(title: item.title,
+                                           image: item.image,
+                                           color: item.color,
+                                           shadowColor: item.shadowColor)
+                                   .rotation3DEffect(Angle(degrees:
+                                      Double(geometry.frame(in: .global).minX - 30) / -40), axis: (x: 0, y: 10.0, z: 0))
+                                   .sheet(isPresented: self.$showContent) { Load() }
+                             }
+                             .frame(width: 246, height: 360)
+                          }
+                       }
+                    }
+                    .padding(.leading, 30)
+                    .padding(.bottom, 60)
+                    Spacer()
+                 }
+             }.offset(y: -15)
+            
          }
-         .padding(.top, 78)
-          CertificateRow()
+         .padding(.top, 70)
+        
+          VStack {
+              CertificateRow()
+          }.offset(y: -50)
+        
+
       }
    }
 }
