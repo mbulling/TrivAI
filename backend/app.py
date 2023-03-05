@@ -5,7 +5,8 @@ import random
 import nltk
 import json
 from question import MCQ
-# nltk.download('stopwords')  # ???
+from user import User, UserType
+nltk.download('stopwords')  # ???
 
 app = Flask(__name__)
 
@@ -46,6 +47,22 @@ def get_tf():
     user_input = body["user_input"]
     questions = generate_tfs(user_input)
     return json.dumps(questions)
+
+
+@app.route('/register/', methods=['POST'])
+def register():
+    ''' Register a new user '''
+    body = json.loads(request.data)
+    username = body["username"]  # string
+    password = body["password"]  # string
+    if body["user_type"].lower() == "student":
+        user_type = UserType.STUDENT
+    elif body["user_type"].lower() == "teacher":
+        user_type = UserType.TEACHER
+    else:
+        user_type = UserType.OTHER
+    user = User(username, password, user_type)
+    return json.dumps(user.to_dict())
 
 
 def generate_mcqs(user_input):
