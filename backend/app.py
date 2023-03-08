@@ -4,6 +4,7 @@ from flask import Flask, render_template, request
 import random
 import nltk
 import json
+import wiki
 from question import MCQ
 from user import User, UserType
 nltk.download('stopwords')  # ???
@@ -34,9 +35,26 @@ def index():
 @app.route('/mcq/', methods=['POST'])
 def get_mcq():
     ''' Create multiple choice questions '''
+    print("Generating MCQs from text provided by user")
     body = json.loads(request.data)
     user_input = body["user_input"]
     questions = generate_mcqs(user_input)
+    return json.dumps([question.to_dict() for question in questions])
+
+
+@app.route('/mcq/topic/', methods=['POST'])
+def get_mcq_by_topic():
+    ''' Create multiple choice questions based on a certain topic '''
+    body = json.loads(request.data)
+    topic = body["topic"]
+    print("Generating MCQs for topic", topic)
+
+    summary = wiki.get_summary(topic)
+    if summary is None:
+        print("Error: There isn't a Wikipedia page for the given topic")
+        return json.dumps({"error": "There isn't a Wikipedia page for the given topic"})
+
+    questions = generate_mcqs(summary)
     return json.dumps([question.to_dict() for question in questions])
 
 
