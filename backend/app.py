@@ -90,7 +90,10 @@ def generate_mcqs(user_input):
     payload = {
         "input_text": user_input
     }
-    output = qg.predict_mcq(payload)
+    output = qg.predict_mcq(payload)  # dict
+    if (len(output) == 0):
+        return []
+
     for q in output["questions"]:
         answer = q["answer"]  # string
         options = q["options"]  # list of strings
