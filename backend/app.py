@@ -84,7 +84,7 @@ def register():
 
 
 def generate_mcqs(user_input):
-    # Generate num_questions random questions based on the user input
+    # Generate multiple choice questions based on the user input
     question_list = []
     qg = main.QGen()
     payload = {
@@ -108,7 +108,7 @@ def generate_mcqs(user_input):
 
 
 def generate_tfs(user_input):
-    # Generate num_questions random questions based on the user input
+    # Generate true or false questions based on the user input
     question_list = []
     qg = main.BoolQGen()
     payload = {
