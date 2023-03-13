@@ -6,3 +6,4 @@ venv/
 **/._s2v_old
 **/s2v_old/
 backend/secrets.py
+backend/secret.py
