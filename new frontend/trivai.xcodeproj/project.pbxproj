@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -22,6 +22,11 @@
 		ABE07CC522D74F5900D209BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABE07CC422D74F5900D209BE /* Assets.xcassets */; };
 		ABE07CC822D74F5900D209BE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABE07CC722D74F5900D209BE /* Preview Assets.xcassets */; };
 		ABE07CCB22D74F5900D209BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABE07CC922D74F5900D209BE /* LaunchScreen.storyboard */; };
+		BEB4BD4929BEEA4500506F30 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB4BD4829BEEA4500506F30 /* NetworkManager.swift */; };
+		BEB4BD4B29BEEEB300506F30 /* QuestionModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB4BD4A29BEEEB300506F30 /* QuestionModal.swift */; };
+		BEB4BD4D29BEEF1A00506F30 /* UserModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB4BD4C29BEEF1A00506F30 /* UserModal.swift */; };
+		BEE51F2229C1209600FBAD41 /* NetworkTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE51F2129C1209500FBAD41 /* NetworkTesting.swift */; };
+		C2C883A77F987A229E36F5ED /* Pods_trivai.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86E379F9B3B270AA3FE82666 /* Pods_trivai.framework */; };
 		F86FD27829B405B800C95660 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86FD27729B405B800C95660 /* CustomButton.swift */; };
 		F86FD27A29B405C800C95660 /* ScoreCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86FD27929B405C800C95660 /* ScoreCardView.swift */; };
 		F86FD27C29B405DC00C95660 /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86FD27B29B405DC00C95660 /* Info.swift */; };
@@ -32,6 +37,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		323A25E61B2AB1293C71EAF4 /* Pods-trivai.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-trivai.release.xcconfig"; path = "Target Support Files/Pods-trivai/Pods-trivai.release.xcconfig"; sourceTree = "<group>"; };
+		86E379F9B3B270AA3FE82666 /* Pods_trivai.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_trivai.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB1D3B1B22D9CDEF00D0AEA6 /* HomeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeList.swift; sourceTree = "<group>"; };
 		AB62172622D870540039BC73 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		ABB215DB22DB353800424B38 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
@@ -49,6 +56,11 @@
 		ABE07CC722D74F5900D209BE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		ABE07CCA22D74F5900D209BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ABE07CCC22D74F5900D209BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BEB4BD4829BEEA4500506F30 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		BEB4BD4A29BEEEB300506F30 /* QuestionModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionModal.swift; sourceTree = "<group>"; };
+		BEB4BD4C29BEEF1A00506F30 /* UserModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModal.swift; sourceTree = "<group>"; };
+		BEE51F2129C1209500FBAD41 /* NetworkTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTesting.swift; sourceTree = "<group>"; };
+		F046BB0CA269B52B85CCD025 /* Pods-trivai.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-trivai.debug.xcconfig"; path = "Target Support Files/Pods-trivai/Pods-trivai.debug.xcconfig"; sourceTree = "<group>"; };
 		F86FD27729B405B800C95660 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		F86FD27929B405C800C95660 /* ScoreCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreCardView.swift; sourceTree = "<group>"; };
 		F86FD27B29B405DC00C95660 /* Info.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
@@ -63,17 +75,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2C883A77F987A229E36F5ED /* Pods_trivai.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E97C7EA4EB0601726D68801 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				86E379F9B3B270AA3FE82666 /* Pods_trivai.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		ABE07CB222D74F5700D209BE = {
 			isa = PBXGroup;
 			children = (
 				ABE07CBD22D74F5700D209BE /* trivai */,
 				ABE07CBC22D74F5700D209BE /* Products */,
+				EA236489FF8693ADD28C2341 /* Pods */,
+				6E97C7EA4EB0601726D68801 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -88,6 +111,7 @@
 		ABE07CBD22D74F5700D209BE /* trivai */ = {
 			isa = PBXGroup;
 			children = (
+				BEB4BD4729BEEA3400506F30 /* networking */,
 				F86FD28429B4072800C95660 /* main */,
 				F86FD27F29B405FC00C95660 /* quiz */,
 				ABE07CC422D74F5900D209BE /* Assets.xcassets */,
@@ -104,6 +128,26 @@
 				ABE07CC722D74F5900D209BE /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BEB4BD4729BEEA3400506F30 /* networking */ = {
+			isa = PBXGroup;
+			children = (
+				BEB4BD4829BEEA4500506F30 /* NetworkManager.swift */,
+				BEB4BD4A29BEEEB300506F30 /* QuestionModal.swift */,
+				BEB4BD4C29BEEF1A00506F30 /* UserModal.swift */,
+				BEE51F2129C1209500FBAD41 /* NetworkTesting.swift */,
+			);
+			path = networking;
+			sourceTree = "<group>";
+		};
+		EA236489FF8693ADD28C2341 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F046BB0CA269B52B85CCD025 /* Pods-trivai.debug.xcconfig */,
+				323A25E61B2AB1293C71EAF4 /* Pods-trivai.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		F86FD27F29B405FC00C95660 /* quiz */ = {
@@ -146,9 +190,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ABE07CCF22D74F5900D209BE /* Build configuration list for PBXNativeTarget "trivai" */;
 			buildPhases = (
+				84FBED498BAFCFB1095E12CA /* [CP] Check Pods Manifest.lock */,
 				ABE07CB722D74F5700D209BE /* Sources */,
 				ABE07CB822D74F5700D209BE /* Frameworks */,
 				ABE07CB922D74F5700D209BE /* Resources */,
+				67CB80F0CB051E81D99AE783 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -206,11 +252,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		67CB80F0CB051E81D99AE783 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-trivai/Pods-trivai-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-trivai/Pods-trivai-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-trivai/Pods-trivai-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		84FBED498BAFCFB1095E12CA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-trivai-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		ABE07CB722D74F5700D209BE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEB4BD4929BEEA4500506F30 /* NetworkManager.swift in Sources */,
 				F86FD27829B405B800C95660 /* CustomButton.swift in Sources */,
 				F86FD27E29B405E000C95660 /* Question.swift in Sources */,
 				F86FD27A29B405C800C95660 /* ScoreCardView.swift in Sources */,
@@ -225,10 +314,13 @@
 				ABE07CC122D74F5700D209BE /* SceneDelegate.swift in Sources */,
 				AB62172722D870540039BC73 /* Home.swift in Sources */,
 				ABE07CC322D74F5700D209BE /* ContentView.swift in Sources */,
+				BEE51F2229C1209600FBAD41 /* NetworkTesting.swift in Sources */,
+				BEB4BD4D29BEEF1A00506F30 /* UserModal.swift in Sources */,
 				ABB215DC22DB353800424B38 /* BlurView.swift in Sources */,
 				ABB215E622DC808A00424B38 /* Settings.swift in Sources */,
 				ABB215E822DC8ABD00424B38 /* CertificateRow.swift in Sources */,
 				ABB215E422DC7D0000424B38 /* TabBar.swift in Sources */,
+				BEB4BD4B29BEEEB300506F30 /* QuestionModal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +454,7 @@
 		};
 		ABE07CD022D74F5900D209BE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F046BB0CA269B52B85CCD025 /* Pods-trivai.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "trivai/Preview\\ Content";
@@ -382,6 +475,7 @@
 		};
 		ABE07CD122D74F5900D209BE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 323A25E61B2AB1293C71EAF4 /* Pods-trivai.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "trivai/Preview\\ Content";
