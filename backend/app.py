@@ -90,3 +90,24 @@ def register():
 @app.route('/topics', methods=['GET'])
 def get_topics():
     return jsonify(["Calculus", "Physics", "Chemistry", "Biology"])
+
+
+# return a dummy question list for testing
+@app.route('/questions', methods=['GET'])
+def get_questions():
+    return jsonify([
+    {
+        "question": "What are some common applications of maximum-flow algorithms?",
+        "options": ["Resource allocation", "Network flow analysis", "image segmentation", "load balancing"],
+        "answer_id": 1
+    },
+    {
+        "question": "What is a min-cut in a flow network and how is it related to the maximum-flow?",
+        "options": ["The min-cut is the minimum capacity needed to cut the flow network into two disjoint sets. The maximum-flow is equal to the min-cut.", "The min-cut is the minimum number of edges needed to cut the flow network into two disjoint sets. The maximum-flow is equal to the sum of capacities of edges in the min-cut.", "The min-cut is the maximum capacity needed to cut the flow network into two disjoint sets. The maximum-flow is equal to the min-cut.", "The min-cut is the maximum number of edges needed to cut the flow network into two disjoint sets. The maximum-flow is equal to the sum of capacities of edges in the min-cut."],
+        "answer_id": 2
+    }, 
+    {
+        "question": "Which of the following algorithms has the fastest asymptotic worst-case running time for solving the maximum flow problem?",
+        "options": ["Edmonds-Karp algorithm", "Ford-Fulkerson algorithm", "Dinic's algorithm", "Push-relabel algorithm"],
+        "answer_id": 3
+    }])
