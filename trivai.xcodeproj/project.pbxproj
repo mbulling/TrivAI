@@ -23,6 +23,7 @@
 		ABE07CC522D74F5900D209BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABE07CC422D74F5900D209BE /* Assets.xcassets */; };
 		ABE07CC822D74F5900D209BE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABE07CC722D74F5900D209BE /* Preview Assets.xcassets */; };
 		ABE07CCB22D74F5900D209BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABE07CC922D74F5900D209BE /* LaunchScreen.storyboard */; };
+		F1135B7129C76B0200902784 /* TopicList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1135B7029C76B0200902784 /* TopicList.swift */; };
 		F86FD27829B405B800C95660 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86FD27729B405B800C95660 /* CustomButton.swift */; };
 		F86FD27A29B405C800C95660 /* ScoreCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86FD27929B405C800C95660 /* ScoreCardView.swift */; };
 		F86FD27C29B405DC00C95660 /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86FD27B29B405DC00C95660 /* Info.swift */; };
@@ -53,6 +54,7 @@
 		ABE07CCC22D74F5900D209BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B64EF59EBC28A11317F778C9 /* Pods_trivai.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_trivai.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C19E717C64A04EA422DA5784 /* Pods-trivai.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-trivai.debug.xcconfig"; path = "Target Support Files/Pods-trivai/Pods-trivai.debug.xcconfig"; sourceTree = "<group>"; };
+		F1135B7029C76B0200902784 /* TopicList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicList.swift; sourceTree = "<group>"; };
 		F86FD27729B405B800C95660 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		F86FD27929B405C800C95660 /* ScoreCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreCardView.swift; sourceTree = "<group>"; };
 		F86FD27B29B405DC00C95660 /* Info.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				AB62172622D870540039BC73 /* Home.swift */,
 				AB1D3B1B22D9CDEF00D0AEA6 /* HomeList.swift */,
 				ABB215DD22DB713300424B38 /* UpdateList.swift */,
+				F1135B7029C76B0200902784 /* TopicList.swift */,
 				ABB215DF22DB7F4700424B38 /* UpdateDetail.swift */,
 				ABB215E122DC472900424B38 /* UpdateStore.swift */,
 				ABB215E522DC808A00424B38 /* Settings.swift */,
@@ -288,6 +291,7 @@
 				ABB215E222DC472900424B38 /* UpdateStore.swift in Sources */,
 				ABB215DE22DB713300424B38 /* UpdateList.swift in Sources */,
 				AB1D3B1C22D9CDEF00D0AEA6 /* HomeList.swift in Sources */,
+				F1135B7129C76B0200902784 /* TopicList.swift in Sources */,
 				F86FD28129B4064F00C95660 /* QuestionsView.swift in Sources */,
 				ABB215E022DB7F4700424B38 /* UpdateDetail.swift in Sources */,
 				ABE07CC122D74F5700D209BE /* SceneDelegate.swift in Sources */,
@@ -438,7 +442,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "trivai/Preview\\ Content";
-				DEVELOPMENT_TEAM = 938P9VEDRD;
+				DEVELOPMENT_TEAM = MU438K36FU;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = trivai/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -446,7 +450,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = mythxn.trivai;
+				PRODUCT_BUNDLE_IDENTIFIER = masonbulling.trivai;
 				PRODUCT_MODULE_NAME = trivai;
 				PRODUCT_NAME = TrivAI;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -463,9 +467,9 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_ASSET_PATHS = "trivai/Preview\\ Content";
-				DEVELOPMENT_TEAM = 938P9VEDRD;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = trivai/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
