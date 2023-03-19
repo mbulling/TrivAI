@@ -1,11 +1,13 @@
 from flask import Flask, render_template, request, jsonify
 import json
 import ast
-from question import MCQ
+# from question import MCQ
 from user import User, UserType
 from qgenerator import get_mcqs_passage, get_mcqs_topic, get_tfs_topic, get_tfs_passage
 
 app = Flask(__name__)
+
+MAX_QUESTIONS = 20
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -33,6 +35,8 @@ def get_mcq_by_passage():
     body = json.loads(request.data)
     passage = body["passage"]
     num_questions = body["num_questions"]
+    if num_questions > MAX_QUESTIONS:
+        return json.dumps({"error": "Cannot generate more than 20 questions at a time."})
     print("Generating %d MCQs from text provided by user" % num_questions)
     return get_mcqs_passage(passage, num_questions)
 
@@ -43,6 +47,8 @@ def get_mcq_by_topic():
     body = json.loads(request.data)
     topic = body["topic"]
     num_questions = body["num_questions"]
+    if num_questions > MAX_QUESTIONS:
+        return json.dumps({"error": "Cannot generate more than 20 questions at a time."})
     print("Generating %d MCQs for topic %s" % (num_questions, topic))
     return get_mcqs_topic(topic, num_questions)
 
@@ -53,6 +59,8 @@ def get_tf():
     body = json.loads(request.data)
     passage = body["passage"]
     num_questions = body["num_questions"]
+    if num_questions > MAX_QUESTIONS:
+        return json.dumps({"error": "Cannot generate more than 20 questions at a time."})
     print("Generating %d True/False questions from text provided by user" %
           num_questions)
     return get_tfs_passage(passage, num_questions)
@@ -64,6 +72,8 @@ def get_tf_by_topic():
     body = json.loads(request.data)
     topic = body["topic"]
     num_questions = body["num_questions"]
+    if num_questions > MAX_QUESTIONS:
+        return json.dumps({"error": "Cannot generate more than 20 questions at a time."})
     print("Generating %d True/False questions for topic %s" %
           (num_questions, topic))
     return get_tfs_topic(topic, num_questions)
@@ -96,18 +106,18 @@ def get_topics():
 @app.route('/questions', methods=['GET'])
 def get_questions():
     return jsonify([
-    {
-        "question": "What are some common applications of maximum-flow algorithms?",
-        "options": ["Resource allocation", "Network flow analysis", "image segmentation", "load balancing"],
-        "answer_id": 1
-    },
-    {
-        "question": "What is a min-cut in a flow network and how is it related to the maximum-flow?",
-        "options": ["The min-cut is the minimum capacity needed to cut the flow network into two disjoint sets. The maximum-flow is equal to the min-cut.", "The min-cut is the minimum number of edges needed to cut the flow network into two disjoint sets. The maximum-flow is equal to the sum of capacities of edges in the min-cut.", "The min-cut is the maximum capacity needed to cut the flow network into two disjoint sets. The maximum-flow is equal to the min-cut.", "The min-cut is the maximum number of edges needed to cut the flow network into two disjoint sets. The maximum-flow is equal to the sum of capacities of edges in the min-cut."],
-        "answer_id": 2
-    }, 
-    {
-        "question": "Which of the following algorithms has the fastest asymptotic worst-case running time for solving the maximum flow problem?",
-        "options": ["Edmonds-Karp algorithm", "Ford-Fulkerson algorithm", "Dinic's algorithm", "Push-relabel algorithm"],
-        "answer_id": 3
-    }])
+        {
+            "question": "What are some common applications of maximum-flow algorithms?",
+            "options": ["Resource allocation", "Network flow analysis", "image segmentation", "load balancing"],
+            "answer_id": 1
+        },
+        {
+            "question": "What is a min-cut in a flow network and how is it related to the maximum-flow?",
+            "options": ["The min-cut is the minimum capacity needed to cut the flow network into two disjoint sets. The maximum-flow is equal to the min-cut.", "The min-cut is the minimum number of edges needed to cut the flow network into two disjoint sets. The maximum-flow is equal to the sum of capacities of edges in the min-cut.", "The min-cut is the maximum capacity needed to cut the flow network into two disjoint sets. The maximum-flow is equal to the min-cut.", "The min-cut is the maximum number of edges needed to cut the flow network into two disjoint sets. The maximum-flow is equal to the sum of capacities of edges in the min-cut."],
+            "answer_id": 2
+        },
+        {
+            "question": "Which of the following algorithms has the fastest asymptotic worst-case running time for solving the maximum flow problem?",
+            "options": ["Edmonds-Karp algorithm", "Ford-Fulkerson algorithm", "Dinic's algorithm", "Push-relabel algorithm"],
+            "answer_id": 3
+        }])
