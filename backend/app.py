@@ -36,7 +36,7 @@ def get_mcq_by_passage():
     passage = body["passage"]
     num_questions = body["num_questions"]
     if num_questions > MAX_QUESTIONS:
-        return json.dumps({"error": "Cannot generate more than 20 questions at a time."})
+        return json.dumps({"error": "Cannot generate more than %d questions at a time." % MAX_QUESTIONS})
     print("Generating %d MCQs from text provided by user" % num_questions)
     return get_mcqs_passage(passage, num_questions)
 
@@ -48,7 +48,7 @@ def get_mcq_by_topic():
     topic = body["topic"]
     num_questions = body["num_questions"]
     if num_questions > MAX_QUESTIONS:
-        return json.dumps({"error": "Cannot generate more than 20 questions at a time."})
+        return json.dumps({"error": "Cannot generate more than %d questions at a time." % MAX_QUESTIONS})
     print("Generating %d MCQs for topic %s" % (num_questions, topic))
     return get_mcqs_topic(topic, num_questions)
 
@@ -60,7 +60,7 @@ def get_tf():
     passage = body["passage"]
     num_questions = body["num_questions"]
     if num_questions > MAX_QUESTIONS:
-        return json.dumps({"error": "Cannot generate more than 20 questions at a time."})
+        return json.dumps({"error": "Cannot generate more than %d questions at a time." % MAX_QUESTIONS})
     print("Generating %d True/False questions from text provided by user" %
           num_questions)
     return get_tfs_passage(passage, num_questions)
@@ -73,7 +73,7 @@ def get_tf_by_topic():
     topic = body["topic"]
     num_questions = body["num_questions"]
     if num_questions > MAX_QUESTIONS:
-        return json.dumps({"error": "Cannot generate more than 20 questions at a time."})
+        return json.dumps({"error": "Cannot generate more than %d questions at a time." % MAX_QUESTIONS})
     print("Generating %d True/False questions for topic %s" %
           (num_questions, topic))
     return get_tfs_topic(topic, num_questions)
