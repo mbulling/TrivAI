@@ -12,7 +12,7 @@ struct Question: Identifiable, Codable{
     var id: UUID = .init()
     var question: String
     var options: [String]
-    var answer: String
+    var answer_id: Int
     
     /// - For UI State Updates
     var tappedAnswer: String = ""
@@ -20,6 +20,6 @@ struct Question: Identifiable, Codable{
     enum CodingKeys: CodingKey {
         case question
         case options
-        case answer
+        case answer_id
     }
 }
