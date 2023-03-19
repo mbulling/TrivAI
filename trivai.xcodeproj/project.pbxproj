@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		285418C1F95034DB3B868C98 /* Pods_trivai.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B64EF59EBC28A11317F778C9 /* Pods_trivai.framework */; };
 		AB1D3B1C22D9CDEF00D0AEA6 /* HomeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1D3B1B22D9CDEF00D0AEA6 /* HomeList.swift */; };
 		AB62172722D870540039BC73 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62172622D870540039BC73 /* Home.swift */; };
 		ABB215DC22DB353800424B38 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB215DB22DB353800424B38 /* BlurView.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0CB402B2C9F34AD6FDF6BEBC /* Pods-trivai.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-trivai.release.xcconfig"; path = "Target Support Files/Pods-trivai/Pods-trivai.release.xcconfig"; sourceTree = "<group>"; };
 		AB1D3B1B22D9CDEF00D0AEA6 /* HomeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeList.swift; sourceTree = "<group>"; };
 		AB62172622D870540039BC73 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		ABB215DB22DB353800424B38 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
@@ -41,7 +43,7 @@
 		ABB215E322DC7D0000424B38 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		ABB215E522DC808A00424B38 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		ABB215E722DC8ABD00424B38 /* CertificateRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateRow.swift; sourceTree = "<group>"; };
-		ABE07CBB22D74F5700D209BE /* trivai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = trivai.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABE07CBB22D74F5700D209BE /* TrivAI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrivAI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABE07CBE22D74F5700D209BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABE07CC022D74F5700D209BE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		ABE07CC222D74F5700D209BE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -49,6 +51,8 @@
 		ABE07CC722D74F5900D209BE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		ABE07CCA22D74F5900D209BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ABE07CCC22D74F5900D209BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B64EF59EBC28A11317F778C9 /* Pods_trivai.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_trivai.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C19E717C64A04EA422DA5784 /* Pods-trivai.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-trivai.debug.xcconfig"; path = "Target Support Files/Pods-trivai/Pods-trivai.debug.xcconfig"; sourceTree = "<group>"; };
 		F86FD27729B405B800C95660 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		F86FD27929B405C800C95660 /* ScoreCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreCardView.swift; sourceTree = "<group>"; };
 		F86FD27B29B405DC00C95660 /* Info.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
@@ -63,24 +67,35 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				285418C1F95034DB3B868C98 /* Pods_trivai.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4621E7525CCF0D0FCB47498F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B64EF59EBC28A11317F778C9 /* Pods_trivai.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		ABE07CB222D74F5700D209BE = {
 			isa = PBXGroup;
 			children = (
 				ABE07CBD22D74F5700D209BE /* trivai */,
 				ABE07CBC22D74F5700D209BE /* Products */,
+				E375D72C51188F15684B1140 /* Pods */,
+				4621E7525CCF0D0FCB47498F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		ABE07CBC22D74F5700D209BE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				ABE07CBB22D74F5700D209BE /* trivai.app */,
+				ABE07CBB22D74F5700D209BE /* TrivAI.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -104,6 +119,15 @@
 				ABE07CC722D74F5900D209BE /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E375D72C51188F15684B1140 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C19E717C64A04EA422DA5784 /* Pods-trivai.debug.xcconfig */,
+				0CB402B2C9F34AD6FDF6BEBC /* Pods-trivai.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		F86FD27F29B405FC00C95660 /* quiz */ = {
@@ -146,9 +170,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ABE07CCF22D74F5900D209BE /* Build configuration list for PBXNativeTarget "trivai" */;
 			buildPhases = (
+				C9B8C6DFBE461CCA0E39A7D7 /* [CP] Check Pods Manifest.lock */,
 				ABE07CB722D74F5700D209BE /* Sources */,
 				ABE07CB822D74F5700D209BE /* Frameworks */,
 				ABE07CB922D74F5700D209BE /* Resources */,
+				BA26E233AB06681479845EB1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -156,7 +182,7 @@
 			);
 			name = trivai;
 			productName = trivai;
-			productReference = ABE07CBB22D74F5700D209BE /* trivai.app */;
+			productReference = ABE07CBB22D74F5700D209BE /* TrivAI.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -205,6 +231,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BA26E233AB06681479845EB1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-trivai/Pods-trivai-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-trivai/Pods-trivai-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-trivai/Pods-trivai-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C9B8C6DFBE461CCA0E39A7D7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-trivai-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		ABE07CB722D74F5700D209BE /* Sources */ = {
@@ -362,7 +430,11 @@
 		};
 		ABE07CD022D74F5900D209BE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C19E717C64A04EA422DA5784 /* Pods-trivai.debug.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "trivai/Preview\\ Content";
@@ -375,7 +447,8 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = mythxn.trivai;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = trivai;
+				PRODUCT_NAME = TrivAI;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -384,7 +457,11 @@
 		};
 		ABE07CD122D74F5900D209BE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0CB402B2C9F34AD6FDF6BEBC /* Pods-trivai.release.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "trivai/Preview\\ Content";
@@ -397,7 +474,8 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = mythxn.trivai;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = trivai;
+				PRODUCT_NAME = TrivAI;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
