@@ -13,8 +13,8 @@ struct Load: View {
     /// - View Properties
     @State private var quizInfo: Info? = Info(title: "Derivatives", peopleAttended: 2, rules: ["Answer the questions carefully"])
     @State private var questions: [Question] = [
-        Question(question: "What notation describes a derivative?", options: ["d/dx", "dd", "dxd", "xdx"], answer: "d/dx"),
-        Question(question: "What is the derivative of 2x?", options: ["0", "1", "x", "2"], answer: "2"),
+        Question(question: "What notation describes a derivative?", options: ["d/dx", "dd", "dxd", "xdx"], answer_id: 0),
+        Question(question: "What is the derivative of 2x?", options: ["0", "1", "x", "2"], answer_id: 3),
         ]
     @State private var startQuiz: Bool = false
     var body: some View {

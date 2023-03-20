@@ -1,14 +1,15 @@
 //
-//  Question.swift
-//  TrivAI
+//  TestQuestion.swift
+//  trivai
 //
-//  Created by Ryan Ho on 02/24/2023.
+//  Created by Ken Chiem on 3/19/23.
+//  Copyright © 2023 Mithun. All rights reserved.
 //
 
-import SwiftUI
+import Foundation
 
 // MARK: Quiz Question Codable Model
-struct Question: Identifiable, Codable{
+struct TestQuestion: Identifiable, Codable{
     var id: UUID = .init()
     var question: String
     var options: [String]
@@ -23,3 +24,4 @@ struct Question: Identifiable, Codable{
         case answer_id
     }
 }
+
