@@ -27,9 +27,9 @@ struct HomeList: View {
                     HStack(spacing: 30.0) {
                        ForEach(courses) { item in
                            Button(action: {
-                               if item.title == "Your Quizzes" {
+                               if (item.title == "Your Quizzes") {
                                    self.topicContent.toggle()
-                               } else if item.title == "Create a Quiz" {
+                               } else if (item.title == "Create a Quiz") {
                                    self.showNetworkTesting.toggle()
                                } else {
                                    self.showLoad.toggle()
@@ -47,10 +47,10 @@ struct HomeList: View {
                                    TopicList()
                                }
                                .sheet(isPresented: $showNetworkTesting) {
-                                   Load()
+                                   NetworkTesting()
                                }
                                .sheet(isPresented: $showLoad) {
-                                   NetworkTesting()
+                                   Load()
                                }
                            }
                        }

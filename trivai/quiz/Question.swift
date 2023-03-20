@@ -23,3 +23,9 @@ struct Question: Identifiable, Codable{
         case answer_id
     }
 }
+
+struct QuestionListWrapper: Identifiable{
+    var id: UUID = .init()
+    var questions: [Question]
+    
+}
