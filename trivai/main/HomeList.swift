@@ -14,6 +14,7 @@ struct HomeList: View {
     @State var showNetworkTesting = false
     @State var showScanner = false
     @State var showLoad = false
+    @State var texts:[ScanData] = []
 
    var body: some View {
       ScrollView {
@@ -33,7 +34,7 @@ struct HomeList: View {
                                } else if (item.title == "Create a Quiz") {
                                    self.showNetworkTesting.toggle()
                                } else {
-                                   self.showLoad.toggle()
+                                   self.showScanner.toggle()
                                }
                            }) {
                                GeometryReader { geometry in
@@ -51,16 +52,16 @@ struct HomeList: View {
                                    NetworkTesting()
                                }
                                .sheet(isPresented: self.$showScanner, content: {
-//                                                                   ScannerView(completion: { textPerPage in
-//                                                                       if let outputText = textPerPage?.joined(separator: "\n") {
-//                                                                           let newScanData = ScanData(content: outputText)
-//                                                                           // We need to pass this data into the question generation model somehow
-//                                                                           self.texts.append(newScanData)
-//                                                                           print(newScanData)
-//                                                                       }
-//                                                                       self.showScanner = false
-//                                                                   })
-                                                               })
+                                                           ScannerView(completion: {
+                                                               textPerPage in if let outputText = textPerPage?.joined(separator: "\n"){
+                                                                   let newScanData = ScanData(content: outputText)
+                                                                   //We need to pass this data into the question generation model somehow
+                                                                   print(newScanData)
+                                                                   self.texts.append(newScanData)
+                                                               }
+                                                               self.showScanner = false
+                                                           })
+                                                       })
                                                            }
                            }
                        }
