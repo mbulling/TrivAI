@@ -117,15 +117,15 @@ struct QuestionsView: View {
             }.hAlign(.leading)
             
             VStack(spacing: 12){
-                ForEach(question.options,id: \.self){option in
+                ForEach(question.options, id: \.self){ option in
                     /// - Displaying Correct and Wrong Answers After user has Tapped any one of the Options
                     ZStack{
                         OptionView(option, .gray)
-                            .opacity(question.answer == option && question.tappedAnswer != "" ? 0 : 1)
+                            .opacity(question.answer_id == question.options.firstIndex(of: option) && question.tappedAnswer != "" ? 0 : 1)
                         OptionView(option, .green)
-                            .opacity(question.answer == option && question.tappedAnswer != "" ? 1 : 0)
+                            .opacity(question.answer_id == question.options.firstIndex(of: option) && question.tappedAnswer != "" ? 1 : 0)
                         OptionView(option, .red)
-                            .opacity(question.tappedAnswer == option && question.tappedAnswer != question.answer ? 1 : 0)
+                            .opacity(question.tappedAnswer == option && question.options.firstIndex(of: option) != question.answer_id ? 1 : 0)
                     }
                     .contentShape(Rectangle())
                     .onTapGesture {
@@ -134,7 +134,7 @@ struct QuestionsView: View {
                         withAnimation(.easeInOut){
                             questions[currentIndex].tappedAnswer = option
                             /// - When ever the Correct Answer was selected, Updating the Score
-                            if question.answer == option{
+                            if question.answer_id == question.options.firstIndex(of: option){
                                 score += 1.0
                             }
                         }
