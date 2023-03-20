@@ -12,6 +12,7 @@ struct HomeList: View {
    @State var showContent = false
     @State var topicContent = false
     @State var showNetworkTesting = false
+    @State var showScanner = false
     @State var showLoad = false
 
    var body: some View {
@@ -49,12 +50,21 @@ struct HomeList: View {
                                .sheet(isPresented: $showNetworkTesting) {
                                    NetworkTesting()
                                }
-                               .sheet(isPresented: $showLoad) {
-                                   Load()
-                               }
+                               .sheet(isPresented: self.$showScanner, content: {
+//                                                                   ScannerView(completion: { textPerPage in
+//                                                                       if let outputText = textPerPage?.joined(separator: "\n") {
+//                                                                           let newScanData = ScanData(content: outputText)
+//                                                                           // We need to pass this data into the question generation model somehow
+//                                                                           self.texts.append(newScanData)
+//                                                                           print(newScanData)
+//                                                                       }
+//                                                                       self.showScanner = false
+//                                                                   })
+                                                               })
+                                                           }
                            }
                        }
-                    }
+                    
                     .padding(.leading, 30)
                     .padding(.bottom, 60)
                     Spacer()
