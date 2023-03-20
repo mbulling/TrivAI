@@ -2,23 +2,22 @@
 //  UserModal.swift
 //  trivai
 //
-//  Created by Ken Chiem on 3/19/23.
+//  Created by Ken Chiem on 3/13/23.
 //  Copyright © 2023 Mithun. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-class UserModal: UITableViewCell {
+struct User: Codable {
+    var id: UUID = .init()
+    var username : String
+    var password : String
+    var user_type : UserType
+    var score : Int
+}
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
+enum UserType : String, Codable {
+    case STUDENT
+    case TEACHER
+    case OTHER
 }

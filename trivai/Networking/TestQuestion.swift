@@ -6,19 +6,22 @@
 //  Copyright © 2023 Mithun. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-class TestQuestion: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+// MARK: Quiz Question Codable Model
+struct TestQuestion: Identifiable, Codable{
+    var id: UUID = .init()
+    var question: String
+    var options: [String]
+    var answer_id: Int
+    
+    /// - For UI State Updates
+    var tappedAnswer: String = ""
+    
+    enum CodingKeys: CodingKey {
+        case question
+        case options
+        case answer_id
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }
+
