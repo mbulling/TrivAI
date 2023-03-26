@@ -8,3 +8,4 @@ Pods/
 **/*.tar.gz
 **/._s2v_old
 **/s2v_old/
+**/*.pem
