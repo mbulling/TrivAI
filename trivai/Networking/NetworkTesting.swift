@@ -20,8 +20,10 @@ struct NetworkTesting: View {
     
     var body: some View {
             VStack() {
-                TextField("User Input...", text: $user_input).textInputAutocapitalization(.never).disableAutocorrection(true).frame(width: 320.0, height: 400.0)
-//                    .background(Color("background"))
+                TextField("User Input...", text:$user_input)
+                    .textInputAutocapitalization(.never)
+                    .disableAutocorrection(true)
+                    .frame(width: 320.0, height: 400.0)
                     .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 6))
                     .cornerRadius(10)
                     .overlay(
