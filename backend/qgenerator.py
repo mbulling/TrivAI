@@ -27,14 +27,14 @@ def get_mcqs_passage(passage, num_questions):
     Create %d questions about the following passage in exactly the following json format, which is surrounded in brackets. Make sure each question has exactly 4 answer choices. Do not output anything other than the questions in the specified format:
     [
         {
-            'question': question,
-            'options': [option 0, option 1, option 2, option 3],
-            'answer_id': answer_id
+            "question": question,
+            "options": [option 0, option 1, option 2, option 3],
+            "answer_id": answer_id
         },
         {
-            'question': question,
-            'options': [option 0, option 1, option 2, option 3],
-            'answer_id': answer_id
+            "question": question,
+            "options": [option 0, option 1, option 2, option 3],
+            "answer_id": answer_id
         }, ...
     ]
     Passage: %s
