@@ -20,9 +20,10 @@ struct NetworkTesting: View {
     
     var body: some View {
             VStack() {
-                TextField("User Input", text: $user_input).textInputAutocapitalization(.never).disableAutocorrection(true).frame(height: 48)
+                TextField("User Input...", text: $user_input).textInputAutocapitalization(.never).disableAutocorrection(true).frame(width: 320.0, height: 400.0)
+//                    .background(Color("background"))
                     .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 6))
-                    .cornerRadius(5)
+                    .cornerRadius(10)
                     .overlay(
                         RoundedRectangle(cornerRadius: 5)
                             .stroke(lineWidth: 1.0)
@@ -38,7 +39,16 @@ struct NetworkTesting: View {
                         }
                     }
                 }) {
-                    Text("Press").font(.system(size: 30)).background(Color.white).foregroundColor(Color("background3")).padding()
+                    Text("Press")
+                        .font(.system(size:30))
+                        .bold()
+//                        .background(Color.white)
+                        .foregroundColor(Color.white)
+                        .frame(width: 340.0, height: 70.0)
+                        .background(Color("background4"))
+                        .cornerRadius(10)
+                        .shadow(radius: 20)
+                        .padding()
                 }.sheet(item: $questionListWrapper) { wrapper in
                     QuestionsView(info: quizInfo, questions: wrapper.questions) {
                         // some action
