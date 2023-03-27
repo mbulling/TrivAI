@@ -134,15 +134,15 @@ struct Course: Identifiable {
 
 let coursesData = [
    Course(title: "Your Quizzes",
-          image: "Illustration1",
+          image: "myQuiz",
           color: Color("background3"),
           shadowColor: Color("backgroundShadow3")),
    Course(title: "Create a Quiz",
-          image: "Illustration2",
+          image: "newQuiz",
           color: Color("background4"),
           shadowColor: Color("backgroundShadow4")),
    Course(title: "Scan page",
-          image: "Illustration3",
+          image: "myCamera",
           color: Color("background7"),
           shadowColor: Color(hue: 0.677, saturation: 0.701, brightness: 0.788, opacity: 0.5)),
 ]
