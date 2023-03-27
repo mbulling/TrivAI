@@ -27,7 +27,7 @@ struct NetworkTesting: View {
                 TextField("Enter Any Topic", text:$user_input)
                     .textInputAutocapitalization(.never)
                     .disableAutocorrection(true)
-                    .frame(width: 310.0, height: 40.0)
+                    .frame(width: 320.0, height: 40.0)
                     .padding(EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8))
                     .cornerRadius(10)
                     .overlay(
