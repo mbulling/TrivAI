@@ -20,11 +20,15 @@ struct NetworkTesting: View {
     
     var body: some View {
             VStack() {
-                TextField("User Input...", text:$user_input)
+                Text("Choose Topic")
+                    .font(.system(size:40))
+                    .foregroundColor(Color.black)
+                    .bold()
+                TextField("Enter Any Topic", text:$user_input)
                     .textInputAutocapitalization(.never)
                     .disableAutocorrection(true)
-                    .frame(width: 320.0, height: 400.0)
-                    .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 6))
+                    .frame(width: 310.0, height: 40.0)
+                    .padding(EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8))
                     .cornerRadius(10)
                     .overlay(
                         RoundedRectangle(cornerRadius: 5)
@@ -41,7 +45,7 @@ struct NetworkTesting: View {
                         }
                     }
                 }) {
-                    Text("Press")
+                    Text("Create Quiz")
                         .font(.system(size:30))
                         .bold()
 //                        .background(Color.white)
