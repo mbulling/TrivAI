@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		285418C1F95034DB3B868C98 /* Pods_trivai.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B64EF59EBC28A11317F778C9 /* Pods_trivai.framework */; };
+		89BF731729C7BA2500A91373 /* ScanData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BF731629C7BA2500A91373 /* ScanData.swift */; };
+		89BF731929C7BA3C00A91373 /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BF731829C7BA3C00A91373 /* ScannerView.swift */; };
+		89BF731B29C7BA6200A91373 /* TextCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BF731A29C7BA6200A91373 /* TextCV.swift */; };
 		AB1D3B1C22D9CDEF00D0AEA6 /* HomeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1D3B1B22D9CDEF00D0AEA6 /* HomeList.swift */; };
 		AB62172722D870540039BC73 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62172622D870540039BC73 /* Home.swift */; };
 		ABB215DC22DB353800424B38 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB215DB22DB353800424B38 /* BlurView.swift */; };
@@ -23,6 +26,11 @@
 		ABE07CC522D74F5900D209BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABE07CC422D74F5900D209BE /* Assets.xcassets */; };
 		ABE07CC822D74F5900D209BE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABE07CC722D74F5900D209BE /* Preview Assets.xcassets */; };
 		ABE07CCB22D74F5900D209BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABE07CC922D74F5900D209BE /* LaunchScreen.storyboard */; };
+		BEFF394929C7B87E0075D833 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFF394829C7B87E0075D833 /* NetworkManager.swift */; };
+		BEFF394B29C7B8B10075D833 /* NetworkTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFF394A29C7B8B10075D833 /* NetworkTesting.swift */; };
+		BEFF394D29C7B8D60075D833 /* UserModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFF394C29C7B8D60075D833 /* UserModal.swift */; };
+		BEFF394F29C7B9E30075D833 /* TestQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFF394E29C7B9E30075D833 /* TestQuestion.swift */; };
+		F1135B7129C76B0200902784 /* TopicList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1135B7029C76B0200902784 /* TopicList.swift */; };
 		F86FD27829B405B800C95660 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86FD27729B405B800C95660 /* CustomButton.swift */; };
 		F86FD27A29B405C800C95660 /* ScoreCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86FD27929B405C800C95660 /* ScoreCardView.swift */; };
 		F86FD27C29B405DC00C95660 /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86FD27B29B405DC00C95660 /* Info.swift */; };
@@ -34,6 +42,9 @@
 
 /* Begin PBXFileReference section */
 		0CB402B2C9F34AD6FDF6BEBC /* Pods-trivai.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-trivai.release.xcconfig"; path = "Target Support Files/Pods-trivai/Pods-trivai.release.xcconfig"; sourceTree = "<group>"; };
+		89BF731629C7BA2500A91373 /* ScanData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanData.swift; sourceTree = "<group>"; };
+		89BF731829C7BA3C00A91373 /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
+		89BF731A29C7BA6200A91373 /* TextCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCV.swift; sourceTree = "<group>"; };
 		AB1D3B1B22D9CDEF00D0AEA6 /* HomeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeList.swift; sourceTree = "<group>"; };
 		AB62172622D870540039BC73 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		ABB215DB22DB353800424B38 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
@@ -52,7 +63,12 @@
 		ABE07CCA22D74F5900D209BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ABE07CCC22D74F5900D209BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B64EF59EBC28A11317F778C9 /* Pods_trivai.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_trivai.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEFF394829C7B87E0075D833 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		BEFF394A29C7B8B10075D833 /* NetworkTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTesting.swift; sourceTree = "<group>"; };
+		BEFF394C29C7B8D60075D833 /* UserModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModal.swift; sourceTree = "<group>"; };
+		BEFF394E29C7B9E30075D833 /* TestQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestion.swift; sourceTree = "<group>"; };
 		C19E717C64A04EA422DA5784 /* Pods-trivai.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-trivai.debug.xcconfig"; path = "Target Support Files/Pods-trivai/Pods-trivai.debug.xcconfig"; sourceTree = "<group>"; };
+		F1135B7029C76B0200902784 /* TopicList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicList.swift; sourceTree = "<group>"; };
 		F86FD27729B405B800C95660 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		F86FD27929B405C800C95660 /* ScoreCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreCardView.swift; sourceTree = "<group>"; };
 		F86FD27B29B405DC00C95660 /* Info.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
@@ -103,6 +119,7 @@
 		ABE07CBD22D74F5700D209BE /* trivai */ = {
 			isa = PBXGroup;
 			children = (
+				BEFF394729C7B8680075D833 /* Networking */,
 				F86FD28429B4072800C95660 /* main */,
 				F86FD27F29B405FC00C95660 /* quiz */,
 				ABE07CC422D74F5900D209BE /* Assets.xcassets */,
@@ -119,6 +136,17 @@
 				ABE07CC722D74F5900D209BE /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BEFF394729C7B8680075D833 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				BEFF394829C7B87E0075D833 /* NetworkManager.swift */,
+				BEFF394A29C7B8B10075D833 /* NetworkTesting.swift */,
+				BEFF394C29C7B8D60075D833 /* UserModal.swift */,
+				BEFF394E29C7B9E30075D833 /* TestQuestion.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		E375D72C51188F15684B1140 /* Pods */ = {
@@ -154,7 +182,11 @@
 				AB62172622D870540039BC73 /* Home.swift */,
 				AB1D3B1B22D9CDEF00D0AEA6 /* HomeList.swift */,
 				ABB215DD22DB713300424B38 /* UpdateList.swift */,
+				89BF731629C7BA2500A91373 /* ScanData.swift */,
+				F1135B7029C76B0200902784 /* TopicList.swift */,
 				ABB215DF22DB7F4700424B38 /* UpdateDetail.swift */,
+				89BF731829C7BA3C00A91373 /* ScannerView.swift */,
+				89BF731A29C7BA6200A91373 /* TextCV.swift */,
 				ABB215E122DC472900424B38 /* UpdateStore.swift */,
 				ABB215E522DC808A00424B38 /* Settings.swift */,
 				ABB215E722DC8ABD00424B38 /* CertificateRow.swift */,
@@ -283,14 +315,22 @@
 				F86FD27E29B405E000C95660 /* Question.swift in Sources */,
 				F86FD27A29B405C800C95660 /* ScoreCardView.swift in Sources */,
 				ABE07CBF22D74F5700D209BE /* AppDelegate.swift in Sources */,
+				89BF731729C7BA2500A91373 /* ScanData.swift in Sources */,
 				F86FD28329B4067200C95660 /* Load.swift in Sources */,
 				F86FD27C29B405DC00C95660 /* Info.swift in Sources */,
+				BEFF394F29C7B9E30075D833 /* TestQuestion.swift in Sources */,
+				BEFF394D29C7B8D60075D833 /* UserModal.swift in Sources */,
 				ABB215E222DC472900424B38 /* UpdateStore.swift in Sources */,
 				ABB215DE22DB713300424B38 /* UpdateList.swift in Sources */,
+				BEFF394B29C7B8B10075D833 /* NetworkTesting.swift in Sources */,
 				AB1D3B1C22D9CDEF00D0AEA6 /* HomeList.swift in Sources */,
+				F1135B7129C76B0200902784 /* TopicList.swift in Sources */,
 				F86FD28129B4064F00C95660 /* QuestionsView.swift in Sources */,
+				89BF731929C7BA3C00A91373 /* ScannerView.swift in Sources */,
 				ABB215E022DB7F4700424B38 /* UpdateDetail.swift in Sources */,
+				BEFF394929C7B87E0075D833 /* NetworkManager.swift in Sources */,
 				ABE07CC122D74F5700D209BE /* SceneDelegate.swift in Sources */,
+				89BF731B29C7BA6200A91373 /* TextCV.swift in Sources */,
 				AB62172722D870540039BC73 /* Home.swift in Sources */,
 				ABE07CC322D74F5700D209BE /* ContentView.swift in Sources */,
 				ABB215DC22DB353800424B38 /* BlurView.swift in Sources */,
@@ -438,7 +478,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "trivai/Preview\\ Content";
-				DEVELOPMENT_TEAM = 938P9VEDRD;
+				DEVELOPMENT_TEAM = 6MVK39584W;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = trivai/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -446,7 +486,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = mythxn.trivai;
+				PRODUCT_BUNDLE_IDENTIFIER = iramliu.trivai;
 				PRODUCT_MODULE_NAME = trivai;
 				PRODUCT_NAME = TrivAI;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -463,9 +503,9 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_ASSET_PATHS = "trivai/Preview\\ Content";
-				DEVELOPMENT_TEAM = 938P9VEDRD;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = trivai/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;

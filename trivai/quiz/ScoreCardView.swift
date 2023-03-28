@@ -29,7 +29,7 @@ struct ScoreCardView: View{
                         .font(.title.bold())
                         .padding(.bottom,10)
                     
-                    Image("Illustration5")
+                    Image("trophy")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(height: 175)

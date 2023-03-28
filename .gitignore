@@ -2,6 +2,7 @@ TrivAI/Constants.swift
 venv/
 backend/secrets.py
 backend/secret.py
+backend/trivai-backend.pem
 Pods/
 **/.DS_Store
 **/__pycache__
