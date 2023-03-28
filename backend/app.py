@@ -1,6 +1,5 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, request, jsonify
 import json
-import ast
 # from question import MCQ
 from user import User, UserType
 from qgenerator import get_mcqs_passage, get_mcqs_topic, get_tfs_topic, get_tfs_passage
@@ -8,25 +7,6 @@ from qgenerator import get_mcqs_passage, get_mcqs_topic, get_tfs_topic, get_tfs_
 app = Flask(__name__)
 
 MAX_QUESTIONS = 20
-
-
-@app.route('/', methods=['GET', 'POST'])
-def index():
-    if request.method == 'POST':
-        # Get the user input string from the form
-        user_input = request.form['user_input']
-
-        # Generate four multiple choice questions
-        questions = get_mcqs_passage(user_input)
-        questions_dict = ast.literal_eval(questions)
-
-        # Render the questions template with the questions and user input
-        return render_template('questions.html',
-                               questions=questions_dict,
-                               user_input=user_input)
-    else:
-        # Render the index template with a form for user input
-        return render_template('index.html')
 
 
 # get MCQs based on user-provided passage
