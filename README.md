@@ -21,7 +21,7 @@ To run the app locally, you will need to have the following:
 
 
 3. Set up your OpenAI API key by following the instructions in the [OpenAI API documentation](https://beta.openai.com/docs/api-reference/authentication).
-4. In the `backend` directory, create a `.env` file and add your OpenAI API key as follows:
+4. In the `backend` directory, create a `secrets.py` file and add your OpenAI API key as follows:
 
     ```OPENAI_API_KEY=<your-api-key-here>```
 
