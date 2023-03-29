@@ -1,11 +1,9 @@
 
 # TrivAI
 
-Front-end branch
-
 ## Description
 
-TrivAI is a CDS project using SwiftUI/Swift and a NLP model to create an "AI" powered version of Quizlet
+TrivAI is an iOS application that leverages LLMs to generate questions and study materials for a user. The backend utilizes a serverless architecture that enables reduced latency and more reliable responses.
 
 ## Getting Started
 
