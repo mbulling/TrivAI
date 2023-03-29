@@ -1,6 +1,6 @@
 # TrivAI
 
-TrivAI is an iOS app that allows users to generate quizzes based on any topic. The app is built using Xcode and connects to a Flask backend that utilizes the OpenAI API.
+TrivAI is an iOS application that leverages LLMs to generate questions and study materials for a user. The backend utilizes a serverless architecture that enables reduced latency and more reliable responses.
 
 ## Getting Started
 
@@ -41,9 +41,6 @@ If you would like to contribute to this project, please follow these steps:
 3. Commit and push your changes to your fork.
 4. Submit a pull request describing your changes and their purpose.
 
-## License
-
-This project is licensed under the MIT License - see the `LICENSE` file for details.
 
 
 
