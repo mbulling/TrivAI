@@ -1,6 +1,11 @@
 import openai
 import json
-from secret import mason_api_key
+
+try:
+    from secrets import OPENAI_API_KEY
+    mason_api_key = OPENAI_API_KEY
+except:
+    mason_api_key = 'no api key found'
 
 
 # get ChatGPT response to given prompt

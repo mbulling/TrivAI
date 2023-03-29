@@ -1,6 +1,11 @@
 import openai
 import json
-from secrets import mason_api_key
+
+try:
+    from secrets import OPENAI_API_KEY
+    mason_api_key = OPENAI_API_KEY
+except:
+    mason_api_key = 'no api key found'
 
 prompt = """
 Create 3 questions about Python (the programming language) in the following json format:
