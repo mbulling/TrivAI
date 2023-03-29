@@ -23,15 +23,12 @@ TrivAI is a CDS project using SwiftUI/Swift and a NLP model to create an "AI" po
 
 * Instructions to run backend (for Windows PowerShell) [backend]:
 
-- Install Python 3.8
-- `py -3.8 -m venv venv`
-- `.\venv\Scripts\activate`
-- `pip install -r requirements.txt`
-- `cd backend`
-- `wget https://github.com/explosion/sense2vec/releases/download/v1.0.0/s2v_reddit_2015_md.tar.gz -O s2v_reddit_2015_md.tar.gz`
-  - Note: This command downloads about 570 MB of data to the computer, so it will take a while to complete.
-- `tar -xvf s2v_reddit_2015_md.tar.gz`
-- `flask run`
+* Install Python 3.8
+* `py -3.8 -m venv venv`
+* `.\venv\Scripts\activate`
+* `cd backend`
+* `pip install -r requirements.txt`
+* `flask run`
 
 ## Help
 
@@ -44,19 +41,18 @@ Any advise for common problems or issues.
 
 Contributors names and contact info
 
-- Mason Bulling
-- Lisa Li
-- James Zhang
-- Vivian Chen
-- Abby Kim
-- Iram Liu
-- Eric Zhang
-- Kenneth Chiem
+* Mason Bulling
+* Lisa Li
+* James Zhang
+* Vivian Chen
+* Abby Kim
+* Iram Liu
+* Eric Zhang
+* Kenneth Chiem
 
 ## Version History
 
 * 0.2
-    * Created front-end linked to Quiz view (no database integration)
+  * Created front-end linked to Quiz view (no database integration)
 * 0.1
-    * First scratch front-end
-
+  * First scratch front-end
