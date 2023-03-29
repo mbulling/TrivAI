@@ -35,7 +35,7 @@ struct NetworkTesting: View {
                             .stroke(lineWidth: 1.0)
                     ).padding()
                 Button (action: {
-                    NetworkManager.testQuestions { questions, success, error in
+                    NetworkManager.createTopicQuestion(topic: user_input) { questions, success, error in
                         if (success) {
                             DispatchQueue.main.async {
                                 self.questionListWrapper = QuestionListWrapper(questions: questions ?? [])
