@@ -1,56 +1,53 @@
-
 # TrivAI
 
-## Description
-
-TrivAI is an iOS application that leverages LLMs to generate questions and study materials for a user. The backend utilizes a serverless architecture that enables reduced latency and more reliable responses.
+TrivAI is an iOS app that allows users to generate quizzes based on any topic. The app is built using Xcode and connects to a Flask backend that utilizes the OpenAI API.
 
 ## Getting Started
 
-### Dependencies
+### Prerequisites
 
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
+To run the app locally, you will need to have the following:
+
+- Xcode (version 13.2 or later)
+- Python (version 3.8 or later)
+- OpenAI API key
 
 ### Installing
 
-* How/where to download your program
-* Any modifications needed to be made to files/folders
+1. Clone this repository to your local machine.
+2. Navigate to the `backend` directory and install the required Python packages by running the following command:
 
-### Executing program
+      ```pip install -r requirements.txt```
 
-* Instructions to run backend (for Windows PowerShell) [backend]:
 
-* Install Python 3.8
-* `py -3.8 -m venv venv`
-* `.\venv\Scripts\activate`
-* `cd backend`
-* `pip install -r requirements.txt`
-* `flask run`
+3. Set up your OpenAI API key by following the instructions in the [OpenAI API documentation](https://beta.openai.com/docs/api-reference/authentication).
+4. In the `backend` directory, create a `.env` file and add your OpenAI API key as follows:
 
-## Help
+    ```OPENAI_API_KEY=<your-api-key-here>```
 
-Any advise for common problems or issues.
 
-* Try Mason's master requirements.txt file
-* Delete ```hinglish```
+### Running the App
 
-## Authors
+1. Open the `TrivAI.xcworkspace` file in Xcode.
+2. Build and run the app on your desired device or simulator.
+3. Use the app to generate quizzes and test your knowledge!
 
-Contributors names and contact info
+## Contributing
 
-* Mason Bulling
-* Lisa Li
-* James Zhang
-* Vivian Chen
-* Abby Kim
-* Iram Liu
-* Eric Zhang
-* Kenneth Chiem
+If you would like to contribute to this project, please follow these steps:
 
-## Version History
+1. Fork this repository.
+2. Create a new branch with your proposed changes.
+3. Commit and push your changes to your fork.
+4. Submit a pull request describing your changes and their purpose.
 
-* 0.2
-  * Created front-end linked to Quiz view (no database integration)
-* 0.1
-  * First scratch front-end
+## License
+
+This project is licensed under the MIT License - see the `LICENSE` file for details.
+
+
+
+
+
+
+
