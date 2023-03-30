@@ -11,8 +11,9 @@ import Alamofire
 class NetworkManager {
     
     static let host = "http://100.26.175.163:5000"
+    static let local_host = "http://10.48.21.136:3000"
     
-    // Testing an endpoint
+    // Testing
     static func testQuestions(completion: @escaping ([Question]?, Bool, _ errorMsg: String?) -> Void) {
         let endpoint = "\(host)/questions"
     
@@ -32,12 +33,38 @@ class NetworkManager {
         }
     }
     
-    // Create multiple choice questions based on topic
-    static func createTopicQuestion(topic: String, completion: @escaping ([Question]?, Bool, _ errorMsg: String?) -> Void) {
+    
+    // Create multiple choice questions
+    static func createQuestions(user_input: String, completion: @escaping ([Question]?, Bool, _ errorMsg: String?) -> Void) {
         let endpoint = "\(host)/mcq/topic"
+    
+        let params : Parameters = [
+            "user_input": user_input
+        ]
+        
+        AF.request(endpoint, method: .post, parameters: params, encoding: JSONEncoding.default).validate().responseData {
+            response in
+            switch response.result {
+            case .success(let data):
+                let jsonDecoder = JSONDecoder()
+                if let userResponse = try? jsonDecoder.decode([Question].self, from: data) {
+                    completion(userResponse, true, nil)
+                } else {
+                    print("Failed to decode question")
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    // Create multiple choice questions based on topic
+    static func createTopicQuestion(topic: String, num_questions: Int, completion: @escaping ([Question]?, Bool, _ errorMsg: String?) -> Void) {
+        let endpoint = "\(local_host)/mcq/topic/"
         
         let params : Parameters = [
-            "topic": topic
+            "topic": topic,
+            "num_questions": num_questions
         ]
         
         AF.request(endpoint, method: .post, parameters: params, encoding: JSONEncoding.default).validate().responseData {
@@ -57,11 +84,12 @@ class NetworkManager {
     }
     
     // Create true/false question
-    static func createTFQuestion(user_input: String, completion: @escaping ([Question]?, Bool, _ errorMsg: String?) -> Void) {
-        let endpoint = "\(host)/tf/topic"
+    static func createTFQuestion(topic: String, num_questions: Int, completion: @escaping ([Question]?, Bool, _ errorMsg: String?) -> Void) {
+        let endpoint = "\(host)/tf/topic/"
         
         let params : Parameters = [
-            "user_input": user_input
+            "topic": topic,
+            "num_questions": num_questions
         ]
         
         AF.request(endpoint, method: .post, parameters: params, encoding: JSONEncoding.default).validate().responseData {

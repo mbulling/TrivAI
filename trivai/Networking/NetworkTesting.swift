@@ -11,89 +11,109 @@ import SwiftUI
 struct NetworkTesting: View {
     
     @State private var user_input: String = ""
-    @State private var questionList: [Question]? = []
+    @State private var questionList: [Question]? = [
+        Question(question: "What notation describes a derivative?", options: ["d/dx", "dd", "dxd", "xdx"], answer_id: 0),
+        Question(question: "What is the derivative of 2x?", options: ["0", "1", "x", "2"], answer_id: 3),
+        ]
     @State private var questionListWrapper: QuestionListWrapper? = nil
     @State private var quizInfo: Info = Info(title: "Testing", peopleAttended: 100, rules: ["Answer the questions carefully"])
+    @State var numQuestions: Double = 3
+    @State var selectedOption: String = "MCQ"
+    let options = ["MCQ", "T/F"]
     
     var body: some View {
             VStack() {
-                Text("Creation").font(.system(size: 50, weight: .bold)).foregroundColor(Color(hex: "#9900ff")).padding()
-                Spacer()
-                TextField("Input Context", text: $user_input).textInputAutocapitalization(.never).disableAutocorrection(true).frame(height: 48)
-                    .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 6))
-                    .cornerRadius(5)
+                Text("Choose Topic")
+                    .font(.system(size:40))
+                    .foregroundColor(Color.black)
+                    .bold()
+                TextField("Enter Any Topic", text:$user_input)
+                    .textInputAutocapitalization(.never)
+                    .disableAutocorrection(true)
+                    .frame(width: 320.0, height: 40.0)
+                    .padding(EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8))
+                    .cornerRadius(10)
                     .overlay(
                         RoundedRectangle(cornerRadius: 5)
                             .stroke(lineWidth: 1.0)
                     ).padding()
-                HStack() {
-                    Button (action: {
-                        // generate questions from user_input
-                        NetworkManager.createTopicQuestion(topic: user_input, completion: { questions, success, error in
-                            if (success) {
-                                DispatchQueue.main.async {
-                                    self.questionListWrapper = QuestionListWrapper(questions: questions ?? [])
-                                }
-                            } else {
-                                print("Error decoding question")
+                VStack {
+                    Text("\(numQuestions, specifier: "%.0f") questions")
+                    Slider(value: $numQuestions, in: 1...10)
+                    
+                }.padding()
+                // Radio buttons to choose between T/F or MCQ questions
+                HStack {
+                    VStack {
+                        ForEach(options, id: \.self) { option in
+                            HStack {
+                                Text(option).padding(.trailing, 20).font(.system(size: 15)).foregroundColor(Color.cyan)
+                                RadioCircle(selected: option == selectedOption)
                             }
-                        })
-                    }) {
-                        Text("Create MCQ").font(.system(size: 20)).background(Color.white).foregroundColor(Color("background3")).padding()
-                    }.sheet(item: $questionListWrapper) { wrapper in
-                        QuestionsView(info: quizInfo, questions: wrapper.questions) {
-                            // some action
-                        }
-                    }
-                    Button (action: {
-                        // generate questions from user_input
-                        NetworkManager.createTFQuestion(user_input: user_input, completion: { questions, success, error in
-                            if (success) {
-                                DispatchQueue.main.async {
-                                    self.questionListWrapper = QuestionListWrapper(questions: questions ?? [])
-                                }
-                            } else {
-                                print("Error decoding question")
+                            .onTapGesture {
+                                selectedOption = option
                             }
-                        })
-                    }) {
-                        Text("Create T/F Questions").font(.system(size: 20)).background(Color.white).foregroundColor(Color("background3")).padding()
-                    }.sheet(item: $questionListWrapper) { wrapper in
-                        QuestionsView(info: quizInfo, questions: wrapper.questions) {
-                            // some action
                         }
                     }
                 }
-                
-                Spacer()
+                .padding()
+                Button (action: {
+                    if (selectedOption == "MCQ") {
+                        NetworkManager.createTopicQuestion(topic: user_input, num_questions: Int(numQuestions+0.49)) { questions, success, error in
+                            if (success) {
+                                DispatchQueue.main.async {
+                                    self.questionListWrapper = QuestionListWrapper(questions: questions ?? [])
+                                }
+                            } else {
+                                print("Error decoding question")
+                            }
+                        }
+                    } else {
+                        print("Performing true/false question generation")
+                        NetworkManager.createTFQuestion(topic: user_input, num_questions: Int(numQuestions+0.49)) { questions, success, error in
+                            if (success) {
+                                DispatchQueue.main.async {
+                                    self.questionListWrapper = QuestionListWrapper(questions: questions ?? [])
+                                }
+                            } else {
+                                print("Error decoding question")
+                            }
+                        }
+                    }
+                }) {
+                    Text("Create Quiz")
+                        .font(.system(size:30))
+                        .bold()
+                        .foregroundColor(Color.white)
+                        .frame(width: 340.0, height: 70.0)
+                        .background(Color("background4"))
+                        .cornerRadius(10)
+                        .shadow(radius: 20)
+                        .padding()
+                }.sheet(item: $questionListWrapper) { wrapper in
+                    QuestionsView(info: quizInfo, questions: wrapper.questions) {
+                        // some action
+                    }
+                }
             }
         }
 }
 
-extension Color {
-    init(hex: String) {
-        let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
-        var int: UInt64 = 0
-        Scanner(string: hex).scanHexInt64(&int)
-        let a, r, g, b: UInt64
-        switch hex.count {
-        case 3: // RGB (12-bit)
-            (a, r, g, b) = (255, (int >> 8) * 17, (int >> 4 & 0xF) * 17, (int & 0xF) * 17)
-        case 6: // RGB (24-bit)
-            (a, r, g, b) = (255, int >> 16, int >> 8 & 0xFF, int & 0xFF)
-        case 8: // ARGB (32-bit)
-            (a, r, g, b) = (int >> 24, int >> 16 & 0xFF, int >> 8 & 0xFF, int & 0xFF)
-        default:
-            (a, r, g, b) = (1, 1, 1, 0)
-        }
+struct RadioCircle: View {
+    var selected: Bool
 
-        self.init(
-            .sRGB,
-            red: Double(r) / 255,
-            green: Double(g) / 255,
-            blue:  Double(b) / 255,
-            opacity: Double(a) / 255
-        )
+    var body: some View {
+        ZStack {
+            Circle()
+                .stroke(selected ? Color.blue : Color.gray, lineWidth: 2)
+                .frame(width: 20, height: 20)
+
+            if selected {
+                Circle()
+                    .fill(Color.blue)
+                    .frame(width: 12, height: 12)
+            }
+        }
     }
 }
 
