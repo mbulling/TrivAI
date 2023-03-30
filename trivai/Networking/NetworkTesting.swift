@@ -11,10 +11,7 @@ import SwiftUI
 struct NetworkTesting: View {
     
     @State private var user_input: String = ""
-    @State private var questionList: [Question]? = [
-        Question(question: "What notation describes a derivative?", options: ["d/dx", "dd", "dxd", "xdx"], answer_id: 0),
-        Question(question: "What is the derivative of 2x?", options: ["0", "1", "x", "2"], answer_id: 3),
-        ]
+    @State private var questionList: [Question]? = []
     @State private var questionListWrapper: QuestionListWrapper? = nil
     @State private var quizInfo: Info = Info(title: "Testing", peopleAttended: 100, rules: ["Answer the questions carefully"])
     
@@ -29,22 +26,42 @@ struct NetworkTesting: View {
                         RoundedRectangle(cornerRadius: 5)
                             .stroke(lineWidth: 1.0)
                     ).padding()
-                Button (action: {
-                    // generate questions from user_input
-                    NetworkManager.createTopicQuestion(topic: user_input, completion: { questions, success, error in
-                        if (success) {
-                            DispatchQueue.main.async {
-                                self.questionListWrapper = QuestionListWrapper(questions: questions ?? [])
+                HStack() {
+                    Button (action: {
+                        // generate questions from user_input
+                        NetworkManager.createTopicQuestion(topic: user_input, completion: { questions, success, error in
+                            if (success) {
+                                DispatchQueue.main.async {
+                                    self.questionListWrapper = QuestionListWrapper(questions: questions ?? [])
+                                }
+                            } else {
+                                print("Error decoding question")
                             }
-                        } else {
-                            print("Error decoding question")
+                        })
+                    }) {
+                        Text("Create MCQ").font(.system(size: 20)).background(Color.white).foregroundColor(Color("background3")).padding()
+                    }.sheet(item: $questionListWrapper) { wrapper in
+                        QuestionsView(info: quizInfo, questions: wrapper.questions) {
+                            // some action
                         }
-                    })
-                }) {
-                    Text("Press").font(.system(size: 30)).background(Color.white).foregroundColor(Color("background3")).padding()
-                }.sheet(item: $questionListWrapper) { wrapper in
-                    QuestionsView(info: quizInfo, questions: wrapper.questions) {
-                        // some action
+                    }
+                    Button (action: {
+                        // generate questions from user_input
+                        NetworkManager.createTFQuestion(user_input: user_input, completion: { questions, success, error in
+                            if (success) {
+                                DispatchQueue.main.async {
+                                    self.questionListWrapper = QuestionListWrapper(questions: questions ?? [])
+                                }
+                            } else {
+                                print("Error decoding question")
+                            }
+                        })
+                    }) {
+                        Text("Create T/F Questions").font(.system(size: 20)).background(Color.white).foregroundColor(Color("background3")).padding()
+                    }.sheet(item: $questionListWrapper) { wrapper in
+                        QuestionsView(info: quizInfo, questions: wrapper.questions) {
+                            // some action
+                        }
                     }
                 }
                 
