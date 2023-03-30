@@ -17,7 +17,7 @@ struct TopicList: View {
     @State private var questionListWrapper: QuestionListWrapper? = nil
     
     func getTopics() {
-        AF.request("http://127.0.0.1:5000/topics").responseJSON { response in
+        AF.request("http://10.48.21.136:3000/topics").responseJSON { response in
             print(response.result)
             switch response.result {
             case .success(let value):
@@ -52,7 +52,7 @@ struct TopicList: View {
                     ScrollView(.vertical, showsIndicators: false) {
                     ForEach(topicList, id: \.self) { topic in
                         Button (action: {
-                            NetworkManager.createTopicQuestion(topic: topic) { questions, success, error in
+                            NetworkManager.createTopicQuestion(topic: topic, num_questions: 3) { questions, success, error in
                                 if (success) {
                                     DispatchQueue.main.async {
                                         self.questionListWrapper = QuestionListWrapper(questions: questions ?? [])

@@ -11,7 +11,7 @@ import Alamofire
 class NetworkManager {
     
     static let host = "http://100.26.175.163:5000"
-    static let local_host = "http://127.0.0.1:5000"
+    static let local_host = "http://10.48.21.136:3000"
     
     // Testing
     static func testQuestions(completion: @escaping ([Question]?, Bool, _ errorMsg: String?) -> Void) {
@@ -59,12 +59,12 @@ class NetworkManager {
     }
     
     // Create multiple choice questions based on topic
-    static func createTopicQuestion(topic: String, completion: @escaping ([Question]?, Bool, _ errorMsg: String?) -> Void) {
+    static func createTopicQuestion(topic: String, num_questions: Int, completion: @escaping ([Question]?, Bool, _ errorMsg: String?) -> Void) {
         let endpoint = "\(local_host)/mcq/topic/"
         
         let params : Parameters = [
             "topic": topic,
-            "num_questions": 3
+            "num_questions": num_questions
         ]
         
         AF.request(endpoint, method: .post, parameters: params, encoding: JSONEncoding.default).validate().responseData {

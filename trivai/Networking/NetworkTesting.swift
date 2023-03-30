@@ -17,6 +17,7 @@ struct NetworkTesting: View {
         ]
     @State private var questionListWrapper: QuestionListWrapper? = nil
     @State private var quizInfo: Info = Info(title: "Testing", peopleAttended: 100, rules: ["Answer the questions carefully"])
+    @State var numQuestions: Double = 3
     
     var body: some View {
             VStack() {
@@ -34,8 +35,13 @@ struct NetworkTesting: View {
                         RoundedRectangle(cornerRadius: 5)
                             .stroke(lineWidth: 1.0)
                     ).padding()
+                VStack {
+                    Text("\(numQuestions, specifier: "%.0f") questions")
+                    Slider(value: $numQuestions, in: 1...10)
+                    
+                }.padding()
                 Button (action: {
-                    NetworkManager.createTopicQuestion(topic: user_input) { questions, success, error in
+                    NetworkManager.createTopicQuestion(topic: user_input, num_questions: Int(numQuestions+0.49)) { questions, success, error in
                         if (success) {
                             DispatchQueue.main.async {
                                 self.questionListWrapper = QuestionListWrapper(questions: questions ?? [])
@@ -48,7 +54,6 @@ struct NetworkTesting: View {
                     Text("Create Quiz")
                         .font(.system(size:30))
                         .bold()
-//                        .background(Color.white)
                         .foregroundColor(Color.white)
                         .frame(width: 340.0, height: 70.0)
                         .background(Color("background4"))
