@@ -88,24 +88,25 @@ struct CardView: View {
 
 struct CertificateView: View {
 
-   var item = Certificate(title: "UI Design", image: "Certificate1", width: 340, height: 220)
+    var item: String = "Math"//Certificate(title: "UI Design", image: "Certificate1", width: 340, height: 220)
 
    var body: some View {
       return VStack {
-         Image(item.image)
-              .resizable()
-            .aspectRatio(contentMode: .fit)
-            .frame(minWidth: 0, maxWidth: 280, minHeight: 0, maxHeight: 180)
-            .offset(y: 10)
-            .overlay(Text(item.title)
-                .font(.headline)
+//         Image(item.image)
+//              .resizable()
+//            .aspectRatio(contentMode: .fit)
+//            .frame(minWidth: 0, maxWidth: 280, minHeight: 0, maxHeight: 180)
+//            .offset(y: 10)
+//            .overlay(
+                Text(item)
+              .font(.system(size: 25))
                 .fontWeight(.bold)
-                .foregroundColor(Color.black)
+                .foregroundColor(Color.white)
                 .padding()
-                .offset(y: -5), alignment: .topLeading)
+                .offset(y: -5)//, alignment: .topLeading)
       }
-      .frame(width: CGFloat(item.width), height: CGFloat(item.height))
-      .background(Color.white)
+      .frame(width: CGFloat(280), height: CGFloat(180))
+      .background(Color("background3"))
       .cornerRadius(10)
       .shadow(radius: 10)
    }
@@ -126,6 +127,7 @@ struct TitleView: View {
 }
 
 struct CardBottomView: View {
+    var cards: [String] = []
    var body: some View {
       return VStack(spacing: 20.0) {
          Rectangle()

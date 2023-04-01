@@ -82,7 +82,6 @@ class NetworkManager {
                 print(error.localizedDescription)
             }
         }
-        Text("Loading...")
     }
     
     // Create true/false question
@@ -94,6 +93,27 @@ class NetworkManager {
         ]
         
         AF.request(endpoint, method: .post, parameters: params, encoding: JSONEncoding.default).validate().responseData {
+            response in
+            switch response.result {
+            case .success(let data):
+                let jsonDecoder = JSONDecoder()
+                if let userResponse = try? jsonDecoder.decode([Question].self, from: data) {
+                    completion(userResponse, true, nil)
+                } else {
+                    print("Failed to decode true false questions")
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    // Get topics
+    static func getTopics(completion: @escaping ([Question]?, Bool, _ errorMsg: String?) -> Void) {
+        let endpoint = "\(host)/topics/"
+        
+        
+        AF.request(endpoint, method: .post, encoding: JSONEncoding.default).validate().responseData {
             response in
             switch response.result {
             case .success(let data):
