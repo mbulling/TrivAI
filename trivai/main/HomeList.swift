@@ -22,9 +22,10 @@ struct HomeList: View {
              Text("Explore")
                 .fontWeight(.heavy)
                 .font(.system(size: 30))
-                .offset(y: -10)
+                .offset(y: -15)
                 .hAlign(.leading)
                 .padding(.leading, 30)
+                .padding(.top, 35)
              VStack {
                  ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 30.0) {
