@@ -7,11 +7,12 @@
 //
 
 import Alamofire
+import SwiftUI
 
 class NetworkManager {
     
     static let host = "http://100.26.175.163:5000"
-    static let local_host = "http://10.48.21.136:3000"
+    static let local_host = "http://192.168.4.43:3000"
     
     // Testing
     static func testQuestions(completion: @escaping ([Question]?, Bool, _ errorMsg: String?) -> Void) {
@@ -81,6 +82,7 @@ class NetworkManager {
                 print(error.localizedDescription)
             }
         }
+        Text("Loading...")
     }
     
     // Create true/false question
