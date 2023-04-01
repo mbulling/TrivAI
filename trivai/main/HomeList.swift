@@ -19,9 +19,10 @@ struct HomeList: View {
    var body: some View {
       ScrollView {
          VStack {
-             Text("TrivAI")
+             Text("Explore")
                 .fontWeight(.heavy)
-                .font(.system(size: 55))
+                .font(.system(size: 30))
+                .offset(y: -10)
                 .hAlign(.leading)
                 .padding(.leading, 30)
              VStack {
@@ -73,7 +74,7 @@ struct HomeList: View {
              }.offset(y: -15)
             
          }
-         .padding(.top, 70)
+         .padding(.top, 55)
         
           VStack {
               CertificateRow()
@@ -133,10 +134,10 @@ struct Course: Identifiable {
 }
 
 let coursesData = [
-   Course(title: "Your Quizzes",
-          image: "myQuiz",
-          color: Color("background3"),
-          shadowColor: Color("backgroundShadow3")),
+//   Course(title: "Your Quizzes",
+//          image: "myQuiz",
+//          color: Color("background3"),
+//          shadowColor: Color("backgroundShadow3")),
    Course(title: "Create a Quiz",
           image: "newQuiz",
           color: Color("background4"),

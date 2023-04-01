@@ -40,6 +40,7 @@ struct CertificateRow: View {
         NetworkManager.createTopicQuestion(topic: topic, num_questions: 3) { questions, success, error in
             if (success) {
                 self.loading = false
+                self.quizInfo.title = topic
                 DispatchQueue.main.async {
                     self.questionListWrapper = QuestionListWrapper(questions: questions ?? [])
                 }
@@ -68,7 +69,7 @@ struct CertificateRow: View {
                         }) {
                             CertificateView(item: topic)
                         }.sheet(item: $questionListWrapper) { wrapper in
-                            QuestionsView(info: quizInfo, questions: wrapper.questions) {
+                            QuestionsView(info: Info(title: topic, peopleAttended: 100, rules: ["Answer the questions carefully"]), questions: wrapper.questions) {
                                 // some action
                             }
                         }
