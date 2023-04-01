@@ -142,9 +142,9 @@ let coursesData = [
    Course(title: "Create a Quiz",
           image: "newQuiz",
           color: Color("background4"),
-          shadowColor: Color("backgroundShadow4")),
-   Course(title: "Scan page",
-          image: "myCamera",
-          color: Color("background7"),
-          shadowColor: Color(hue: 0.677, saturation: 0.701, brightness: 0.788, opacity: 0.5)),
+          shadowColor: Color("backgroundShadow4"))
+//   Course(title: "Scan page",
+//          image: "myCamera",
+//          color: Color("background7"),
+//          shadowColor: Color(hue: 0.677, saturation: 0.701, brightness: 0.788, opacity: 0.5)),
 ]
