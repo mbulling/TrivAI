@@ -23,6 +23,7 @@ struct Load: View {
                 VStack {
                     Text(info.title)
                         //.font(.title)
+                        .textCase(.uppercase)
                         .fontWeight(.semibold)
                         .scaledToFill()
                         .font(.system(size: 42))

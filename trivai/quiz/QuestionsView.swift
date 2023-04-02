@@ -32,6 +32,7 @@ struct QuestionsView: View {
 
             Text(info.title)
                 .font(.title)
+                .textCase(.uppercase)
                 .fontWeight(.semibold)
                 .hAlign(.leading)
                 .foregroundColor(Color.white)

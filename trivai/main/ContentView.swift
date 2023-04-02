@@ -101,6 +101,7 @@ struct CertificateView: View {
                 Text(item)
               .font(.system(size: 25))
                 .fontWeight(.bold)
+                .textCase(.uppercase)
                 .foregroundColor(Color.white)
                 .padding()
                 .offset(y: -5)//, alignment: .topLeading)
