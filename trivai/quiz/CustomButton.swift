@@ -2,12 +2,11 @@
 //  CustomButton.swift
 //  TrivAI
 //
-//  Created by Ryan Ho on 02/24/2023.
+//  Created by Mason Bulling on 04/02/2023.
 //
 
 import SwiftUI
 
-// MARK: Reusable Custom Button (Ignores Safe Area)
 struct CustomButton: View{
     var title: String
     var onClick: ()->()

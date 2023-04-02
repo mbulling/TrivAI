@@ -16,7 +16,7 @@ struct CertificateRow: View {
     @State private var loading = false
     
     func getTopics() {
-        AF.request("http://192.168.4.43:3000/topics").responseJSON { response in
+        AF.request("http://127.0.0.1:5000/topics").responseJSON { response in
             print(response.result)
             switch response.result {
             case .success(let value):
@@ -36,11 +36,11 @@ struct CertificateRow: View {
     }
     
     func makeQuestions(topic: String, num_questions: Int) {
+        self.quizInfo.title = topic
         self.loading = true
         NetworkManager.createTopicQuestion(topic: topic, num_questions: 3) { questions, success, error in
             if (success) {
                 self.loading = false
-                self.quizInfo.title = topic
                 DispatchQueue.main.async {
                     self.questionListWrapper = QuestionListWrapper(questions: questions ?? [])
                 }
@@ -80,7 +80,7 @@ struct CertificateRow: View {
                  .padding(.leading, 10)
               }
            }
-           .sheet(isPresented: $loading) { Text("Loading...") }
+           .sheet(isPresented: $loading) { LoadingView() }
            .onAppear {
                self.getTopics()
            }

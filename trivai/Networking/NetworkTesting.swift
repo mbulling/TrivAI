@@ -21,10 +21,10 @@ struct NetworkTesting: View {
     @State var apiCall = false
     
     func call_api() {
+        self.quizInfo.title = user_input
         self.apiCall = true
         NetworkManager.createTopicQuestion(topic: user_input, num_questions: Int(numQuestions+0.49)) { questions, success, error in
             if (success) {
-                self.quizInfo.title = user_input
                 self.apiCall = false
                 DispatchQueue.main.async {
                     self.questionListWrapper = QuestionListWrapper(questions: questions ?? [])
@@ -38,12 +38,38 @@ struct NetworkTesting: View {
     
     var body: some View {
             VStack() {
-                if(self.apiCall == false){
+                VStack {
                     Text("Choose Topic")
                         .font(.system(size:40))
-                        .foregroundColor(Color.black)
+                        .foregroundColor(Color.white)
                         .bold()
-                    TextField("Enter Any Topic", text:$user_input)
+                        .padding()
+                        .padding(.bottom, 20)
+                        .padding(.top, 10)
+                        .background(Color("background3"))
+                        .frame(maxWidth: .infinity)
+                }
+                .background(Color("background3"))
+                .frame(maxWidth: .infinity)
+                
+                    
+                
+                    Spacer()
+                VStack {
+                    Text("\(numQuestions, specifier: "%.0f") QUESTIONS")
+                       .font(.caption)
+                       .fontWeight(.bold)
+                       .foregroundColor(.gray)
+                    Slider(value: $numQuestions, in: 1...10)
+                    
+                }
+                .padding(.leading, 50)
+                .padding(.trailing, 50)
+                
+                    TextField("ENTER TOPIC", text:$user_input)
+                        .font(.system(size:25))
+                        .fontWeight(.bold)
+                        .foregroundColor(.gray)
                         .textInputAutocapitalization(.never)
                         .disableAutocorrection(true)
                         .frame(width: 320.0, height: 40.0)
@@ -52,12 +78,13 @@ struct NetworkTesting: View {
                         .overlay(
                             RoundedRectangle(cornerRadius: 5)
                                 .stroke(lineWidth: 1.0)
+                                .border(Color("background3"))
                         ).padding()
-                    VStack {
-                        Text("\(numQuestions, specifier: "%.0f") questions")
-                        Slider(value: $numQuestions, in: 1...10)
-                        
-                    }.padding()
+                    
+                    
+                    Spacer()
+                
+                VStack {
                     Button (action: {
                         self.call_api()
                     }) {
@@ -69,17 +96,30 @@ struct NetworkTesting: View {
                             .background(Color("background4"))
                             .cornerRadius(10)
                             .shadow(radius: 20)
+                            .background(Color("background3")).padding(EdgeInsets(top: 30, leading: 10, bottom: 0, trailing: 10))
                             .padding()
                     }.sheet(item: $questionListWrapper) { wrapper in
-                        QuestionsView(info: quizInfo, questions: wrapper.questions) {
+                        QuestionsView(info: Info(title: self.user_input, peopleAttended: 100, rules: ["Answer the questions carefully"]), questions: wrapper.questions) {
                             // some action
                         }
                     }
-                } else {
-                    Text("Loading...")
+                    .sheet(isPresented: $apiCall) {
+                        LoadingView()
+                    }
                 }
+                .background(Color("background3")).padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
+                
+                    
+                
                 }
                 
         }
 }
 
+#if DEBUG
+struct NetworkTesting_Previews: PreviewProvider {
+   static var previews: some View {
+      NetworkTesting()
+   }
+}
+#endif

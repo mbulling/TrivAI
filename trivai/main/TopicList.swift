@@ -17,7 +17,7 @@ struct TopicList: View {
     @State private var questionListWrapper: QuestionListWrapper? = nil
     
     func getTopics() {
-        AF.request("http://192.168.4.43:3000/topics").responseJSON { response in
+        AF.request("http://127.0.0.1:5000/topics").responseJSON { response in
             print(response.result)
             switch response.result {
             case .success(let value):

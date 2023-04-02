@@ -11,8 +11,7 @@ import SwiftUI
 
 class NetworkManager {
     
-    static let host = "http://100.26.175.163:5000"
-    static let local_host = "http://192.168.4.43:3000"
+    static let host = "http://127.0.0.1:5000"
     
     // Testing
     static func testQuestions(completion: @escaping ([Question]?, Bool, _ errorMsg: String?) -> Void) {
@@ -61,7 +60,7 @@ class NetworkManager {
     
     // Create multiple choice questions based on topic
     static func createTopicQuestion(topic: String, num_questions: Int, completion: @escaping ([Question]?, Bool, _ errorMsg: String?) -> Void) {
-        let endpoint = "\(local_host)/mcq/topic/"
+        let endpoint = "\(host)/beta_topics_mc"
         
         let params : Parameters = [
             "topic": topic,
@@ -110,7 +109,7 @@ class NetworkManager {
     
     // Get topics
     static func getTopics(completion: @escaping ([Question]?, Bool, _ errorMsg: String?) -> Void) {
-        let endpoint = "\(host)/topics/"
+        let endpoint = "\(host)/beta_get_topics/"
         
         
         AF.request(endpoint, method: .post, encoding: JSONEncoding.default).validate().responseData {
