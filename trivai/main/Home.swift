@@ -11,15 +11,30 @@ let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
 let statusBarHeight = window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
 let screen = UIScreen.main.bounds
 
+
 struct Home: View {
     
-    @State var show = false
+    @State var show = (LocalStorage.myValue == "")
     @State var showProfile = false
+    @State var userName: String = LocalStorage.myValue
+    @State var name = ""
+    
+    init() {
+        if LocalStorage.myValue != "" {
+            self.name = LocalStorage.myValue
+            self.show = true
+        }
+    }
+    
+    func setName(name: String) {
+        LocalStorage.myValue = name
+        show = false
+    }
     
     var body: some View {
        
         ZStack(alignment: .top) {
-            HomeList()
+            HomeList(name: name)
                 .blur(radius: show ? 20 : 0)
                 .scaleEffect(showProfile ? 0.95 : 1)
                 .animation(.default)
@@ -35,8 +50,87 @@ struct Home: View {
         }
         .background(Color("background"))
         .edgesIgnoringSafeArea(.all)
+        .sheet(isPresented: $show) {
+            VStack(alignment: .leading) {
+                
+                Text("What is your first name?")
+                    .fontWeight(.heavy)
+                    .padding(.top, 30)
+                    .foregroundColor(Color("background3"))
+                    //.hAlign(.leading)
+                    .padding(.leading, 30)
+                    .font(.system(size: 40))
+                    .minimumScaleFactor(0.5)
+                    .lineLimit(2)
+                
+                VStack {
+                    TextField("NAME", text: $name)
+                        .font(.system(size: 20))
+                        .foregroundColor(.gray)
+                        .padding()
+                        .background(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color("background3"), lineWidth: 1)
+                        )
+                    
+                   
+                    
+                }
+                VStack {
+                    Button("Save") {
+                        self.setName(name: name)
+                    }
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(Color("background3"))
+                    .frame(maxWidth: .infinity)
+                    .cornerRadius(10)
+                    //.padding(10)
+                }.background(Color("background3"))
+                    .cornerRadius(10)
+                    .padding(.top, 20)
+            }.padding(.trailing, 30)
+                .padding(.leading, 30)
+                    }
+                }
+
+
+            
+            
+        
+        
     
 }
+
+
+
+            
+            
+        
+       
+        
+    
+
+
+
+class LocalStorage {
+    
+    private static let myKey: String = "myKey"
+    
+    public static var myValue: String {
+        set {
+            UserDefaults.standard.set(newValue, forKey: myKey)
+        }
+        get {
+            return UserDefaults.standard.string(forKey: myKey) ?? ""
+        }
+    }
+    
+    public static func removeValue() {
+        UserDefaults.standard.removeObject(forKey: myKey)
+    }
+    
 }
 
 #if DEBUG

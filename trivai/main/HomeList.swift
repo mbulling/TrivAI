@@ -9,13 +9,16 @@ import SwiftUI
 struct HomeList: View {
 
    var courses = coursesData
-    var userName = "Mason"
+    var name = ""
    @State var showContent = false
     @State var topicContent = false
     @State var showNetworkTesting = false
     @State var showScanner = false
     @State var showLoad = false
     @State var texts:[ScanData] = []
+    
+    
+    
 
     var body: some View {
             ScrollView {
@@ -31,7 +34,7 @@ struct HomeList: View {
                         .minimumScaleFactor(0.5)
                         .lineLimit(1)
                     
-                    Text(userName)
+                    Text(self.name)
                         .fontWeight(.heavy)
                         .foregroundColor(Color("background3"))
                         .hAlign(.leading)
