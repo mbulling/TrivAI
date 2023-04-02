@@ -9,6 +9,7 @@ import SwiftUI
 struct HomeList: View {
 
    var courses = coursesData
+    var userName = "Mason"
    @State var showContent = false
     @State var topicContent = false
     @State var showNetworkTesting = false
@@ -16,74 +17,100 @@ struct HomeList: View {
     @State var showLoad = false
     @State var texts:[ScanData] = []
 
-   var body: some View {
-      ScrollView {
-         VStack {
-             Text("Explore")
-                .fontWeight(.heavy)
-                .font(.system(size: 30))
-                .offset(y: -15)
-                .hAlign(.leading)
-                .padding(.leading, 30)
-                .padding(.top, 35)
-             VStack {
-                 ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 30.0) {
-                       ForEach(courses) { item in
-                           Button(action: {
-                               if (item.title == "Your Quizzes") {
-                                   self.topicContent.toggle()
-                               } else if (item.title == "Create a Quiz") {
-                                   self.showNetworkTesting.toggle()
-                               } else {
-                                   self.showScanner.toggle()
-                               }
-                           }) {
-                               GeometryReader { geometry in
-                                   CourseView(title: item.title,
-                                              image: item.image,
-                                              color: item.color,
-                                              shadowColor: item.shadowColor)
-                                       .rotation3DEffect(Angle(degrees: Double(geometry.frame(in: .global).minX - 30) / -40), axis: (x: 0, y: 10.0, z: 0))
-                               }
-                               .frame(width: 246, height: 360)
-                               .sheet(isPresented: $topicContent) {
-                                   TopicList()
-                               }
-                               .sheet(isPresented: $showNetworkTesting) {
-                                   NetworkTesting()
-                               }
-                               .sheet(isPresented: self.$showScanner, content: {
-                                                           ScannerView(completion: {
-                                                               textPerPage in if let outputText = textPerPage?.joined(separator: "\n"){
-                                                                   let newScanData = ScanData(content: outputText)
-                                                                   //We need to pass this data into the question generation model somehow
-                                                                   print(newScanData)
-                                                                   self.texts.append(newScanData)
-                                                               }
-                                                               self.showScanner = false
-                                                           })
-                                                       })
-                                                           }
-                           }
-                       }
+    var body: some View {
+            ScrollView {
+                VStack {
+                    Text("Welcome,")
+                        .fontWeight(.heavy)
+                        .padding(.top, 30)
+                        .foregroundColor(Color("background3"))
+                        .hAlign(.leading)
+                        .padding(.leading, 30)
+                        .font(.system(size: 60))
+                        .scaledToFill()
+                        .minimumScaleFactor(0.5)
+                        .lineLimit(1)
                     
-                    .padding(.leading, 30)
-                    .padding(.bottom, 60)
+                    Text(userName)
+                        .fontWeight(.heavy)
+                        .foregroundColor(Color("background3"))
+                        .hAlign(.leading)
+                        .padding(.leading, 30)
+                        .padding(.bottom, 40)
+                        .font(.system(size: 50))
+                        .scaledToFill()
+                        .minimumScaleFactor(0.5)
+                        .lineLimit(1)
+                    
+//                    Text("Explore")
+//                        .fontWeight(.heavy)
+//                        .font(.system(size: 30))
+//                        .offset(y: -15)
+//                        .hAlign(.leading)
+//                        .padding(.leading, 30)
+//                        .padding(.top, 35)
+                    
+                    
                     Spacer()
-                 }
-             }.offset(y: -15)
-            
-         }
-         .padding(.top, 55)
-        
-          VStack {
-              CertificateRow()
-          }.offset(y: -50)
-        
-
-      }
-   }
+                    
+                    VStack {
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack(spacing: 30.0) {
+                                ForEach(courses) { item in
+                                    Button(action: {
+                                        if (item.title == "Your Quizzes") {
+                                            self.topicContent.toggle()
+                                        } else if (item.title == "Create a Quiz") {
+                                            self.showNetworkTesting.toggle()
+                                        } else {
+                                            self.showScanner.toggle()
+                                        }
+                                    }) {
+                                        GeometryReader { geometry in
+                                            CourseView(title: item.title,
+                                                       image: item.image,
+                                                       color: item.color,
+                                                       shadowColor: item.shadowColor)
+                                            .rotation3DEffect(Angle(degrees: Double(geometry.frame(in: .global).minX - 30) / -40), axis: (x: 0, y: 10.0, z: 0))
+                                        }
+                                        .frame(width: 246, height: 400)
+                                        .sheet(isPresented: $topicContent) {
+                                            TopicList()
+                                        }
+                                        .sheet(isPresented: $showNetworkTesting) {
+                                            NetworkTesting()
+                                        }
+                                        .sheet(isPresented: self.$showScanner, content: {
+                                            ScannerView(completion: {
+                                                textPerPage in if let outputText = textPerPage?.joined(separator: "\n"){
+                                                    let newScanData = ScanData(content: outputText)
+                                                    //We need to pass this data into the question generation model somehow
+                                                    print(newScanData)
+                                                    self.texts.append(newScanData)
+                                                }
+                                                self.showScanner = false
+                                            })
+                                        })
+                                    }
+                                }
+                            }
+                            
+                            .padding(.leading, 30)
+                            .padding(.bottom, 60)
+                            Spacer()
+                        }
+                    }.offset(y: -15)
+                    
+                }
+                .padding(.top, 55)
+                
+//                VStack {
+//                    CertificateRow()
+//                }.offset(y: -50)
+                
+                
+            }
+        }
 }
 
 #if DEBUG
@@ -104,8 +131,9 @@ struct CourseView: View {
    var body: some View {
       return VStack(alignment: .leading) {
          Text(title)
-            .font(.title)
+              .font(.system(size: 35))
             .fontWeight(.bold)
+            .textCase(.uppercase)
             .foregroundColor(.white)
             .padding(30)
             .lineLimit(4)
@@ -121,8 +149,9 @@ struct CourseView: View {
       }
       .background(color)
       .cornerRadius(30)
-      .frame(width: 246, height: 360)
+      .frame(width: 246, height: 400)
       .shadow(color: shadowColor, radius: 20, x: 0, y: 20)
+       
    }
 }
 
@@ -142,9 +171,9 @@ let coursesData = [
    Course(title: "Create a Quiz",
           image: "newQuiz",
           color: Color("background4"),
-          shadowColor: Color("backgroundShadow4"))
-//   Course(title: "Scan page",
-//          image: "myCamera",
-//          color: Color("background7"),
-//          shadowColor: Color(hue: 0.677, saturation: 0.701, brightness: 0.788, opacity: 0.5)),
+          shadowColor: Color("backgroundShadow4")),
+   Course(title: "Scan page",
+          image: "myCamera",
+          color: Color("background7"),
+          shadowColor: Color(hue: 0.677, saturation: 0.701, brightness: 0.788, opacity: 0.5)),
 ]

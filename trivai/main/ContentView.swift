@@ -87,7 +87,7 @@ struct CardView: View {
 }
 
 struct CertificateView: View {
-
+    var color: String = "background3"
     var item: String = "Math"//Certificate(title: "UI Design", image: "Certificate1", width: 340, height: 220)
 
    var body: some View {
@@ -107,7 +107,7 @@ struct CertificateView: View {
                 .offset(y: -5)//, alignment: .topLeading)
       }
       .frame(width: CGFloat(280), height: CGFloat(180))
-      .background(Color("background3"))
+      .background(Color(self.color))
       .cornerRadius(10)
       .shadow(radius: 10)
    }

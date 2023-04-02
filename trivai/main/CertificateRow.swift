@@ -14,10 +14,13 @@ struct CertificateRow: View {
     @State private var quizInfo: Info = Info(title: "Testing", peopleAttended: 100, rules: ["Answer the questions carefully"])
     @State private var questionListWrapper: QuestionListWrapper? = nil
     @State private var loading = false
+    @State private var pageLoad = false
     
     func getTopics() {
-        AF.request("http://127.0.0.1:5000/topics").responseJSON { response in
+        self.pageLoad = true
+        AF.request("127.0.0.1").responseJSON { response in
             print(response.result)
+            self.pageLoad = false
             switch response.result {
             case .success(let value):
                 if let jsonArray = value as? [String] {
@@ -51,39 +54,80 @@ struct CertificateRow: View {
     }
 
    var body: some View {
-           VStack(alignment: .leading) {
-               if (!topicList.isEmpty){
-                   Text("Popular")
-                      .font(.system(size: 30))
-                      .fontWeight(.heavy)
-                      .padding(.leading, 30)
-                      .offset(y: 20)
+       ScrollView {
+           
+               VStack(alignment: .leading) {
+                   if (!topicList.isEmpty){
+                       Text("Popular")
+                           .font(.system(size: 30))
+                           .fontWeight(.heavy)
+                           .padding(.leading, 30)
+                           .padding(.top, 20)
+                           .offset(y: 20)
+                   }
+                   
+                   
+                   ScrollView(.horizontal, showsIndicators: false) {
+                       HStack(spacing: 20) {
+                           ForEach(topicList, id: \.self) { topic in
+                               Button (action: {
+                                   self.makeQuestions(topic: topic, num_questions: 3)
+                               }) {
+                                   CertificateView(color:"background4", item: topic)
+                               }.sheet(item: $questionListWrapper) { wrapper in
+                                   QuestionsView(info: Info(title: topic, peopleAttended: 100, rules: ["Answer the questions carefully"]), questions: wrapper.questions) {
+                                       // some action
+                                   }
+                               }
+                               
+                           }
+                       }
+                       .padding(20)
+                       .padding(.leading, 10)
+                   }
                }
-              
-
-              ScrollView(.horizontal, showsIndicators: false) {
-                 HStack(spacing: 20) {
-                    ForEach(topicList, id: \.self) { topic in
-                        Button (action: {
-                            self.makeQuestions(topic: topic, num_questions: 3)
-                        }) {
-                            CertificateView(item: topic)
-                        }.sheet(item: $questionListWrapper) { wrapper in
-                            QuestionsView(info: Info(title: topic, peopleAttended: 100, rules: ["Answer the questions carefully"]), questions: wrapper.questions) {
-                                // some action
-                            }
-                        }
-                       
-                    }
-                 }
-                 .padding(20)
-                 .padding(.leading, 10)
-              }
-           }
-           .sheet(isPresented: $loading) { LoadingView() }
-           .onAppear {
-               self.getTopics()
-           }
+               .onAppear {
+                   self.getTopics()
+               }
+               //.sheet(isPresented: $loading) { LoadingView() }
+               
+               VStack(alignment: .leading) {
+                   if (!topicList.isEmpty){
+                       Text("Computer Science")
+                           .font(.system(size: 30))
+                           .fontWeight(.heavy)
+                           .padding(.leading, 30)
+                           .offset(y: 20)
+                   }
+                   
+                   
+                   ScrollView(.horizontal, showsIndicators: false) {
+                       HStack(spacing: 20) {
+                           ForEach(topicList, id: \.self) { topic in
+                               Button (action: {
+                                   self.makeQuestions(topic: topic, num_questions: 3)
+                               }) {
+                                   CertificateView(color:"background3", item: topic)
+                               }.sheet(item: $questionListWrapper) { wrapper in
+                                   QuestionsView(info: Info(title: topic, peopleAttended: 100, rules: ["Answer the questions carefully"]), questions: wrapper.questions) {
+                                       // some action
+                                   }
+                               }
+                               
+                           }
+                       }
+                       .padding(20)
+                       .padding(.leading, 10)
+                   }
+               }
+               .onAppear {
+                   self.getTopics()
+               }
+               .sheet(isPresented: $loading) { LoadingView() }
+               .sheet(isPresented: $pageLoad) { LoadingView() }
+          
+       }
+           
       
    }
 }
