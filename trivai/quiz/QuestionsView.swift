@@ -18,6 +18,11 @@ struct QuestionsView: View {
     @State private var currentIndex: Int = 0
     @State private var score: CGFloat = 0
     @State private var showScoreCard: Bool = false
+    
+    func updateUserInfo() {
+        LocalStorage.myGamesV = LocalStorage.myGamesV + questions.count
+        LocalStorage.myWinsV = LocalStorage.myWinsV + Int(self.score)
+    }
     var body: some View {
         VStack(spacing: 15){
             Button {
@@ -93,6 +98,7 @@ struct QuestionsView: View {
         .fullScreenCover(isPresented: $showScoreCard) {
             /// - Displaying in 100%
             ScoreCardView(score: score / CGFloat(questions.count) * 100){
+                self.updateUserInfo()
                 /// - Closing View
                 dismiss()
                 onFinish()

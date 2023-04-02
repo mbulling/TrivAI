@@ -34,7 +34,7 @@ struct HomeList: View {
                         .minimumScaleFactor(0.5)
                         .lineLimit(1)
                     
-                    Text(self.name)
+                    Text("\(self.name).")
                         .fontWeight(.heavy)
                         .foregroundColor(Color("background3"))
                         .hAlign(.leading)

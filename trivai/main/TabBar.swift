@@ -11,20 +11,20 @@ struct TabBar: View {
    var body: some View {
       TabView {
          Home().tabItem {
-            Image("IconHome")
+            Image(systemName: "house.circle")
             Text("Home")
          }
          .tag(1)
          CertificateRow().tabItem {
-            Image("IconCards")
+            Image(systemName: "brain.head.profile")
             Text("Explore")
          }
          .tag(2)
-//         Settings().tabItem {
-//            Image("IconSettings")
-//            Text("Settings")
-//         }
-//         .tag(3)
+         UserInfo().tabItem {
+            Image(systemName: "person.circle")
+            Text("Profile")
+         }
+         .tag(3)
       }
       .edgesIgnoringSafeArea(.top)
    }

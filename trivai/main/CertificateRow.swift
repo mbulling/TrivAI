@@ -18,7 +18,7 @@ struct CertificateRow: View {
     
     func getTopics() {
         self.pageLoad = true
-        AF.request("127.0.0.1").responseJSON { response in
+        AF.request("http://127.0.0.1:3000/topics").responseJSON { response in
             print(response.result)
             self.pageLoad = false
             switch response.result {
@@ -55,7 +55,7 @@ struct CertificateRow: View {
 
    var body: some View {
        ScrollView {
-           
+                
                VStack(alignment: .leading) {
                    if (!topicList.isEmpty){
                        Text("Popular")
@@ -120,12 +120,12 @@ struct CertificateRow: View {
                        .padding(.leading, 10)
                    }
                }
-               .onAppear {
-                   self.getTopics()
-               }
+               
                .sheet(isPresented: $loading) { LoadingView() }
                .sheet(isPresented: $pageLoad) { LoadingView() }
           
+       }.onAppear {
+           self.getTopics()
        }
            
       

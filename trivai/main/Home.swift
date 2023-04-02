@@ -17,7 +17,7 @@ struct Home: View {
     @State var show = (LocalStorage.myValue == "")
     @State var showProfile = false
     @State var userName: String = LocalStorage.myValue
-    @State var name = ""
+    @State var name = LocalStorage.myValue
     
     init() {
         if LocalStorage.myValue != "" {
@@ -93,30 +93,16 @@ struct Home: View {
             }.padding(.trailing, 30)
                 .padding(.leading, 30)
                     }
-                }
-
-
-            
-            
-        
-        
+                }      
     
 }
-
-
-
-            
-            
-        
-       
-        
-    
-
 
 
 class LocalStorage {
     
     private static let myKey: String = "myKey"
+    private static let myGames: String = "myGames"
+    private static let myWins: String = "myWins"
     
     public static var myValue: String {
         set {
@@ -124,6 +110,24 @@ class LocalStorage {
         }
         get {
             return UserDefaults.standard.string(forKey: myKey) ?? ""
+        }
+    }
+    
+    public static var myGamesV: Int {
+        set {
+            UserDefaults.standard.set(newValue, forKey: myGames)
+        }
+        get {
+            return UserDefaults.standard.integer(forKey: myGames) ?? 0
+        }
+    }
+    
+    public static var myWinsV: Int {
+        set {
+            UserDefaults.standard.set(newValue, forKey: myWins)
+        }
+        get {
+            return UserDefaults.standard.integer(forKey: myWins) ?? 0
         }
     }
     
