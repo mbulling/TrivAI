@@ -33,6 +33,7 @@
 		F1135B7129C76B0200902784 /* TopicList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1135B7029C76B0200902784 /* TopicList.swift */; };
 		F186426A29D9A78600C6BDCA /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F186426929D9A78600C6BDCA /* LoadingView.swift */; };
 		F186426C29D9C1EB00C6BDCA /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F186426B29D9C1EA00C6BDCA /* UserInfo.swift */; };
+		F186427029D9F6D100C6BDCA /* LobbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F186426F29D9F6D100C6BDCA /* LobbyView.swift */; };
 		F86FD27829B405B800C95660 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86FD27729B405B800C95660 /* CustomButton.swift */; };
 		F86FD27A29B405C800C95660 /* ScoreCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86FD27929B405C800C95660 /* ScoreCardView.swift */; };
 		F86FD27C29B405DC00C95660 /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86FD27B29B405DC00C95660 /* Info.swift */; };
@@ -73,6 +74,7 @@
 		F1135B7029C76B0200902784 /* TopicList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicList.swift; sourceTree = "<group>"; };
 		F186426929D9A78600C6BDCA /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoadingView.swift; path = "../../../.Trash/TrivAI 8.04.06 AM/trivai/main/LoadingView.swift"; sourceTree = "<group>"; };
 		F186426B29D9C1EA00C6BDCA /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		F186426F29D9F6D100C6BDCA /* LobbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyView.swift; sourceTree = "<group>"; };
 		F86FD27729B405B800C95660 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		F86FD27929B405C800C95660 /* ScoreCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreCardView.swift; sourceTree = "<group>"; };
 		F86FD27B29B405DC00C95660 /* Info.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 		ABE07CBD22D74F5700D209BE /* trivai */ = {
 			isa = PBXGroup;
 			children = (
+				F186426E29D9F6C100C6BDCA /* Multiplayer */,
 				BEFF394729C7B8680075D833 /* Networking */,
 				F86FD28429B4072800C95660 /* main */,
 				F86FD27F29B405FC00C95660 /* quiz */,
@@ -160,6 +163,14 @@
 				0CB402B2C9F34AD6FDF6BEBC /* Pods-trivai.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		F186426E29D9F6C100C6BDCA /* Multiplayer */ = {
+			isa = PBXGroup;
+			children = (
+				F186426F29D9F6D100C6BDCA /* LobbyView.swift */,
+			);
+			path = Multiplayer;
 			sourceTree = "<group>";
 		};
 		F86FD27F29B405FC00C95660 /* quiz */ = {
@@ -323,6 +334,7 @@
 				ABE07CBF22D74F5700D209BE /* AppDelegate.swift in Sources */,
 				89BF731729C7BA2500A91373 /* ScanData.swift in Sources */,
 				F86FD28329B4067200C95660 /* Load.swift in Sources */,
+				F186427029D9F6D100C6BDCA /* LobbyView.swift in Sources */,
 				F86FD27C29B405DC00C95660 /* Info.swift in Sources */,
 				BEFF394F29C7B9E30075D833 /* TestQuestion.swift in Sources */,
 				F186426A29D9A78600C6BDCA /* LoadingView.swift in Sources */,

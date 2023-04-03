@@ -20,11 +20,16 @@ struct TabBar: View {
             Text("Explore")
          }
          .tag(2)
+         NotConnectedView().tabItem {
+            Image(systemName: "brain.head.profile")
+            Text("Multiplayer")
+         }
+         .tag(3)
          UserInfo().tabItem {
             Image(systemName: "person.circle")
             Text("Profile")
          }
-         .tag(3)
+         .tag(4)
       }
       .edgesIgnoringSafeArea(.top)
    }
