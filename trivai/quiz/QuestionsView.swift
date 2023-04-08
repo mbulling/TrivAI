@@ -121,6 +121,8 @@ struct QuestionsView: View {
                     .foregroundColor(.black)
                     .hAlign(.leading)
                     .multilineTextAlignment(.leading)
+                    .lineLimit(4)
+                    .allowsTightening(true)
             }.hAlign(.leading)
             
             VStack(spacing: 12){
@@ -167,6 +169,8 @@ struct QuestionsView: View {
             .foregroundColor(tint)
             .padding(.horizontal,15)
             .padding(.vertical,20)
+            .lineLimit(4)
+            .allowsTightening(true)
             .hAlign(.leading)
             .background {
                 RoundedRectangle(cornerRadius: 12, style: .continuous)

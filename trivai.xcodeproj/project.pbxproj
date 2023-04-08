@@ -486,20 +486,26 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "trivai/Preview\\ Content";
-				DEVELOPMENT_TEAM = MU438K36FU;
+				DEVELOPMENT_TEAM = 938P9VEDRD;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = trivai/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				INFOPLIST_KEY_CFBundleDisplayName = TrivAI;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = masonbulling.trivai;
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.masonbulling;
 				PRODUCT_MODULE_NAME = trivai;
 				PRODUCT_NAME = TrivAI;
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -511,22 +517,28 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "trivai/Preview\\ Content";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 938P9VEDRD;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = trivai/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				INFOPLIST_KEY_CFBundleDisplayName = TrivAI;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = mythxn.trivai;
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.masonbulling;
 				PRODUCT_MODULE_NAME = trivai;
 				PRODUCT_NAME = TrivAI;
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

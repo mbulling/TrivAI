@@ -11,7 +11,7 @@ import SwiftUI
 
 class NetworkManager {
     
-    static let host = "127.0.0.1:3000"
+    static let host = ""
     
     // Testing
     static func testQuestions(completion: @escaping ([Question]?, Bool, _ errorMsg: String?) -> Void) {

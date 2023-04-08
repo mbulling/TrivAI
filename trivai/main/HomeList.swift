@@ -34,25 +34,18 @@ struct HomeList: View {
                         .minimumScaleFactor(0.5)
                         .lineLimit(1)
                     
-                    Text("\(self.name).")
-                        .fontWeight(.heavy)
-                        .foregroundColor(Color("background3"))
-                        .hAlign(.leading)
-                        .padding(.leading, 30)
-                        .padding(.bottom, 40)
-                        .font(.system(size: 50))
-                        .scaledToFill()
-                        .minimumScaleFactor(0.5)
-                        .lineLimit(1)
-                    
-//                    Text("Explore")
-//                        .fontWeight(.heavy)
-//                        .font(.system(size: 30))
-//                        .offset(y: -15)
-//                        .hAlign(.leading)
-//                        .padding(.leading, 30)
-//                        .padding(.top, 35)
-                    
+                    if (self.name != "") {
+                        Text("\(self.name).")
+                            .fontWeight(.heavy)
+                            .foregroundColor(Color("background3"))
+                            .hAlign(.leading)
+                            .padding(.leading, 30)
+                            .padding(.bottom, 40)
+                            .font(.system(size: 50))
+                            .scaledToFill()
+                            .minimumScaleFactor(0.5)
+                            .lineLimit(1)
+                    }
                     
                     Spacer()
                     
@@ -175,8 +168,8 @@ let coursesData = [
           image: "newQuiz",
           color: Color("background4"),
           shadowColor: Color("backgroundShadow4")),
-   Course(title: "Scan page",
-          image: "myCamera",
-          color: Color("background7"),
-          shadowColor: Color(hue: 0.677, saturation: 0.701, brightness: 0.788, opacity: 0.5)),
+//   Course(title: "Scan page",
+//          image: "myCamera",
+//          color: Color("background7"),
+//          shadowColor: Color(hue: 0.677, saturation: 0.701, brightness: 0.788, opacity: 0.5)),
 ]

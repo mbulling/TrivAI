@@ -2,7 +2,7 @@
 //  CertificateRow.swift
 //  TrivAI
 //
-//  Created by Ryan Ho on 03/04/23.
+//  Created by Mason Bulling on 04/03/23.
 //
 
 import SwiftUI
@@ -11,14 +11,16 @@ import Alamofire
 struct CertificateRow: View {
 
     @State private var topicList: [String] = []
+    @State private var popTopicList: [String] = []
     @State private var quizInfo: Info = Info(title: "Testing", peopleAttended: 100, rules: ["Answer the questions carefully"])
     @State private var questionListWrapper: QuestionListWrapper? = nil
     @State private var loading = false
     @State private var pageLoad = false
+    @State private var pageTitle = "Quiz"
     
     func getTopics() {
         self.pageLoad = true
-        AF.request("http://127.0.0.1:3000/topics").responseJSON { response in
+        AF.request("").responseJSON { response in
             print(response.result)
             self.pageLoad = false
             switch response.result {
@@ -38,8 +40,30 @@ struct CertificateRow: View {
         }
     }
     
+    func getPopularTopics() {
+        self.pageLoad = true
+        AF.request("").responseJSON { response in
+            print(response.result)
+            self.pageLoad = false
+            switch response.result {
+            case .success(let value):
+                if let jsonArray = value as? [String] {
+                    DispatchQueue.main.async {
+                        print(jsonArray);
+                        self.popTopicList = jsonArray
+                        
+                    }
+                } else {
+                    print("Failed to decode the response as an array of strings.")
+                }
+            case .failure(let error):
+                print("Request error: \(error.localizedDescription)")
+            }
+        }
+    }
+    
     func makeQuestions(topic: String, num_questions: Int) {
-        self.quizInfo.title = topic
+        self.quizInfo = Info(title: topic, peopleAttended: 100, rules: ["Answer the questions carefully"])
         self.loading = true
         NetworkManager.createTopicQuestion(topic: topic, num_questions: 3) { questions, success, error in
             if (success) {
@@ -52,12 +76,16 @@ struct CertificateRow: View {
             }
         }
     }
+    
+    func getTopic(topic: String) -> String {
+        return topic
+    }
 
    var body: some View {
        ScrollView {
                 
                VStack(alignment: .leading) {
-                   if (!topicList.isEmpty){
+                   if (!popTopicList.isEmpty){
                        Text("Popular")
                            .font(.system(size: 30))
                            .fontWeight(.heavy)
@@ -69,13 +97,14 @@ struct CertificateRow: View {
                    
                    ScrollView(.horizontal, showsIndicators: false) {
                        HStack(spacing: 20) {
-                           ForEach(topicList, id: \.self) { topic in
+                           ForEach(popTopicList, id: \.self) { topic in
                                Button (action: {
+                                   self.pageTitle = topic
                                    self.makeQuestions(topic: topic, num_questions: 3)
                                }) {
                                    CertificateView(color:"background4", item: topic)
                                }.sheet(item: $questionListWrapper) { wrapper in
-                                   QuestionsView(info: Info(title: topic, peopleAttended: 100, rules: ["Answer the questions carefully"]), questions: wrapper.questions) {
+                                   QuestionsView(info: Info(title: self.pageTitle, peopleAttended: 100, rules: ["Answer the questions carefully"]), questions: wrapper.questions) {
                                        // some action
                                    }
                                }
@@ -87,7 +116,7 @@ struct CertificateRow: View {
                    }
                }
                .onAppear {
-                   self.getTopics()
+                   self.getPopularTopics()
                }
                //.sheet(isPresented: $loading) { LoadingView() }
                
@@ -105,11 +134,12 @@ struct CertificateRow: View {
                        HStack(spacing: 20) {
                            ForEach(topicList, id: \.self) { topic in
                                Button (action: {
+                                   self.pageTitle = topic
                                    self.makeQuestions(topic: topic, num_questions: 3)
                                }) {
                                    CertificateView(color:"background3", item: topic)
                                }.sheet(item: $questionListWrapper) { wrapper in
-                                   QuestionsView(info: Info(title: topic, peopleAttended: 100, rules: ["Answer the questions carefully"]), questions: wrapper.questions) {
+                                   QuestionsView(info: Info(title: self.pageTitle, peopleAttended: 100, rules: ["Answer the questions carefully"]), questions: wrapper.questions) {
                                        // some action
                                    }
                                }
