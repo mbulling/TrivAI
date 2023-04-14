@@ -7,11 +7,11 @@
 //
 
 import Alamofire
-import SwiftUI
 
 class NetworkManager {
     
-    static let host = ""
+    static let host = "http://100.26.175.163:5000"
+    static let local_host = "http://10.48.21.136:3000"
     
     // Testing
     static func testQuestions(completion: @escaping ([Question]?, Bool, _ errorMsg: String?) -> Void) {
@@ -60,7 +60,7 @@ class NetworkManager {
     
     // Create multiple choice questions based on topic
     static func createTopicQuestion(topic: String, num_questions: Int, completion: @escaping ([Question]?, Bool, _ errorMsg: String?) -> Void) {
-        let endpoint = "\(host)/beta_topics_mc"
+        let endpoint = "\(local_host)/mcq/topic/"
         
         let params : Parameters = [
             "topic": topic,
@@ -84,35 +84,15 @@ class NetworkManager {
     }
     
     // Create true/false question
-    static func createTFQuestion(user_input: String, completion: @escaping ([Question]?, Bool, _ errorMsg: String?) -> Void) {
-        let endpoint = "\(host)/tf/"
+    static func createTFQuestion(topic: String, num_questions: Int, completion: @escaping ([Question]?, Bool, _ errorMsg: String?) -> Void) {
+        let endpoint = "\(host)/tf/topic/"
         
         let params : Parameters = [
-            "user_input": user_input
+            "topic": topic,
+            "num_questions": num_questions
         ]
         
         AF.request(endpoint, method: .post, parameters: params, encoding: JSONEncoding.default).validate().responseData {
-            response in
-            switch response.result {
-            case .success(let data):
-                let jsonDecoder = JSONDecoder()
-                if let userResponse = try? jsonDecoder.decode([Question].self, from: data) {
-                    completion(userResponse, true, nil)
-                } else {
-                    print("Failed to decode true false questions")
-                }
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-    }
-    
-    // Get topics
-    static func getTopics(completion: @escaping ([Question]?, Bool, _ errorMsg: String?) -> Void) {
-        let endpoint = "\(host)/beta_get_topics/"
-        
-        
-        AF.request(endpoint, method: .post, encoding: JSONEncoding.default).validate().responseData {
             response in
             switch response.result {
             case .success(let data):

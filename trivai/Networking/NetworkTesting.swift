@@ -19,20 +19,34 @@ struct NetworkTesting: View {
     @State private var quizInfo: Info = Info(title: "Testing", peopleAttended: 100, rules: ["Answer the questions carefully"])
     @State var numQuestions: Double = 3
     @State var apiCall = false
+    @State var selectedOption: String = "MCQ"
+    let options = ["MCQ", "T/F"]
     
     func call_api() {
         self.quizInfo.title = user_input
         self.apiCall = true
-        NetworkManager.createTopicQuestion(topic: user_input, num_questions: Int(numQuestions+0.49)) { questions, success, error in
-            if (success) {
-                self.apiCall = false
-                DispatchQueue.main.async {
-                    self.questionListWrapper = QuestionListWrapper(questions: questions ?? [])
-                }
-            } else {
-                print("Error decoding question")
-            }
-        }
+        if (selectedOption == "MCQ") {
+                                NetworkManager.createTopicQuestion(topic: user_input, num_questions: Int(numQuestions+0.49)) { questions, success, error in
+                                    if (success) {
+                                        DispatchQueue.main.async {
+                                            self.questionListWrapper = QuestionListWrapper(questions: questions ?? [])
+                                        }
+                                    } else {
+                                        print("Error decoding question")
+                                    }
+                                }
+        } else {
+                                print("Performing true/false question generation")
+                                NetworkManager.createTFQuestion(topic: user_input, num_questions: Int(numQuestions+0.49)) { questions, success, error in
+                                    if (success) {
+                                        DispatchQueue.main.async {
+                                            self.questionListWrapper = QuestionListWrapper(questions: questions ?? [])
+                                        }
+                                    } else {
+                                        print("Error decoding question")
+                                    }
+                                }
+                            }
     }
     
     
@@ -52,37 +66,54 @@ struct NetworkTesting: View {
                 .background(Color("background3"))
                 .frame(maxWidth: .infinity)
                 
-                    
                 
-                    Spacer()
+                
+                Spacer()
                 VStack {
                     Text("\(numQuestions, specifier: "%.0f") QUESTIONS")
-                       .font(.caption)
-                       .fontWeight(.bold)
-                       .foregroundColor(.gray)
+                        .font(.caption)
+                        .fontWeight(.bold)
+                        .foregroundColor(.gray)
                     Slider(value: $numQuestions, in: 1...10)
+                    
+                    // Radio buttons to choose between T/F or MCQ questions
+                    HStack {
+                        VStack {
+                            ForEach(options, id: \.self) { option in
+                                HStack {
+                                    Text(option).padding(.trailing, 20).font(.system(size: 15)).foregroundColor(Color.cyan)
+                                    Spacer()
+                                    RadioCircle(selected: option == selectedOption)
+                                }
+                                .onTapGesture {
+                                    selectedOption = option
+                                }
+                            }
+                        }
+                    }
+                    .padding(.horizontal, 100)
                     
                 }
                 .padding(.leading, 50)
                 .padding(.trailing, 50)
                 
-                    TextField("ENTER TOPIC", text:$user_input)
-                        .font(.system(size:25))
-                        .fontWeight(.bold)
-                        .foregroundColor(.gray)
-                        .textInputAutocapitalization(.never)
-                        .disableAutocorrection(true)
-                        .frame(width: 320.0, height: 40.0)
-                        .padding(EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8))
-                        .cornerRadius(10)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 5)
-                                .stroke(lineWidth: 1.0)
-                                .border(Color("background3"))
-                        ).padding()
-                    
-                    
-                    Spacer()
+                TextField("ENTER TOPIC", text:$user_input)
+                    .font(.system(size:25))
+                    .fontWeight(.bold)
+                    .foregroundColor(.gray)
+                    .textInputAutocapitalization(.never)
+                    .disableAutocorrection(true)
+                    .frame(width: 320.0, height: 40.0)
+                    .padding(EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8))
+                    .cornerRadius(10)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 5)
+                            .stroke(lineWidth: 1.0)
+                            .border(Color("background3"))
+                    ).padding()
+                
+                
+                Spacer()
                 
                 VStack {
                     Button (action: {
@@ -109,11 +140,30 @@ struct NetworkTesting: View {
                 }
                 .background(Color("background3")).padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
                 
-                    
                 
-                }
                 
+            }
+            
         }
+    
+}
+
+struct RadioCircle: View {
+    var selected: Bool
+
+    var body: some View {
+        ZStack {
+            Circle()
+                .stroke(selected ? Color.blue : Color.gray, lineWidth: 2)
+                .frame(width: 20, height: 20)
+
+            if selected {
+                Circle()
+                    .fill(Color.blue)
+                    .frame(width: 12, height: 12)
+            }
+        }
+    }
 }
 
 #if DEBUG

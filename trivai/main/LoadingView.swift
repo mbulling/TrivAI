@@ -2,41 +2,23 @@
 //  LoadingView.swift
 //  trivai
 //
-//  Created by Mason Bulling on 4/2/23.
+//  Created by Ken Chiem on 4/14/23.
 //  Copyright © 2023 Mithun. All rights reserved.
 //
 
-import Foundation
-import SwiftUI
+import UIKit
 
-struct LoadingView: View {
-    @State private var isAnimating = false
-    
-    var body: some View {
-        ZStack {
-            Circle()
-                .stroke(Color.gray, lineWidth: 8)
-                .frame(width: 100, height: 100)
-            
-            Circle()
-                .trim(from: 0, to: 0.8)
-                .stroke(Color("background3"), lineWidth: 8)
-                .frame(width: 100, height: 100)
-                .rotationEffect(.degrees(isAnimating ? 360 : 0))
-                .animation(Animation.linear(duration: 1).repeatForever(autoreverses: false))
-        }
-        .onAppear {
-            self.isAnimating = true
-        }
+class LoadingView: UITableViewCell {
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
     }
-}
 
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
 
-struct LoadingView_Preview: View {
-    var body: some View {
-        VStack {
-            LoadingView()
-        }
+        // Configure the view for the selected state
     }
-}
 
+}
