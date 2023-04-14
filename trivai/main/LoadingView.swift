@@ -39,4 +39,3 @@ struct LoadingView_Preview: View {
         }
     }
 }
-
