@@ -1,41 +1,34 @@
-//
-//  LoadingView.swift
-//  trivai
-//
-//  Created by Mason Bulling on 4/2/23.
-//  Copyright © 2023 Mithun. All rights reserved.
-//
-
-import Foundation
 import SwiftUI
 
 struct LoadingView: View {
     @State private var isAnimating = false
-    
+
     var body: some View {
-        ZStack {
-            Circle()
-                .stroke(Color.gray, lineWidth: 8)
-                .frame(width: 100, height: 100)
-            
-            Circle()
-                .trim(from: 0, to: 0.8)
-                .stroke(Color("background3"), lineWidth: 8)
-                .frame(width: 100, height: 100)
-                .rotationEffect(.degrees(isAnimating ? 360 : 0))
-                .animation(Animation.linear(duration: 1).repeatForever(autoreverses: false))
-        }
-        .onAppear {
-            self.isAnimating = true
+        GeometryReader { geometry in
+            ZStack {
+                Color.white
+                    .ignoresSafeArea()
+                
+                Circle()
+                    .trim(from: 0.2, to: 1.0)
+                    .stroke(
+                        AngularGradient(gradient: Gradient(colors: [Color.purple, Color.pink]), center: .center),
+                        style: StrokeStyle(lineWidth: 10, lineCap: .round)
+                    )
+                    .frame(width: 100, height: 100)
+                    .rotationEffect(Angle(degrees: isAnimating ? 360 : 0))
+                    .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
+                    .animation(.linear(duration: 1).repeatForever(autoreverses: false), value: isAnimating)
+                    .onAppear {
+                        isAnimating = true
+                    }
+            }
         }
     }
 }
 
-
-struct LoadingView_Preview: View {
-    var body: some View {
-        VStack {
-            LoadingView()
-        }
+struct LoadingView_Previews: PreviewProvider {
+    static var previews: some View {
+        LoadingView()
     }
 }
