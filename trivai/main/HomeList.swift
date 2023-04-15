@@ -34,10 +34,12 @@ struct HomeList: View {
                         .minimumScaleFactor(0.5)
                         .lineLimit(1)
                     
+                    Spacer()
+                    
                     if (self.name != "") {
                         Text("\(self.name).")
                             .fontWeight(.heavy)
-                            .foregroundColor(Color("background3"))
+                            .foregroundColor(Color("background4"))
                             .hAlign(.leading)
                             .padding(.leading, 30)
                             .padding(.bottom, 40)
@@ -124,11 +126,12 @@ struct CourseView: View {
    var color = Color("background3")
    var shadowColor = Color("backgroundShadow3")
 
-   var body: some View {
-      return VStack(alignment: .leading) {
+    var body: some View {
+      return VStack(alignment: .center) {
          Text(title)
-              .font(.system(size: 35))
-            .fontWeight(.bold)
+              .font(.system(size: 30))
+              
+            .fontWeight(.medium)
             .textCase(.uppercase)
             .foregroundColor(.white)
             .padding(30)
@@ -140,13 +143,17 @@ struct CourseView: View {
             .resizable()
             .renderingMode(.original)
             .aspectRatio(contentMode: .fit)
-            .frame(width: 246, height: 150)
-            .padding(.bottom, 30)
+            .frame(width: 176, height: 200)
+            .padding(.bottom, 50)
+            .cornerRadius(10)
+
       }
+        
       .background(color)
-      .cornerRadius(30)
-      .frame(width: 246, height: 400)
+      .cornerRadius(40)
+      .frame(width: 306, height: 355)
       .shadow(color: shadowColor, radius: 20, x: 0, y: 20)
+        
        
    }
 }
@@ -161,13 +168,16 @@ struct Course: Identifiable {
 
 let coursesData = [
 //   Course(title: "Your Quizzes",
+//    image: "newQuiz",
+//    color: Color("background4"),
+//    shadowColor: Color("backgroundShadow4")),
 //          image: "myQuiz",
 //          color: Color("background3"),
 //          shadowColor: Color("backgroundShadow3")),
    Course(title: "Create a Quiz",
-          image: "newQuiz",
-          color: Color("background4"),
-          shadowColor: Color("backgroundShadow4")),
+          image: "myQuiz",
+          color: Color("background3"),
+          shadowColor: Color("backgroundShadow3")),
 //   Course(title: "Scan page",
 //          image: "myCamera",
 //          color: Color("background7"),

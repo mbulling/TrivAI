@@ -30,6 +30,7 @@
 		BEFF394B29C7B8B10075D833 /* NetworkTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFF394A29C7B8B10075D833 /* NetworkTesting.swift */; };
 		BEFF394D29C7B8D60075D833 /* UserModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFF394C29C7B8D60075D833 /* UserModal.swift */; };
 		BEFF394F29C7B9E30075D833 /* TestQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFF394E29C7B9E30075D833 /* TestQuestion.swift */; };
+		D1D4455129E76AD6006008B3 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D4455029E76AD6006008B3 /* LoadingView.swift */; };
 		F1135B7129C76B0200902784 /* TopicList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1135B7029C76B0200902784 /* TopicList.swift */; };
 		F186426C29D9C1EB00C6BDCA /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F186426B29D9C1EA00C6BDCA /* UserInfo.swift */; };
 		F86BCDFB29E9FB1100AA3C75 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86BCDFA29E9FB1100AA3C75 /* LoadingView.swift */; };
@@ -70,6 +71,7 @@
 		BEFF394C29C7B8D60075D833 /* UserModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModal.swift; sourceTree = "<group>"; };
 		BEFF394E29C7B9E30075D833 /* TestQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestion.swift; sourceTree = "<group>"; };
 		C19E717C64A04EA422DA5784 /* Pods-trivai.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-trivai.debug.xcconfig"; path = "Target Support Files/Pods-trivai/Pods-trivai.debug.xcconfig"; sourceTree = "<group>"; };
+		D1D4455029E76AD6006008B3 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoadingView.swift; path = TrivAI/main/LoadingView.swift; sourceTree = SOURCE_ROOT; };
 		F1135B7029C76B0200902784 /* TopicList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicList.swift; sourceTree = "<group>"; };
 		F186426B29D9C1EA00C6BDCA /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		F86BCDFA29E9FB1100AA3C75 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				ABB215E322DC7D0000424B38 /* TabBar.swift */,
 				ABE07CC222D74F5700D209BE /* ContentView.swift */,
 				AB62172622D870540039BC73 /* Home.swift */,
+				D1D4455029E76AD6006008B3 /* LoadingView.swift */,
 				AB1D3B1B22D9CDEF00D0AEA6 /* HomeList.swift */,
 				ABB215DD22DB713300424B38 /* UpdateList.swift */,
 				F186426B29D9C1EA00C6BDCA /* UserInfo.swift */,
@@ -342,6 +345,7 @@
 				AB62172722D870540039BC73 /* Home.swift in Sources */,
 				ABE07CC322D74F5700D209BE /* ContentView.swift in Sources */,
 				ABB215DC22DB353800424B38 /* BlurView.swift in Sources */,
+				D1D4455129E76AD6006008B3 /* LoadingView.swift in Sources */,
 				ABB215E622DC808A00424B38 /* Settings.swift in Sources */,
 				ABB215E822DC8ABD00424B38 /* CertificateRow.swift in Sources */,
 				ABB215E422DC7D0000424B38 /* TabBar.swift in Sources */,

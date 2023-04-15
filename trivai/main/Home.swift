@@ -51,20 +51,22 @@ struct Home: View {
         .background(Color("background"))
         .edgesIgnoringSafeArea(.all)
         .sheet(isPresented: $show) {
-            VStack(alignment: .leading) {
+            VStack(alignment: .center) {
                 
                 Text("What is your first name?")
-                    .fontWeight(.heavy)
-                    .padding(.top, 30)
+                    .italic()
+                    .multilineTextAlignment(.center)
+                    .fontWeight(.medium)
+                    .padding(.top, 0)
                     .foregroundColor(Color("background3"))
                     //.hAlign(.leading)
-                    .padding(.leading, 30)
-                    .font(.system(size: 40))
+                    //.padding(.leading, 15)
+                    .font(.system(size: 43))
                     .minimumScaleFactor(0.5)
                     .lineLimit(2)
                 
                 VStack {
-                    TextField("NAME", text: $name)
+                    TextField("Name", text: $name)
                         .font(.system(size: 20))
                         .foregroundColor(.gray)
                         .padding()
@@ -72,9 +74,6 @@ struct Home: View {
                             RoundedRectangle(cornerRadius: 10)
                                 .stroke(Color("background3"), lineWidth: 1)
                         )
-                    
-                   
-                    
                 }
                 VStack {
                     Button("Save") {
