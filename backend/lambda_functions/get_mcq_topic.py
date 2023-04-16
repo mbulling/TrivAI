@@ -2,11 +2,16 @@ import boto3
 import json
 import os
 import openai
+import random
 
 
 # assign DynamoDB table to modify
-tableName = "trivai-questions"
-dynamo = boto3.resource('dynamodb').Table(tableName)
+table_name = "trivai-questions"
+dynamo = boto3.resource('dynamodb')
+# print(dynamo.meta.client.list_tables()['TableNames'])
+# if table_name not in dynamo.meta.client.list_tables()['TableNames']:
+#     create_questions_table(table_name)
+questions_table = dynamo.Table(table_name)
 
 # constants
 OPENAI_API_KEY = os.environ["OPENAI_KEY"]
@@ -22,37 +27,55 @@ def lambda_handler(event, context):
     try:
         topic = event["topic"]
         num_questions = event["num_questions"]
-        topic_id = topic + str(num_questions) # FIXME: change after finalizing how dbs will be set up
-        if num_questions > MAX_QUESTIONS: # FIXME: cap instead of error?
+        if num_questions > MAX_QUESTIONS:  # FIXME: cap instead of error?
             return {
-                'statusCode': 400, # FIXME: should have different error code?
+                'statusCode': 400,  # FIXME: should have different error code?
                 'body': json.dumps({"error": "Cannot generate more than %d questions at a time." % MAX_QUESTIONS})
             }
-       
+
         res = ""
-        key = {'topic_id': topic_id}
-        response = dynamo.get_item(Key=key)
+        key = {'topic_id': topic}
+        response = questions_table.get_item(Key=key)
         if 'Item' in response:
-            res = response['Item']['questions']
+            # list of dictionaries
+            questions = json.loads(response['Item']['questions'])
+            if len(questions) < num_questions:
+                # Generate more questions and put the updated list of questions into the database
+                status, more_questions = mcq_topic(
+                    topic, num_questions - len(questions))
+                questions = questions + json.loads(more_questions)
+                response = questions_table.update_item(
+                    Key=key,
+                    UpdateExpression="set questions=:q",
+                    ExpressionAttributeValues={
+                        ':q': json.dumps(questions)},
+                    ReturnValues="UPDATED_NEW")
+            else:
+                # Randomly choose num_questions questions to return
+                questions = random.sample(questions, num_questions)
+            return {
+                'statusCode': 200,
+                'body': json.dumps(questions)
+            }
         else:
             status, res = mcq_topic(topic, num_questions)
             # store if not error
             if status == 200:
-                item = {"Item": {"topic_id": topic_id, "questions": res}}
-                dynamo.put_item(**item)
-        
-        return {
-            'statusCode': 200,
-            'body': res
-        }
-    except:
+                item = {"topic_id": topic, "questions": res}
+                print(item)
+                questions_table.put_item(Item=item)
+                return {
+                    'statusCode': 200,
+                    'body': res
+                }
+    except Exception as e:
         return {
             'statusCode': 400,
-            'body': json.dumps({"error": "The provided event was malformed."}) # not necessarily the case
+            'body': json.dumps({"error": e})
         }
-        
-    
-def mcq_topic(topic, num_questions):
+
+
+def mcq_topic(topic, num_questions):  # (int, str)
     mcq_topic_prompt = """
     Create %d questions about %s in exactly the following json format, including the outer brackets:
     [
@@ -69,10 +92,10 @@ def mcq_topic(topic, num_questions):
     ]
     """ % (num_questions, topic)
     return get_chatgpt(mcq_topic_prompt)
-    
+
 
 # get ChatGPT response to given prompt
-def get_chatgpt(prompt) -> str:
+def get_chatgpt(prompt):  # (int, str)
     completion = openai.ChatCompletion.create(
         api_key=OPENAI_API_KEY,
         model="gpt-3.5-turbo",
@@ -86,3 +109,39 @@ def get_chatgpt(prompt) -> str:
         return 200, content
     except:
         return 400, json.dumps({"error": "OpenAI did not return a json string"})
+
+
+def print_table():
+    # For debugging
+    response = dynamo.scan()
+
+    for item in response['Items']:
+        print(item)
+
+
+def create_questions_table(table_name: str):
+    table = dynamo.create_table(
+        TableName=table_name,
+        KeySchema=[
+            {
+                'AttributeName': 'topic',
+                'KeyType': 'HASH'
+            }
+        ],
+        AttributeDefinitions=[
+            {
+                'AttributeName': 'questions',
+                'AttributeType': 'S'  # json string, representing a list of dictionaries
+            }
+        ],
+        ProvisionedThroughput={
+            'ReadCapacityUnits': 5,
+            'WriteCapacityUnits': 5
+        }
+    )
+
+    # Wait for the table to be created
+    table.meta.client.get_waiter('table_exists').wait(TableName=table_name)
+
+    # Print the table details
+    print("Table created: ", table)
