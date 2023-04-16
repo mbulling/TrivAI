@@ -23,26 +23,36 @@ struct UserInfo: View {
             Text(LocalStorage.myValue)
                 .textCase(.uppercase)
                 .fontWeight(.heavy)
-                .font(.system(size: 50))
+                .font(.system(size: 60))
                 .padding()
+                .foregroundColor(Color("background3"))
+
             
             HStack {
                 Spacer()
                 
                 VStack {
-                    Text("WINS")
-                        .foregroundColor(.gray)
+                    Text("YOUR\nWINS")
+                        .foregroundColor(Color("background3"))
+                        .fontWeight(.medium)
+                        .font(.system(size: 24))
+                    
                     Text(String(self.wins))
                         .font(.system(size: 20))
+                        .fontWeight(.medium)
                 }.padding()
                 
                 Spacer()
                 
                 VStack {
-                    Text("GAMES PLAYED")
-                        .foregroundColor(.gray)
+                    Text("GAMES\nPLAYED")
+                        .foregroundColor(Color("background3"))
+                        .fontWeight(.medium)
+                        .font(.system(size: 24))
                     Text(String(self.games))
                         .font(.system(size: 20))
+                        .fontWeight(.medium)
+
                 }.padding()
                 
                 Spacer()
@@ -54,7 +64,8 @@ struct UserInfo: View {
                     .fontWeight(.heavy)
                     .font(.system(size: 18))
                 Text("\((Float(self.wins * 100)/Float(self.games)), specifier: "%.2f")%")
-                    .font(.system(size: 25))
+                    .font(.system(size: 35))
+                    .foregroundColor(Color("background4"))
             }
             
             
@@ -62,11 +73,11 @@ struct UserInfo: View {
     }
 }
 
-
-struct UserInfo_Preview: View {
-    var body: some View {
-        VStack {
-            UserInfo()
-        }
-    }
+#if DEBUG
+struct UserInfo_Previews: PreviewProvider {
+   static var previews: some View {
+      UserInfo()
+//         .environment(\.colorScheme, .dark)
+   }
 }
+#endif
