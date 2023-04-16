@@ -1,3 +1,11 @@
+//
+//  LoadingView.swift
+//  
+//
+//  Created by Mason Bulling on 4/14/23.
+//
+
+import Foundation
 import SwiftUI
 
 struct LoadingView: View {

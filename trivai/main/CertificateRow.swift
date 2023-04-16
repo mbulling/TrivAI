@@ -20,7 +20,7 @@ struct CertificateRow: View {
     
     func getTopics() {
         self.pageLoad = true
-        AF.request("").responseJSON { response in
+        AF.request("/topics").responseJSON { response in
             print(response.result)
             self.pageLoad = false
             switch response.result {
@@ -42,7 +42,7 @@ struct CertificateRow: View {
     
     func getPopularTopics() {
         self.pageLoad = true
-        AF.request("").responseJSON { response in
+        AF.request("/popular_topics").responseJSON { response in
             print(response.result)
             self.pageLoad = false
             switch response.result {
