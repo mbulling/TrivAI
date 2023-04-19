@@ -24,55 +24,57 @@ struct QuestionsView: View {
         LocalStorage.myWinsV = LocalStorage.myWinsV + Int(self.score)
     }
     var body: some View {
-        VStack(spacing: 15){
-            Button {
-                dismiss()
-            } label: {
-                Image(systemName: "xmark")
-                    .font(.title3)
-                    .fontWeight(.semibold)
-                    .foregroundColor(.white)
-            }
-            .hAlign(.leading)
-
-            Text(info.title)
-                .font(.title)
-                .textCase(.uppercase)
-                .fontWeight(.semibold)
-                .hAlign(.leading)
-                .foregroundColor(Color.white)
-            
-            GeometryReader{
-                let size = $0.size
-                ZStack(alignment: .leading) {
-                    Rectangle()
-                        .fill(.black.opacity(0.2))
-                    
-                    Rectangle()
-                        .fill(Color("Progress"))
-                        .frame(width: progress * size.width,alignment: .leading)
+        VStack {
+            VStack(spacing: 15){
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "xmark")
+                        .font(.title3)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.white)
                 }
-                .clipShape(Capsule())
-            }
-            .frame(height: 20)
-            .padding(.top,5)
-            
-            /// - Questions
-            GeometryReader{_ in
-                ForEach(questions.indices,id: \.self) { index in
-                    /// - We're going to Simply Use Transitions for Moving Forth and Between Instead of Using TabView
-                    if currentIndex == index{
-                        QuestionView(questions[currentIndex])
+                .hAlign(.leading)
+                
+                Text(info.title)
+                    .font(.title)
+                    .textCase(.uppercase)
+                    .fontWeight(.semibold)
+                    .hAlign(.leading)
+                    .foregroundColor(Color.white)
+                
+                GeometryReader{
+                    let size = $0.size
+                    ZStack(alignment: .leading) {
+                        Rectangle()
+                            .fill(.black.opacity(0.2))
+                        
+                        Rectangle()
+                            .fill(Color("Progress"))
+                            .frame(width: progress * size.width,alignment: .leading)
+                    }
+                    .clipShape(Capsule())
+                }
+                .frame(height: 20)
+                .padding(.top,5)
+                
+                /// - Questions
+                GeometryReader{_ in
+                    ForEach(questions.indices,id: \.self) { index in
+                        /// - We're going to Simply Use Transitions for Moving Forth and Between Instead of Using TabView
+                        if currentIndex == index{
+                            QuestionView(questions[currentIndex])
                             /// - You Can Change Any Transition you want
-                            .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
+                                .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
+                        }
                     }
                 }
+                /// - Removing Padding
+                .padding(.horizontal,-15)
+                .padding(.vertical,15)
+                
+                /// - Changing Button to Finish When the Last Question Arrived
             }
-            /// - Removing Padding
-            .padding(.horizontal,-15)
-            .padding(.vertical,15)
-            
-            /// - Changing Button to Finish When the Last Question Arrived
             CustomButton(title: currentIndex == (questions.count - 1) ? "Finish" : "Next Question") {
                 if currentIndex == (questions.count - 1){
                     /// - Presenting Score Card View
@@ -86,73 +88,75 @@ struct QuestionsView: View {
             }
             .disabled(questions[currentIndex].tappedAnswer == "")
             .opacity(questions[currentIndex].tappedAnswer == "" ? 0.5 : 1)
-        }
-        .padding(15)
-        .hAlign(.center).vAlign(.top)
-        .background {
-            Color("BG")
-                .ignoresSafeArea()
-        }
-        /// This View is going to be Dark Since our background is Dark
-        .environment(\.colorScheme, .dark)
-        .fullScreenCover(isPresented: $showScoreCard) {
-            /// - Displaying in 100%
-            ScoreCardView(score: score / CGFloat(questions.count) * 100){
-                self.updateUserInfo()
-                /// - Closing View
-                dismiss()
-                onFinish()
             }
+            .padding(15)
+            //.hAlign(.center).vAlign(.top)
+            .background {
+                Color("BG")
+                    .ignoresSafeArea()
+            }
+            /// This View is going to be Dark Since our background is Dark
+            .environment(\.colorScheme, .dark)
+            .fullScreenCover(isPresented: $showScoreCard) {
+                /// - Displaying in 100%
+                ScoreCardView(score: score / CGFloat(questions.count) * 100){
+                    self.updateUserInfo()
+                    /// - Closing View
+                    dismiss()
+                    onFinish()
+                }
+            
         }
     }
     
     /// - Question View
     @ViewBuilder
-    func QuestionView(_ question: Question)->some View{
-        VStack(alignment: .leading, spacing: 15) {
-            Text("Question \(currentIndex + 1)/\(questions.count)")
-                .font(.callout)
-                .foregroundColor(.gray)
-                .hAlign(.leading)
-            HStack {
-                Text(question.question)
-                    .font(.title3)
-                    .fontWeight(.semibold)
-                    .foregroundColor(.black)
+        func QuestionView(_ question: Question)->some View{
+            VStack(alignment: .leading, spacing: 15) {
+                Text("Question \(currentIndex + 1)/\(questions.count)")
+                    .font(.callout)
+                    .foregroundColor(.gray)
                     .hAlign(.leading)
-                    .multilineTextAlignment(.leading)
-                    .lineLimit(4)
-                    .allowsTightening(true)
-            }.hAlign(.leading)
-            
-            VStack(spacing: 12){
-                ForEach(question.options, id: \.self){ option in
-                    /// - Displaying Correct and Wrong Answers After user has Tapped any one of the Options
-                    ZStack{
-                        OptionView(option, .gray)
-                            .opacity(question.answer_id == question.options.firstIndex(of: option) && question.tappedAnswer != "" ? 0 : 1)
-                        OptionView(option, .green)
-                            .opacity(question.answer_id == question.options.firstIndex(of: option) && question.tappedAnswer != "" ? 1 : 0)
-                        OptionView(option, .red)
-                            .opacity(question.tappedAnswer == option && question.options.firstIndex(of: option) != question.answer_id ? 1 : 0)
-                    }
-                    .contentShape(Rectangle())
-                    .onTapGesture {
-                        /// -Disabling Tap if already Answer was Selected
-                        guard questions[currentIndex].tappedAnswer == "" else{return}
-                        withAnimation(.easeInOut){
-                            questions[currentIndex].tappedAnswer = option
-                            /// - When ever the Correct Answer was selected, Updating the Score
-                            if question.answer_id == question.options.firstIndex(of: option){
-                                score += 1.0
+                HStack {
+                    Text(question.question)
+                        .font(.title3)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.black)
+                        .hAlign(.leading)
+                        .multilineTextAlignment(.leading)
+                        .lineLimit(4)
+                        .allowsTightening(true)
+                }.hAlign(.leading)
+                
+                VStack(spacing: 12){
+                    ForEach(question.options, id: \.self){ option in
+                        /// - Displaying Correct and Wrong Answers After user has Tapped any one of the Options
+                        ZStack{
+                            OptionView(option, .gray)
+                                .opacity(question.answer_id == question.options.firstIndex(of: option) && question.tappedAnswer != "" ? 0 : 1)
+                            OptionView(option, .green)
+                                .opacity(question.answer_id == question.options.firstIndex(of: option) && question.tappedAnswer != "" ? 1 : 0)
+                            OptionView(option, .red)
+                                .opacity(question.tappedAnswer == option && question.options.firstIndex(of: option) != question.answer_id ? 1 : 0)
+                        }
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            /// -Disabling Tap if already Answer was Selected
+                            guard questions[currentIndex].tappedAnswer == "" else{return}
+                            withAnimation(.easeInOut){
+                                questions[currentIndex].tappedAnswer = option
+                                /// - When ever the Correct Answer was selected, Updating the Score
+                                if question.answer_id == question.options.firstIndex(of: option){
+                                    score += 1.0
+                                }
                             }
                         }
                     }
                 }
+                .padding(.vertical,10)
+                //.hAlign(.center)
             }
-            .padding(.vertical,10)
-            //.hAlign(.center)
-        }
+        
         .hAlign(.leading)
         .padding(15)
         .background {
@@ -161,6 +165,7 @@ struct QuestionsView: View {
         }
         .padding(.horizontal,15)
     }
+        
     
     /// - Option View
     @ViewBuilder

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		285418C1F95034DB3B868C98 /* Pods_trivai.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B64EF59EBC28A11317F778C9 /* Pods_trivai.framework */; };
 		89BF731729C7BA2500A91373 /* ScanData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BF731629C7BA2500A91373 /* ScanData.swift */; };
 		89BF731929C7BA3C00A91373 /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BF731829C7BA3C00A91373 /* ScannerView.swift */; };
 		89BF731B29C7BA6200A91373 /* TextCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BF731A29C7BA6200A91373 /* TextCV.swift */; };
@@ -25,13 +24,13 @@
 		ABE07CC322D74F5700D209BE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE07CC222D74F5700D209BE /* ContentView.swift */; };
 		ABE07CC522D74F5900D209BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABE07CC422D74F5900D209BE /* Assets.xcassets */; };
 		ABE07CC822D74F5900D209BE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABE07CC722D74F5900D209BE /* Preview Assets.xcassets */; };
-		ABE07CCB22D74F5900D209BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABE07CC922D74F5900D209BE /* LaunchScreen.storyboard */; };
 		BEFF394929C7B87E0075D833 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFF394829C7B87E0075D833 /* NetworkManager.swift */; };
 		BEFF394B29C7B8B10075D833 /* NetworkTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFF394A29C7B8B10075D833 /* NetworkTesting.swift */; };
 		BEFF394D29C7B8D60075D833 /* UserModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFF394C29C7B8D60075D833 /* UserModal.swift */; };
 		BEFF394F29C7B9E30075D833 /* TestQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFF394E29C7B9E30075D833 /* TestQuestion.swift */; };
 		F1135B7129C76B0200902784 /* TopicList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1135B7029C76B0200902784 /* TopicList.swift */; };
-		F186426A29D9A78600C6BDCA /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F186426929D9A78600C6BDCA /* LoadingView.swift */; };
+		F14BF9CF29EAF6010043808B /* Pods_trivai.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B64EF59EBC28A11317F778C9 /* Pods_trivai.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		F1519B5929EAF35F00CDA235 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1519B5829EAF35E00CDA235 /* LoadingView.swift */; };
 		F186426C29D9C1EB00C6BDCA /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F186426B29D9C1EA00C6BDCA /* UserInfo.swift */; };
 		F86FD27829B405B800C95660 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86FD27729B405B800C95660 /* CustomButton.swift */; };
 		F86FD27A29B405C800C95660 /* ScoreCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86FD27929B405C800C95660 /* ScoreCardView.swift */; };
@@ -41,6 +40,19 @@
 		F86FD28329B4067200C95660 /* Load.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86FD28229B4067200C95660 /* Load.swift */; };
 		F86FD28629B40D2F00C95660 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F86FD28529B40D2F00C95660 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F14BF9D129EAF6010043808B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0CB402B2C9F34AD6FDF6BEBC /* Pods-trivai.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-trivai.release.xcconfig"; path = "Target Support Files/Pods-trivai/Pods-trivai.release.xcconfig"; sourceTree = "<group>"; };
@@ -71,7 +83,7 @@
 		BEFF394E29C7B9E30075D833 /* TestQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestion.swift; sourceTree = "<group>"; };
 		C19E717C64A04EA422DA5784 /* Pods-trivai.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-trivai.debug.xcconfig"; path = "Target Support Files/Pods-trivai/Pods-trivai.debug.xcconfig"; sourceTree = "<group>"; };
 		F1135B7029C76B0200902784 /* TopicList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicList.swift; sourceTree = "<group>"; };
-		F186426929D9A78600C6BDCA /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoadingView.swift; path = "../../../.Trash/TrivAI 8.04.06 AM/trivai/main/LoadingView.swift"; sourceTree = "<group>"; };
+		F1519B5829EAF35E00CDA235 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoadingView.swift; path = /Users/masonbulling/Desktop/TrivAI/trivai/main/LoadingView.swift; sourceTree = "<absolute>"; };
 		F186426B29D9C1EA00C6BDCA /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		F86FD27729B405B800C95660 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		F86FD27929B405C800C95660 /* ScoreCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreCardView.swift; sourceTree = "<group>"; };
@@ -87,7 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				285418C1F95034DB3B868C98 /* Pods_trivai.framework in Frameworks */,
+				F14BF9CF29EAF6010043808B /* Pods_trivai.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,9 +194,9 @@
 				ABE07CBE22D74F5700D209BE /* AppDelegate.swift */,
 				ABE07CC022D74F5700D209BE /* SceneDelegate.swift */,
 				ABB215E322DC7D0000424B38 /* TabBar.swift */,
+				F1519B5829EAF35E00CDA235 /* LoadingView.swift */,
 				ABE07CC222D74F5700D209BE /* ContentView.swift */,
 				AB62172622D870540039BC73 /* Home.swift */,
-				F186426929D9A78600C6BDCA /* LoadingView.swift */,
 				AB1D3B1B22D9CDEF00D0AEA6 /* HomeList.swift */,
 				ABB215DD22DB713300424B38 /* UpdateList.swift */,
 				F186426B29D9C1EA00C6BDCA /* UserInfo.swift */,
@@ -213,6 +225,7 @@
 				ABE07CB822D74F5700D209BE /* Frameworks */,
 				ABE07CB922D74F5700D209BE /* Resources */,
 				BA26E233AB06681479845EB1 /* [CP] Embed Pods Frameworks */,
+				F14BF9D129EAF6010043808B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -261,7 +274,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABE07CCB22D74F5900D209BE /* LaunchScreen.storyboard in Resources */,
 				ABE07CC822D74F5900D209BE /* Preview Assets.xcassets in Resources */,
 				F86FD28629B40D2F00C95660 /* Assets.xcassets in Resources */,
 				ABE07CC522D74F5900D209BE /* Assets.xcassets in Resources */,
@@ -322,10 +334,10 @@
 				F86FD27A29B405C800C95660 /* ScoreCardView.swift in Sources */,
 				ABE07CBF22D74F5700D209BE /* AppDelegate.swift in Sources */,
 				89BF731729C7BA2500A91373 /* ScanData.swift in Sources */,
+				F1519B5929EAF35F00CDA235 /* LoadingView.swift in Sources */,
 				F86FD28329B4067200C95660 /* Load.swift in Sources */,
 				F86FD27C29B405DC00C95660 /* Info.swift in Sources */,
 				BEFF394F29C7B9E30075D833 /* TestQuestion.swift in Sources */,
-				F186426A29D9A78600C6BDCA /* LoadingView.swift in Sources */,
 				BEFF394D29C7B8D60075D833 /* UserModal.swift in Sources */,
 				ABB215E222DC472900424B38 /* UpdateStore.swift in Sources */,
 				ABB215DE22DB713300424B38 /* UpdateList.swift in Sources */,
@@ -496,7 +508,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.masonbulling;
 				PRODUCT_MODULE_NAME = trivai;
 				PRODUCT_NAME = TrivAI;
@@ -529,7 +541,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.masonbulling;
 				PRODUCT_MODULE_NAME = trivai;
 				PRODUCT_NAME = TrivAI;
