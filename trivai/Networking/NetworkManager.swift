@@ -10,8 +10,7 @@ import Alamofire
 
 class NetworkManager {
     
-    static let host = "http://100.26.175.163:5000"
-    static let local_host = "http://10.48.21.136:3000"
+    static let host = ""
     
     // Testing
     static func testQuestions(completion: @escaping ([Question]?, Bool, _ errorMsg: String?) -> Void) {
@@ -60,7 +59,7 @@ class NetworkManager {
     
     // Create multiple choice questions based on topic
     static func createTopicQuestion(topic: String, num_questions: Int, completion: @escaping ([Question]?, Bool, _ errorMsg: String?) -> Void) {
-        let endpoint = "\(local_host)/mcq/topic/"
+        let endpoint = "\(host)/mcq/topic/"
         
         let params : Parameters = [
             "topic": topic,
@@ -127,6 +126,31 @@ class NetworkManager {
                     completion(userResponse, true, nil)
                 } else {
                     print("Failed to decode user")
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    // Computer Vision Function
+    static func createQuestionsCV(topic: String, num_questions: Int, completion: @escaping ([Question]?, Bool, _ errorMsg: String?) -> Void) {
+        let endpoint = "\(host)/Testing1/get_mcq_passage"
+        
+        let params : Parameters = [
+            "topic": topic,
+            "num_questions": num_questions
+        ]
+        
+        AF.request(endpoint, method: .post, parameters: params, encoding: JSONEncoding.default).validate().responseData {
+            response in
+            switch response.result {
+            case .success(let data):
+                let jsonDecoder = JSONDecoder()
+                if let userRespone = try? jsonDecoder.decode([Question].self, from: data) {
+                    completion(userRespone, true, nil)
+                } else {
+                    print("Failed to decode topic questions from computer vision")
                 }
             case .failure(let error):
                 print(error.localizedDescription)
