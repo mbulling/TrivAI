@@ -29,10 +29,10 @@
 		BEFF394D29C7B8D60075D833 /* UserModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFF394C29C7B8D60075D833 /* UserModal.swift */; };
 		BEFF394F29C7B9E30075D833 /* TestQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFF394E29C7B9E30075D833 /* TestQuestion.swift */; };
 		F1135B7129C76B0200902784 /* TopicList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1135B7029C76B0200902784 /* TopicList.swift */; };
+		F126789929F6D7B5000BBC1F /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = F126789829F6D7B5000BBC1F /* Question.swift */; };
 		F14BF9CF29EAF6010043808B /* Pods_trivai.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B64EF59EBC28A11317F778C9 /* Pods_trivai.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		F186426C29D9C1EB00C6BDCA /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F186426B29D9C1EA00C6BDCA /* UserInfo.swift */; };
 		F815541729F6159300372AC8 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F815541629F6159300372AC8 /* LoadingView.swift */; };
-		F815541929F63E7C00372AC8 /* Question1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F815541829F63E7C00372AC8 /* Question1.swift */; };
 		F86FD27829B405B800C95660 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86FD27729B405B800C95660 /* CustomButton.swift */; };
 		F86FD27A29B405C800C95660 /* ScoreCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86FD27929B405C800C95660 /* ScoreCardView.swift */; };
 		F86FD27C29B405DC00C95660 /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86FD27B29B405DC00C95660 /* Info.swift */; };
@@ -83,9 +83,9 @@
 		BEFF394E29C7B9E30075D833 /* TestQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestion.swift; sourceTree = "<group>"; };
 		C19E717C64A04EA422DA5784 /* Pods-trivai.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-trivai.debug.xcconfig"; path = "Target Support Files/Pods-trivai/Pods-trivai.debug.xcconfig"; sourceTree = "<group>"; };
 		F1135B7029C76B0200902784 /* TopicList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicList.swift; sourceTree = "<group>"; };
+		F126789829F6D7B5000BBC1F /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		F186426B29D9C1EA00C6BDCA /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		F815541629F6159300372AC8 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
-		F815541829F63E7C00372AC8 /* Question1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question1.swift; sourceTree = "<group>"; };
 		F86FD27729B405B800C95660 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		F86FD27929B405C800C95660 /* ScoreCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreCardView.swift; sourceTree = "<group>"; };
 		F86FD27B29B405DC00C95660 /* Info.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
@@ -179,7 +179,7 @@
 			children = (
 				F86FD28529B40D2F00C95660 /* Assets.xcassets */,
 				F86FD27B29B405DC00C95660 /* Info.swift */,
-				F815541829F63E7C00372AC8 /* Question1.swift */,
+				F126789829F6D7B5000BBC1F /* Question.swift */,
 				F86FD27929B405C800C95660 /* ScoreCardView.swift */,
 				F86FD28029B4064F00C95660 /* CardView.swift */,
 				F86FD28229B4067200C95660 /* QuestionView.swift */,
@@ -332,6 +332,7 @@
 				F86FD27829B405B800C95660 /* CustomButton.swift in Sources */,
 				F86FD27A29B405C800C95660 /* ScoreCardView.swift in Sources */,
 				ABE07CBF22D74F5700D209BE /* AppDelegate.swift in Sources */,
+				F126789929F6D7B5000BBC1F /* Question.swift in Sources */,
 				89BF731729C7BA2500A91373 /* ScanData.swift in Sources */,
 				F815541729F6159300372AC8 /* LoadingView.swift in Sources */,
 				F86FD28329B4067200C95660 /* QuestionView.swift in Sources */,
@@ -352,7 +353,6 @@
 				89BF731B29C7BA6200A91373 /* TextCV.swift in Sources */,
 				AB62172722D870540039BC73 /* Home.swift in Sources */,
 				ABE07CC322D74F5700D209BE /* ContentView.swift in Sources */,
-				F815541929F63E7C00372AC8 /* Question1.swift in Sources */,
 				ABB215DC22DB353800424B38 /* BlurView.swift in Sources */,
 				ABB215E622DC808A00424B38 /* Settings.swift in Sources */,
 				ABB215E822DC8ABD00424B38 /* CertificateRow.swift in Sources */,

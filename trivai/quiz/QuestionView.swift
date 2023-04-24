@@ -39,7 +39,7 @@ struct QuestionsView: View {
           Text(questions[currentQuestion].question)
             .font(.title3)
             .foregroundColor(.white)
-            .multilineTextAlignment(.center)
+            .multilineTextAlignment(.leading)
             .padding()
 
           ForEach(0..<questions[currentQuestion].options.count) { index in
@@ -106,6 +106,7 @@ struct AnswerButton: View {
         Text(answer)
           .foregroundColor(.white)
           .padding()
+          .multilineTextAlignment(.leading)
           .frame(maxWidth: .infinity, alignment: .leading)
 
         if showIndicator
