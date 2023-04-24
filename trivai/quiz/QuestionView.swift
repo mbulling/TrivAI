@@ -1,23 +1,34 @@
 import SwiftUI
 
-struct QuestionView: View {
+var score = 0.0;
+func updateScore(correctAnswer: Int, selectedAnswer: Int) -> Bool {
+    if correctAnswer == selectedAnswer {
+        score += 1.0;
+    }
+    return true;
+}
+
+struct QuestionsView: View {
+    var info: Info
+    /// - Making it a State, so that we can do View Modifications
+    @State var questions: [ Question ]
+    var onFinish: ()->()
+    /// - View Properties
+    @Environment(\.dismiss) private var dismiss
+    @State private var progress: CGFloat = 0
+    @State private var currentIndex: Int = 0
+    //@State private var score: CGFloat = 0
+    @State private var showScoreCard: Bool = false
   @State private var currentQuestion = 0
   @State private var selectedAnswer: Int?
   @State private var showIndicator = false
-
-  let questions: [QuizQuestion] = [
-    QuizQuestion(
-      question: "What is the why how and when where what is then he she when what why",
-      answers: [
-        "Answer 1A Answer 1A Answer 1A Answer 1A Answer 1A Answer 1A Answer 1A Answer 1A Answer 1A Answer 1A Answer 1A Answer 1A Answer 1A Answer 1A Answer 1A",
-        "Answer 1B", "Answer 1C", "Answer 1D",
-      ],
-      correctAnswer: 0),
-    QuizQuestion(
-      question: "Question 2", answers: ["Answer 2A", "Answer 2B", "Answer 2C", "Answer 2D"],
-      correctAnswer: 1),
-  ]
-
+    
+    func updateUserInfo() {
+        LocalStorage.myGamesV = LocalStorage.myGamesV + questions.count
+        LocalStorage.myWinsV = LocalStorage.myWinsV + Int(score)
+        score = 0.0;
+    }
+    
   var body: some View {
     ZStack {
       Color(hex: "#1a1a40")
@@ -31,23 +42,28 @@ struct QuestionView: View {
             .multilineTextAlignment(.center)
             .padding()
 
-          ForEach(0..<questions[currentQuestion].answers.count) { index in
+          ForEach(0..<questions[currentQuestion].options.count) { index in
             AnswerButton(
-              answer: questions[currentQuestion].answers[index],
-              correctAnswer: questions[currentQuestion].correctAnswer,
+              answer: questions[currentQuestion].options[index],
+              correctAnswer: questions[currentQuestion].answer_id,
               selectedAnswer: $selectedAnswer,
               showIndicator: $showIndicator,
               index: index)
           }
 
           Button(action: {
+              if currentQuestion == questions.count - 1 {
+                  showScoreCard = true;
+              }
             if showIndicator {
-              currentQuestion = (currentQuestion + 1) % questions.count
+                if currentQuestion != questions.count - 1 {
+                    currentQuestion = (currentQuestion + 1)
+                }
               selectedAnswer = nil
               showIndicator = false
             }
           }) {
-            Text("Next")
+              Text((currentQuestion == questions.count) ? "Done" : "Next")
               .frame(maxWidth: .infinity)
               .padding()
               .background(showIndicator ? Color.white : Color.gray.opacity(0.5))
@@ -58,7 +74,16 @@ struct QuestionView: View {
         }
         .padding()
       }
-    }
+    }.fullScreenCover(isPresented: $showScoreCard) {
+        /// - Displaying in 100%
+        ScoreCardView(score: score / CGFloat(questions.count) * 100){
+            self.updateUserInfo()
+            /// - Closing View
+            dismiss()
+            onFinish()
+        }
+    
+}
   }
 }
 
@@ -68,6 +93,7 @@ struct AnswerButton: View {
   @Binding var selectedAnswer: Int?
   @Binding var showIndicator: Bool
   let index: Int
+    
 
   var body: some View {
     Button(action: {
@@ -86,7 +112,7 @@ struct AnswerButton: View {
           && (selectedAnswer == index
             || (selectedAnswer != correctAnswer && index == correctAnswer))
         {
-          if index == correctAnswer {
+            if index == correctAnswer && updateScore(correctAnswer: correctAnswer, selectedAnswer: selectedAnswer!) {
             Image(systemName: "checkmark")
               .foregroundColor(.green)
           } else if selectedAnswer == index {
@@ -138,11 +164,11 @@ extension Color {
   }
 }
 
-struct QuestionView_Previews: PreviewProvider {
-  static var previews: some View {
-    QuestionView()
-  }
-}
+//struct QuestionView_Previews: PreviewProvider {
+//  static var previews: some View {
+//    QuestionView()
+//  }
+//}
 
 extension View {
   func hAlign(_ alignment: Alignment) -> some View {
