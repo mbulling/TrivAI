@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct QuestionsView: View {
+struct QuestionView: View {
     var info: Info
     /// - Making it a State, so that we can do View Modifications
     @State var questions: [ Question ]

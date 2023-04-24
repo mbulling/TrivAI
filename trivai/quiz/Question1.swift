@@ -2,7 +2,7 @@
 //  Question.swift
 //  TrivAI
 //
-//  Created by Mason Bulling on 4/24/2023.
+//  Created by Ryan Ho on 02/24/2023.
 //
 
 import SwiftUI

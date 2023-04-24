@@ -1,6 +1,6 @@
 //
 //  LoadingView.swift
-//  
+//
 //
 //  Created by Mason Bulling on 4/14/23.
 //
