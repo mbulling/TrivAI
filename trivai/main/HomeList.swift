@@ -15,10 +15,10 @@ struct HomeList: View {
     @State var showNetworkTesting = false
     @State var showScanner = false
     @State var showLoad = false
-    @State var texts:[ScanData] = []
+    @State var scannedPassage = ""
+    @State var showCVQuiz = false
     
-    
-    
+   
 
     var body: some View {
             ScrollView {
@@ -81,13 +81,15 @@ struct HomeList: View {
                                         .sheet(isPresented: self.$showScanner, content: {
                                             ScannerView(completion: {
                                                 textPerPage in if let outputText = textPerPage?.joined(separator: "\n"){
-                                                    let newScanData = ScanData(content: outputText)
-                                                    //We need to pass this data into the question generation model somehow
-                                                    print(newScanData)
-                                                    self.texts.append(newScanData)
+                                                    self.scannedPassage += outputText.split(separator: "\n").joined(separator: " ")
+                                                    print(self.scannedPassage)
                                                 }
                                                 self.showScanner = false
+                                                self.showCVQuiz = true
                                             })
+                                        }).sheet(isPresented: self.$showCVQuiz, content: {
+                                            //Change the user_input to scannedPassage once we get the endpoint.
+                                            CVNetworking(user_input: "Apples")
                                         })
                                     }
                                 }
@@ -167,19 +169,17 @@ struct Course: Identifiable {
 }
 
 let coursesData = [
-//   Course(title: "Your Quizzes",
-//    image: "newQuiz",
-//    color: Color("background4"),
-//    shadowColor: Color("backgroundShadow4")),
-//          image: "myQuiz",
-//          color: Color("background3"),
-//          shadowColor: Color("backgroundShadow3")),
+
    Course(title: "Create a Quiz",
           image: "myQuiz",
           color: Color("background3"),
           shadowColor: Color("backgroundShadow3")),
-//   Course(title: "Scan page",
-//          image: "myCamera",
-//          color: Color("background7"),
-//          shadowColor: Color(hue: 0.677, saturation: 0.701, brightness: 0.788, opacity: 0.5)),
+ Course(title: "Scan page",
+image: "myCamera",
+color: Color("background7"),
+shadowColor: Color(hue: 0.677, saturation: 0.701, brightness: 0.788, opacity: 0.5)),
+   //Course(title: "Your Quizzes",
+    // image: "newQuiz",
+    //color: Color("background4"),
+     //shadowColor: Color("backgroundShadow4")),
 ]
