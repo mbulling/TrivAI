@@ -8,9 +8,6 @@ import random
 # assign DynamoDB table to modify
 table_name = "trivai-questions"
 dynamo = boto3.resource('dynamodb')
-# print(dynamo.meta.client.list_tables()['TableNames'])
-# if table_name not in dynamo.meta.client.list_tables()['TableNames']:
-#     create_questions_table(table_name)
 questions_table = dynamo.Table(table_name)
 
 # constants
@@ -23,25 +20,17 @@ def lambda_handler(event, context):
     ''' [event] contains the following keys:
         - topic: subject to generate questions for
         - num_questions:  number of questions to generate
-        
-        Returns a list of dictionaries representing the list of questions,
-        or {'statusCode': 400, 'body': {'error': 'msg'}} if there is an error
     '''
-    
+
     try:
-        # return {
-        #     'statusCode': 200,
-        #     'body': event["body"]
-        # }
-        
         data = json.loads(event["body"])
         topic = data["topic"]
         num_questions = data["num_questions"]
-        
+
         if num_questions > MAX_QUESTIONS:  # FIXME: cap instead of error?
             return {
-                'statusCode': 400,  # FIXME: should have different error code?
-                'body': {"error": "Cannot generate more than %d questions at a time." % MAX_QUESTIONS}
+                'statusCode': 400,
+                'body': json.dumps({"error": "Cannot generate more than %d questions at a time." % MAX_QUESTIONS})
             }
 
         res = ""
@@ -54,7 +43,8 @@ def lambda_handler(event, context):
                 # Generate more questions and put the updated list of questions into the database
                 status, more_questions = mcq_topic(
                     topic, num_questions - len(questions))
-                questions = questions + json.loads(more_questions)  # list of dicts
+                questions = questions + \
+                    json.loads(more_questions)  # list of dicts
                 response = questions_table.update_item(
                     Key=key,
                     UpdateExpression="set questions=:q",
@@ -84,7 +74,7 @@ def lambda_handler(event, context):
     except Exception as e:
         return {
             'statusCode': 400,
-            'body': {'error': e}
+            'body': json.dumps({'error': e})
         }
 
 
@@ -121,39 +111,3 @@ def get_chatgpt(prompt):  # (int, str)
         return 200, content
     except:
         return 400, json.dumps({"error": "OpenAI did not return a json string"})
-
-
-def print_table():
-    # For debugging
-    response = dynamo.scan()
-
-    for item in response['Items']:
-        print(item)
-
-
-def create_questions_table(table_name: str):
-    table = dynamo.create_table(
-        TableName=table_name,
-        KeySchema=[
-            {
-                'AttributeName': 'topic',
-                'KeyType': 'HASH'
-            }
-        ],
-        AttributeDefinitions=[
-            {
-                'AttributeName': 'questions',
-                'AttributeType': 'S'  # json string, representing a list of dictionaries
-            }
-        ],
-        ProvisionedThroughput={
-            'ReadCapacityUnits': 5,
-            'WriteCapacityUnits': 5
-        }
-    )
-
-    # Wait for the table to be created
-    table.meta.client.get_waiter('table_exists').wait(TableName=table_name)
-
-    # Print the table details
-    print("Table created: ", table)
